@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>國中數學：二元一次方程式與圖形 全集測驗</title>
+    <!-- MathJax Configuration -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+            }
+        };
+    </script>
+    <!-- MathJax Library -->
+    <script type="text/javascript" id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <!-- JSXGraph Library -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraph.css" />
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraphcore.js"></script>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @media print {
+            .no-print { display: none; }
+            body { background-color: white; color: black; padding: 0; }
+            .page-break { page-break-after: always; }
+        }
+        body { font-family: "Noto Sans TC", sans-serif; background-color: #f3f4f6; }
+        .jxgbox { border: 1px solid #000; background-color: #fff; border-radius: 0; }
+        .question-item { border-bottom: 1px solid #eee; padding: 1.5rem 0; break-inside: avoid; }
+        .options-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.5rem; margin-top: 0.5rem; }
+        @media (min-width: 768px) {
+            .options-grid { grid-template-columns: repeat(4, 1fr); }
+        }
+    </style>
+</head>
+<body class="py-10 px-4 md:px-0">
+
+    <div class="max-w-5xl mx-auto bg-white p-8 shadow-sm border border-gray-300">
+        <!-- Header Section -->
+        <div class="border-b-4 border-black pb-4 mb-8">
+            <h1 class="text-3xl font-black text-center mb-6">國中數學單元測驗：二元一次方程式的圖形</h1>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-lg font-bold">
+                <div class="border-b-2 border-gray-400">班級：</div>
+                <div class="border-b-2 border-gray-400">座號：</div>
+                <div class="border-b-2 border-gray-400">姓名：</div>
+                <div class="border-b-2 border-gray-400">得分：</div>
+            </div>
+        </div>
+
+        <!-- Questions Section -->
+        <div class="space-y-4">
+            <!-- Questions 1-10 -->
+            <div class="question-item">
+                <p>1. 在坐標平面上，不通過 $(-2,-1)$ 的直線方程式為何？ <span class="float-right font-normal">答：_______</span></p>
+                <div class="options-grid">
+                    <div>(A) $x-2y=0$</div>
+                    <div>(B) $4x-3y=-5$</div>
+                    <div>(C) $-2x+y=3$</div>
+                    <div>(D) $3x-2y=4$</div>
+                </div>
+            </div>
+
+            <div class="question-item">
+                <p>2. 若 $a$、$b$ 皆為整數，且二元一次方程式 $y=ax+b$ 的圖形通過 $(1,1)$、$(2,3)$ 兩點，則下列敘述何者錯誤？ <span class="float-right font-normal">答：_______</span></p>
+                <div class="options-grid">
+                    <div>(A) $a>b$</div>
+                    <div>(B) $ab<0$</div>
+                    <div>(C) $a^2 < b^2$</div>
+                    <div>(D) $(a,b)$ 在第四象限</div>
+                </div>
+            </div>
+
+            <div class="question-item">
+                <p>3. 若有一直線 $L$ 通過 $(-4,8)$ 與 $(-4,-2)$ 兩點，則此直線 $L$ 必通過下列哪一點？ <span class="float-right font-normal">答：_______</span></p>
+                <div class="options-grid">
+                    <div>(A) $(8,4)$</div>
+                    <div>(B) $(-4,0)$</div>
+                    <div>(C) $(-2,0)$</div>
+                    <div>(D) $(0,8)$</div>
+                </div>
+            </div>
+
+            <div class="question-item">
+                <p>4. 直線 $2x+3y=1$ 不通過坐標平面上的第幾象限？ <span class="float-right font-normal">答：_______</span></p>
+                <div class="options-grid">
+                    <div>(A) 第一象限</div>
+                    <div>(B) 第二象限</div>
+                    <div>(C) 第三象限</div>
+                    <div>(D) 第四象限</div>
+                </div>
+            </div>
+
+            <div class="question-item">
+                <p>5. 如果數對 $(3,a)$ 是 $x-2y=7$ 的解，那麼 $a$ 的值等於多少？ <span class="float-right font-normal">答：_______</span></p>
+                <div class="options-grid">
+                    <div>(A) $-1$</div>
+                    <div>(B) $-2$</div>
+                    <div>(C) $3$</div>
+                    <div>(D) $4$</div>
+                </div>
+            </div>
+
+            <div class="question-item">
+                <p>6. 若點 $A(2,-4)$ 在直線 $ax+3y=3x$ 與 $4x-by=-12$ 的交點上，則 $(a,b)$ 的坐標為何？ <span class="float-right font-normal">答：_______</span></p>
+                <div class="options-grid">
+                    <div>(A) $(9,-5)$</div>
+                    <div>(B) $(9,5)$</div>
+                    <div>(C) $(-9,-5)$</div>
+                    <div>(D) $(-9,5)$</div>
+                </div>
+            </div>
+
+            <div class="question-item">
+                <p>7. 有關於二元一次方程式 $2x-5y=10$ 的敘述，下列哪一個正確？ <span class="float-right font-normal">答：_______</span></p>
+                <div class="options-grid">
+                    <div class="col-span-2">(A) 與 $x$ 軸相交於 $(0,-2)$</div>
+                    <div class="col-span-2">(B) 與 $y$ 軸相交於 $(5,0)$</div>
+                    <div class="col-span-2">(C) 圖形不通過第四象限</div>
+                    <div class="col-span-2">(D) 與兩坐標軸圍出的三角形面積為 $5$</div>
+                </div>
+            </div>
+
+            <div class="question-item">
+                <p>8. 下列哪一個點不在直線 $3x-2y=12$ 上？ <span class="float-right font-normal">答：_______</span></p>
+                <div class="options-grid">
+                    <div>(A) $(9,2)$</div>
+                    <div>(B) $(2,3)$</div>
+                    <div>(C) $(0,-6)$</div>
+                    <div>(D) $(4,0)$</div>
+                </div>
+            </div>
+
+            <div class="question-item">
+                <p>9. 下列哪一個是 $y=2x+3$ 的解？ <span class="float-right font-normal">答：_______</span></p>
+                <div class="options-grid">
+                    <div>(A) $(-5,13)$</div>
+                    <div>(B) $(-6,9)$</div>
+                    <div>(C) $(3,8)$</div>
+                    <div>(D) $(4,12)$</div>
+                </div>
+            </div>
+
+            <div class="question-item">
+                <p>10. 下列哪一個數對是 $4x-3y=2$ 的解？ <span class="float-right font-normal">答：_______</span></p>
+                <div class="options-grid">
+                    <div>(A) $(2,2)$</div>
+                    <div>(B) $(-1,-2)$</div>
+                    <div>(C) $(1, \frac{2}{3})$</div>
+                    <div>(D) 以上皆是</div>
+                </div>
+            </div>
+
+            <div class="question-item">
+                <p>11. 在直角坐標平面上，關於 $y=-3x$ 的圖形的敘述，何者正確？ <span class="float-right font-normal">答：_______</span></p>
+                <div class="options-grid">
+                    <div class="col-span-2">(A) 圖形會平行 $x$ 軸</div>
+                    <div class="col-span-2">(B) 圖形會平行 $y$ 軸</div>
+                    <div class="col-span-2">(C) 圖形會通過第二、四象限</div>
+                    <div class="col-span-2">(D) 圖形會通過第一、三象限</div>
+                </div>
+            </div>
+
+            <div class="question-item">
+                <p>12. $A(1,5)、B(5,1)、C(5,5)、D(0,5)、E(5,0)$ 五點中，共有幾個點在直線 $y=5$ 的圖形上？ <span class="float-right font-normal">答：_______</span></p>
+                <div class="options-grid">
+                    <div>(A) 一個</div>
+                    <div>(B) 二個</div>
+                    <div>(C) 三個</div>
+                    <div>(D) 四個</div>
+                </div>
+            </div>
+
+            <div class="question-item">
+                <p>13. 下列哪一組數是方程式 $2x+3y=4$ 的解？ <span class="float-right font-normal">答：_______</span></p>
+                <div class="options-grid">
+                    <div>(A) $(2,-3)$</div>
+                    <div>(B) $(3,2)$</div>
+                    <div>(C) $(5,-2)$</div>
+                    <div>(D) $(-5,2)$</div>
+                </div>
+            </div>
+
+            <div class="question-item">
+                <p>14. 在直角坐標平面上，兩直線 $y=3$ 與 $x=-4$ 的交點坐標為何？ <span class="float-right font-normal">答：_______</span></p>
+                <div class="options-grid">
+                    <div>(A) $(2,4)$</div>
+                    <div>(B) $(1,3)$</div>
+                    <div>(C) $(-4,3)$</div>
+                    <div>(D) $(3,-4)$</div>
+                </div>
+            </div>
+
+            <div class="question-item">
+                <p>15. 下列哪一個點不在直線 $y=-2x+3$ 的圖形上？ <span class="float-right font-normal">答：_______</span></p>
+                <div class="options-grid">
+                    <div>(A) $(\frac{1}{2},2)$</div>
+                    <div>(B) $(5,-7)$</div>
+                    <div>(C) $(1,1)$</div>
+                    <div>(D) $(\frac{2}{3},1)$</div>
+                </div>
+            </div>
+
+            <div class="question-item">
+                <p>16. 四邊形 $ABCD$ 為正方形，已知 $A(-2,3)$、$B(-2,-3)$、$D(4,3)$，則下列何者為直線 $BC$ 的方程式？ <span class="float-right font-normal">答：_______</span></p>
+                <div class="options-grid">
+                    <div>(A) $y-3=0$</div>
+                    <div>(B) $y+3=0$</div>
+                    <div>(C) $x-1=0$</div>
+                    <div>(D) $x-4=0$</div>
+                </div>
+            </div>
+
+            <div class="question-item">
+                <p>17. 設 $A(3,5)、B(2,3)、C(2,5)$，則下列哪一個方程式的圖形表示通過點 $A$ 且與直線 $BC$ 垂直？ <span class="float-right font-normal">答：_______</span></p>
+                <div class="options-grid">
+                    <div>(A) $x=3$</div>
+                    <div>(B) $x=5$</div>
+                    <div>(C) $y=3$</div>
+                    <div>(D) $y=5$</div>
+                </div>
+            </div>
+
+            <div class="question-item">
+                <p>18. 垂直 $y$ 軸且與 $x$ 軸相距 $5$ 單位的直線方程式為？ <span class="float-right font-normal">答：_______</span></p>
+                <div class="options-grid">
+                    <div class="col-span-2">(A) $x=5$ 或 $x=-5$</div>
+                    <div class="col-span-2">(B) $y=5$ 或 $y=-5$</div>
+                    <div class="col-span-2">(C) $x-y=5$</div>
+                    <div class="col-span-2">(D) $x+y=5$</div>
+                </div>
+            </div>
+
+            <div class="question-item">
+                <p>19. 小咪想要畫直線 $y=5-8x$ 的圖形，下列哪一個選項的坐標不可能在小咪所畫的直線上？ <span class="float-right font-normal">答：_______</span></p>
+                <div class="options-grid">
+                    <div>(A) $(2,-11)$</div>
+                    <div>(B) $(-1,13)$</div>
+                    <div>(C) $(\frac{1}{2},1)$</div>
+                    <div>(D) $(-1,-3)$</div>
+                </div>
+            </div>
+
+            <div class="question-item">
+                <p>20. 方程式 $2x+3y=-2k$ 的圖形不會通過哪一個象限？（假設 $k>0$） <span class="float-right font-normal">答：_______</span></p>
+                <div class="options-grid">
+                    <div>(A) 第一象限</div>
+                    <div>(B) 第二象限</div>
+                    <div>(C) 第三象限</div>
+                    <div>(D) 第四象限</div>
+                </div>
+            </div>
+
+            <!-- Page 3 Specific Logic (Diagram Reference) -->
+            <div class="question-item">
+                <p>21. 如圖，已知 $ABCD$ 為正方形，且 $AB$ 垂直 $x$ 軸，若 $B(3,-1)$、$C(-12,-1)$，則過 $A$、$B$ 兩點的直線方程式為何？ <span class="float-right font-normal">答：_______</span></p>
+                <div class="flex flex-col md:flex-row gap-8 items-center mt-4">
+                    <div id="board-square" class="jxgbox w-[300px] h-[300px]"></div>
+                    <div class="options-grid w-full">
+                        <div>(A) $x+14=0$</div>
+                        <div>(B) $y-14=0$</div>
+                        <div>(C) $x-3=0$</div>
+                        <div>(D) $y-3=0$</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="question-item">
+                <p>22. 若 $(1,a)、(-2,b)、(c,3)、(d,-1)$ 都在方程式 $y=x+1$ 的直線上，下列敘述何者正確？ <span class="float-right font-normal">答：_______</span></p>
+                <div class="options-grid">
+                    <div>(A) $a+b > c+d$</div>
+                    <div>(B) $a > c$</div>
+                    <div>(C) $a+d > b+c$</div>
+                    <div>(D) $b < d$</div>
+                </div>
+            </div>
+
+            <div class="question-item">
+                <p>23. 數對 $(7,3)$ 是下列哪一個方程式的解？ <span class="float-right font-normal">答：_______</span></p>
+                <div class="options-grid">
+                    <div>(A) $3x-2y=1$</div>
+                    <div>(B) $2y=5x-7$</div>
+                    <div>(C) $x-3y+2=0$</div>
+                    <div>(D) $3x-4y=1$</div>
+                </div>
+            </div>
+
+            <div class="question-item">
+                <p>24. 如果直線 $L$ 通過 $(2,7)$、$(-1,3)$ 兩點，那麼下列哪一個為直線 $L$ 的方程式？ <span class="float-right font-normal">答：_______</span></p>
+                <div class="options-grid">
+                    <div>(A) $2x+7y=9$</div>
+                    <div>(B) $-x+3y=2$</div>
+                    <div>(C) $4x-3y=-13$</div>
+                    <div>(D) $2x+3y=11$</div>
+                </div>
+            </div>
+
+            <div class="question-item">
+                <p>25. 下列哪一個點不在直線 $x=-4$ 的圖形上？ <span class="float-right font-normal">答：_______</span></p>
+                <div class="options-grid">
+                    <div>(A) $(-4,9)$</div>
+                    <div>(B) $(0,-4)$</div>
+                    <div>(C) $(-4,-4)$</div>
+                    <div>(D) $(-4,0)$</div>
+                </div>
+            </div>
+
+            <div class="question-item">
+                <p>26. 若二元一次聯立方程式 $\begin{cases} 2x+y=4 \\ x-y=-1 \end{cases}$ 的解為 $(a,b)$，則 $(a,b)$ 在第幾象限？ <span class="float-right font-normal">答：_______</span></p>
+                <div class="options-grid">
+                    <div>(A) 第一象限</div>
+                    <div>(B) 第二象限</div>
+                    <div>(C) 第三象限</div>
+                    <div>(D) 第四象限</div>
+                </div>
+            </div>
+
+            <div class="question-item">
+                <p>27. 若 $x+ay=4$ 的直線通過 $(1,-3)$，則 $a=?$ <span class="float-right font-normal">答：_______</span></p>
+                <div class="options-grid">
+                    <div>(A) $1$</div>
+                    <div>(B) $-1$</div>
+                    <div>(C) $2$</div>
+                    <div>(D) $-2$</div>
+                </div>
+            </div>
+
+            <div class="question-item">
+                <p>28. 在直角坐標平面上，若點 $Q(2,-1)$ 在方程式 $2x-3y=k$ 的圖形上，則 $k=?$ <span class="float-right font-normal">答：_______</span></p>
+                <div class="options-grid">
+                    <div>(A) $1$</div>
+                    <div>(B) $5$</div>
+                    <div>(C) $7$</div>
+                    <div>(D) $9$</div>
+                </div>
+            </div>
+
+            <div class="question-item">
+                <p>29. 哪一條直線通過原點？ <span class="float-right font-normal">答：_______</span></p>
+                <div class="options-grid">
+                    <div>(A) $2x-3y=0$</div>
+                    <div>(B) $-2x+5y=3$</div>
+                    <div>(C) $2x=5$</div>
+                    <div>(D) $x+y=1$</div>
+                </div>
+            </div>
+
+            <div class="question-item">
+                <p>30. 下列哪一個方程式的圖形通過 $P(2,5)$、$Q(-2,9)$ 兩點？ <span class="float-right font-normal">答：_______</span></p>
+                <div class="options-grid">
+                    <div>(A) $y=5$</div>
+                    <div>(B) $x+y=7$</div>
+                    <div>(C) $x+y=8$</div>
+                    <div>(D) $x-y=0$</div>
+                </div>
+            </div>
+
+            <div class="question-item">
+                <p>31. 在直角坐標平面上，下列哪一條直線通過 $(1,-1)$？ <span class="float-right font-normal">答：_______</span></p>
+                <div class="options-grid">
+                    <div>(A) $x-y+2=0$</div>
+                    <div>(B) $x+3y+2=0$</div>
+                    <div>(C) $4x+y-5=0$</div>
+                    <div>(D) $x-4y+5=0$</div>
+                </div>
+            </div>
+
+            <div class="question-item">
+                <p>32. 通過原點與 $(3,-5)$ 兩點的直線方程式為何？ <span class="float-right font-normal">答：_______</span></p>
+                <div class="options-grid">
+                    <div>(A) $3x+5y=0$</div>
+                    <div>(B) $3x-5y=0$</div>
+                    <div>(C) $5x+3y=0$</div>
+                    <div>(D) $5x-3y=0$</div>
+                </div>
+            </div>
+
+            <div class="question-item">
+                <p>33. 過 $P(2,-3)$ 點，且與 $x$ 軸垂直的直線方程式為何？ <span class="float-right font-normal">答：_______</span></p>
+                <div class="options-grid">
+                    <div>(A) $y=-3$</div>
+                    <div>(B) $x=2$</div>
+                    <div>(C) $3x+2y=0$</div>
+                    <div>(D) $x+y=1$</div>
+                </div>
+            </div>
+
+            <div class="question-item">
+                <p>34. 直角坐標平面上通過點 $(-3,4)$ 且與 $x$ 軸平行的直線方程式為何？ <span class="float-right font-normal">答：_______</span></p>
+                <div class="options-grid">
+                    <div>(A) $x+y=-1$</div>
+                    <div>(B) $y-3=0$</div>
+                    <div>(C) $x+4=0$</div>
+                    <div>(D) $y-4=0$</div>
+                </div>
+            </div>
+
+            <div class="question-item">
+                <p>35. 過 $(3,5)$ 且平行 $y$ 軸的直線，必通過下列哪一點？ <span class="float-right font-normal">答：_______</span></p>
+                <div class="options-grid">
+                    <div>(A) $(0,0)$</div>
+                    <div>(B) $(2,5)$</div>
+                    <div>(C) $(3,7)$</div>
+                    <div>(D) $(0,8)$</div>
+                </div>
+            </div>
+
+            <div class="question-item">
+                <p>36. 下列哪一個點不在 $x+3=0$ 的直線上？ <span class="float-right font-normal">答：_______</span></p>
+                <div class="options-grid">
+                    <div>(A) $(-3,0)$</div>
+                    <div>(B) $(0,-3)$</div>
+                    <div>(C) $(-3,3)$</div>
+                    <div>(D) $(-3,2)$</div>
+                </div>
+            </div>
+
+            <div class="question-item">
+                <p>37. 若公車沿著直線 $4y-3x=12$ 的路徑行駛，則下列哪一個點可設為公車停靠站？ <span class="float-right font-normal">答：_______</span></p>
+                <div class="options-grid">
+                    <div>(A) $(-4,0)$</div>
+                    <div>(B) $(0,-4)$</div>
+                    <div>(C) $(-3,-8)$</div>
+                    <div>(D) $(-1, \frac{9}{4})$</div>
+                </div>
+            </div>
+
+            <div class="question-item">
+                <p>38. 已知 $A(-1,a)、B(b,2)、C(-3,c)、D(d,-2)$ 四點都在直線 $2x-3y=-1$ 上，下列哪一個選項正確？ <span class="float-right font-normal">答：_______</span></p>
+                <div class="options-grid">
+                    <div>(A) $a=\frac{1}{3}$</div>
+                    <div>(B) $b=5$</div>
+                    <div>(C) $c=-\frac{5}{3}$</div>
+                    <div>(D) $d=-\frac{1}{2}$</div>
+                </div>
+            </div>
+
+            <div class="question-item">
+                <p>39. 關於方程式 $2x-3y=4$ 的圖形，下列敘述何者錯誤？ <span class="float-right font-normal">答：_______</span></p>
+                <div class="options-grid">
+                    <div class="col-span-2">(A) 與 $x$ 軸交於 $(2,0)$</div>
+                    <div class="col-span-2">(B) 與 $y$ 軸交於 $(0, -\frac{4}{3})$</div>
+                    <div class="col-span-2">(C) 與兩軸圍成的三角形面積為 $\frac{4}{3}$</div>
+                    <div class="col-span-2">(D) 沒有通過第二象限</div>
+                </div>
+            </div>
+
+            <div class="question-item">
+                <p>40. 在直角坐標平面上，下列哪一條直線會通過點 $(3,-1)$？ <span class="float-right font-normal">答：_______</span></p>
+                <div class="options-grid">
+                    <div>(A) $x-3y=0$</div>
+                    <div>(B) $x-y=2$</div>
+                    <div>(C) $x-3=0$</div>
+                    <div>(D) $x+1=0$</div>
+                </div>
+            </div>
+
+            <div class="question-item">
+                <p>41. 已知 $A(3,-4)$ 在 $y+ax=-9$ 的直線上，則 $a=?$ <span class="float-right font-normal">答：_______</span></p>
+                <div class="options-grid">
+                    <div>(A) $-\frac{5}{3}$</div>
+                    <div>(B) $\frac{5}{3}$</div>
+                    <div>(C) $-\frac{13}{3}$</div>
+                    <div>(D) $\frac{13}{3}$</div>
+                </div>
+            </div>
+
+            <div class="question-item">
+                <p>42. 直角坐標平面上，若兩直線 $ax+2y=-7$ 與 $3x+by=1$ 的交點坐標為 $(1,-3)$，則點 $(a,b)$ 在第幾象限內？ <span class="float-right font-normal">答：_______</span></p>
+                <div class="options-grid">
+                    <div>(A) 第一象限</div>
+                    <div>(B) 第二象限</div>
+                    <div>(C) 第三象限</div>
+                    <div>(D) 第四象限</div>
+                </div>
+            </div>
+
+            <div class="question-item">
+                <p>43. 在直角坐標平面上，通過 $(-4,3)$ 且與 $y$ 軸平行的直線方程式為何？ <span class="float-right font-normal">答：_______</span></p>
+                <div class="options-grid">
+                    <div>(A) $x+y=-1$</div>
+                    <div>(B) $y-3=0$</div>
+                    <div>(C) $x+4=0$</div>
+                    <div>(D) $y+4=0$</div>
+                </div>
+            </div>
+
+            <div class="question-item">
+                <p>44. 若直線 $3x-4y=12$ 與 $x$ 軸的交點為 $(a,b)$，與 $y$ 軸的交點為 $(c,d)$，則 $a+b+c+d=?$ <span class="float-right font-normal">答：_______</span></p>
+                <div class="options-grid">
+                    <div>(A) $0$</div>
+                    <div>(B) $1$</div>
+                    <div>(C) $2$</div>
+                    <div>(D) $3$</div>
+                </div>
+            </div>
+
+            <div class="question-item">
+                <p>45. 通過 $(3,-8)$ 且與 $x$ 軸平行的直線方程式為何？ <span class="float-right font-normal">答：_______</span></p>
+                <div class="options-grid">
+                    <div>(A) $x+3=0$</div>
+                    <div>(B) $x-3=0$</div>
+                    <div>(C) $y+8=0$</div>
+                    <div>(D) $y-8=0$</div>
+                </div>
+            </div>
+
+            <div class="question-item">
+                <p>46. 在直角坐標平面上，若直線 $3y=5x-k+1$ 的圖形通過原點，則 $k=?$ <span class="float-right font-normal">答：_______</span></p>
+                <div class="options-grid">
+                    <div>(A) $-2$</div>
+                    <div>(B) $-1$</div>
+                    <div>(C) $0$</div>
+                    <div>(D) $1$</div>
+                </div>
+            </div>
+
+            <div class="question-item">
+                <p>47. 若方程式 $x-2y+k-3=0$ 的圖形通過原點，則 $k=?$ <span class="float-right font-normal">答：_______</span></p>
+                <div class="options-grid">
+                    <div>(A) $0$</div>
+                    <div>(B) $1$</div>
+                    <div>(C) $2$</div>
+                    <div>(D) $3$</div>
+                </div>
+            </div>
+
+            <div class="question-item">
+                <p>48. 在直角坐標平面上，通過 $(7,-3)$ 且與 $x$ 軸平行的直線方程式是下列哪一個？ <span class="float-right font-normal">答：_______</span></p>
+                <div class="options-grid">
+                    <div>(A) $x+y=4$</div>
+                    <div>(B) $y+3=0$</div>
+                    <div>(C) $x+3=0$</div>
+                    <div>(D) $x-7=0$</div>
+                </div>
+            </div>
+
+            <!-- Page 5/6 Specific Logic (Diagram Reference) -->
+            <div class="question-item">
+                <p>49. 如圖中的直線 $L$ 是方程式 $y=ax+b$ 的圖形，則其方程式可能為何？（註：觀察截距位置） <span class="float-right font-normal">答：_______</span></p>
+                <div class="flex flex-col md:flex-row gap-8 items-center mt-4">
+                    <div id="board-intercept" class="jxgbox w-[300px] h-[300px]"></div>
+                    <div class="options-grid w-full">
+                        <div>(A) $y=x-4$</div>
+                        <div>(B) $y=2x-4$</div>
+                        <div>(C) $y=-x+4$</div>
+                        <div>(D) $y=-2x-4$</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="question-item">
+                <p>50. 若 $x=3$、$y=4$ 是方程式 $x+ay=5$ 的解，那麼 $a=?$ <span class="float-right font-normal">答：_______</span></p>
+                <div class="options-grid">
+                    <div>(A) $3$</div>
+                    <div>(B) $4$</div>
+                    <div>(C) $\frac{1}{2}$</div>
+                    <div>(D) $-\frac{1}{2}$</div>
+                </div>
+            </div>
+
+            <div class="question-item">
+                <p>51. 下列哪一個直線方程式的圖形和 $2x-3y=5$ 的圖形互相平行？ <span class="float-right font-normal">答：_______</span></p>
+                <div class="options-grid">
+                    <div>(A) $x=3y+5$</div>
+                    <div>(B) $3x-2y=5$</div>
+                    <div>(C) $4x-6y=10$</div>
+                    <div>(D) $3y=2x-7$</div>
+                </div>
+            </div>
+
+            <div class="question-item">
+                <p>52. 通過 $(-\frac{3}{2}, 5)$ 且與 $y$ 軸平行的直線方程式為何？ <span class="float-right font-normal">答：_______</span></p>
+                <div class="options-grid">
+                    <div>(A) $2x+3=0$</div>
+                    <div>(B) $2x-3=0$</div>
+                    <div>(C) $y+5=0$</div>
+                    <div>(D) $y-5=0$</div>
+                </div>
+            </div>
+
+            <div class="question-item">
+                <p>53. 如圖，$O$ 為原點，$A(9,0)$，直線 $L$ 為 $x-3y=-6$。若 $L$ 交 $y$ 軸於 $C$，則 $OC$ 的長度為何？ <span class="float-right font-normal">答：_______</span></p>
+                <div class="flex flex-col md:flex-row gap-8 items-center mt-4">
+                    <div id="board-triangle" class="jxgbox w-[300px] h-[300px]"></div>
+                    <div class="options-grid w-full">
+                        <div>(A) $2$</div>
+                        <div>(B) $3$</div>
+                        <div>(C) $4$</div>
+                        <div>(D) $5$</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="question-item">
+                <p>54. 判斷點 $A(-5,-3)$ 在下列哪一條直線方程式上？ <span class="float-right font-normal">答：_______</span></p>
+                <div class="options-grid">
+                    <div>(A) $2x-y=8$</div>
+                    <div>(B) $3x-2y=-5$</div>
+                    <div>(C) $y=x-2$</div>
+                    <div>(D) $4x-5y=-5$</div>
+                </div>
+            </div>
+
+            <div class="question-item">
+                <p>55. 有一條直線與 $x$ 軸垂直，且通過點 $(5,5)$，則此直線的方程式為何？ <span class="float-right font-normal">答：_______</span></p>
+                <div class="options-grid">
+                    <div>(A) $y=5$</div>
+                    <div>(B) $x=5$</div>
+                    <div>(C) $y=-5$</div>
+                    <div>(D) $x=-5$</div>
+                </div>
+            </div>
+
+            <div class="question-item">
+                <p>56. 若 $x=2$、$y=3$ 是方程式 $mx+4y=24$ 的一組解，則 $m=?$ <span class="float-right font-normal">答：_______</span></p>
+                <div class="options-grid">
+                    <div>(A) $5$</div>
+                    <div>(B) $-5$</div>
+                    <div>(C) $6$</div>
+                    <div>(D) $-6$</div>
+                </div>
+            </div>
+
+            <div class="question-item">
+                <p>57. 在直角坐標平面上，由 $x=-3$、$x=2$、$y=3$、$y=-1$ 所圍成的長方形區域面積為何？ <span class="float-right font-normal">答：_______</span></p>
+                <div class="options-grid">
+                    <div>(A) $15$</div>
+                    <div>(B) $20$</div>
+                    <div>(C) $30$</div>
+                    <div>(D) $50$</div>
+                </div>
+            </div>
+
+            <!-- Remaining extracted questions formatted similarly -->
+            <div class="question-item">
+                <p>58. 通過 $(3,5)$ 且平行於 $y$ 軸的直線方程式為何？ <span class="float-right font-normal">答：_______</span></p>
+                <div class="options-grid">
+                    <div>(A) $x=3$</div>
+                    <div>(B) $y=5$</div>
+                    <div>(C) $x+y=8$</div>
+                    <div>(D) $x-y=-2$</div>
+                </div>
+            </div>
+
+            <div class="question-item">
+                <p>59. 已知直線 $L$ 通過 $(0,0)$ 與 $(3,-5)$，下列哪一個點在直線 $L$ 上？ <span class="float-right font-normal">答：_______</span></p>
+                <div class="options-grid">
+                    <div>(A) $(6,10)$</div>
+                    <div>(B) $(-3,5)$</div>
+                    <div>(C) $(1, -\frac{3}{5})$</div>
+                    <div>(D) $(5,-3)$</div>
+                </div>
+            </div>
+
+            <div class="question-item">
+                <p>60. 若直線 $y=ax+b$ 通過第一、二、三象限，則下列何者正確？ <span class="float-right font-normal">答：_______</span></p>
+                <div class="options-grid">
+                    <div>(A) $a>0, b>0$</div>
+                    <div>(B) $a>0, b<0$</div>
+                    <div>(C) $a<0, b>0$</div>
+                    <div>(D) $a<0, b<0$</div>
+                </div>
+            </div>
+
+            <div class="question-item">
+                <p>61. 已知直線 $3x-2y=12$ 交 $x$ 軸於 $A$，交 $y$ 軸於 $B$，則線段 $AB$ 的中點坐標為何？ <span class="float-right font-normal">答：_______</span></p>
+                <div class="options-grid">
+                    <div>(A) $(2,-3)$</div>
+                    <div>(B) $(4,-6)$</div>
+                    <div>(C) $(2,3)$</div>
+                    <div>(D) $(0,0)$</div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="mt-12 text-center text-sm italic text-gray-400 no-print">
+            --- 試卷結束，請細心檢查 ---
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        window.onload = function() {
+            // Setup Board for Question 21 (Square ABCD)
+            const bSquare = JXG.JSXGraph.initBoard('board-square', {
+                boundingbox: [-15, 15, 5, -5], axis: true, showCopyright: false,
+                defaultAxes: {
+                    x: { ticks: { drawLabels: false } },
+                    y: { ticks: { drawLabels: false } }
+                }
+            });
+            const pB = bSquare.create('point', [3, -1], { name: 'B(3,-1)', size: 3, label: {offset: [10, -10]} });
+            const pC = bSquare.create('point', [-12, -1], { name: 'C(-12,-1)', size: 3, label: {offset: [-70, -10]} });
+            const pA = bSquare.create('point', [3, 14], { name: 'A', size: 0, visible: false });
+            const pD = bSquare.create('point', [-12, 14], { name: 'D', size: 0, visible: false });
+            bSquare.create('polygon', [pB, pC, pD, pA], { strokeColor: 'black', fillColor: 'none' });
+
+            // Setup Board for Question 49 (Intercepts)
+            const bIntercept = JXG.JSXGraph.initBoard('board-intercept', {
+                boundingbox: [-5, 5, 5, -5], axis: true, showCopyright: false,
+                defaultAxes: {
+                    x: { ticks: { drawLabels: false } },
+                    y: { ticks: { drawLabels: false } }
+                }
+            });
+            bIntercept.create('line', [[0, -4], [2, 0]], { strokeColor: 'black', strokeWidth: 2 });
+            bIntercept.create('point', [0, -4], { name: '(0,-4)', size: 2, label: {offset: [10, 0]} });
+            bIntercept.create('text', [3, 1, 'L'], { fontSize: 18 });
+
+            // Setup Board for Question 53 (Triangle OAC)
+            const bTri = JXG.JSXGraph.initBoard('board-triangle', {
+                boundingbox: [-3, 5, 12, -2], axis: true, showCopyright: false,
+                defaultAxes: {
+                    x: { ticks: { drawLabels: false } },
+                    y: { ticks: { drawLabels: false } }
+                }
+            });
+            const pO = bTri.create('point', [0, 0], { name: 'O', size: 2, label: {offset: [-15, -10]} });
+            const pA_tri = bTri.create('point', [9, 0], { name: 'A(9,0)', size: 2 });
+            // Line x - 3y = -6 => y = 1/3x + 2. Intercepts: (-6,0), (0,2)
+            const lineL = bTri.create('line', [[-6, 0], [0, 2]], { strokeColor: 'black', strokeWidth: 2 });
+            const pC_tri = bTri.create('point', [0, 2], { name: 'C', size: 2, label: {offset: [-15, 10]} });
+            bTri.create('text', [4, 4, 'L'], { fontSize: 16 });
+        };
+    </script>
+</body>
+</html>
