@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>數學坐標平面與直線方程式練習</title>
+        <!-- Tailwind CSS -->
+        <script src="https://cdn.tailwindcss.com"></script>
+        <!-- MathJax -->
+        <script>
+            window.MathJax = {
+                tex: {
+                    inlineMath: [
+                        ["$", "$"],
+                        ["\\(", "\\)"],
+                    ],
+                },
+                svg: {
+                    fontCache: "global",
+                },
+            };
+        </script>
+        <script
+            type="text/javascript"
+            id="MathJax-script"
+            async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+        ></script>
+        <!-- JSXGraph -->
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraph.css"
+        />
+        <script
+            type="text/javascript"
+            src="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraphcore.js"
+        ></script>
+        <style>
+            @media print {
+                .no-print {
+                    display: none;
+                }
+                body {
+                    background: white;
+                    color: black;
+                }
+                .jxgbox {
+                    border: 1px solid #000 !important;
+                }
+            }
+            .jxgbox {
+                width: 300px;
+                height: 250px;
+                background-color: #fff;
+            }
+            .answer-line {
+                border-bottom: 1px solid black;
+                min-width: 150px;
+                display: inline-block;
+            }
+        </style>
+    </head>
+    <body class="bg-white text-black p-8 font-serif">
+        <!-- Header Section -->
+        <div class="max-w-4xl mx-auto border-2 border-black p-4 mb-8">
+            <h1 class="text-2xl font-bold text-center mb-4">
+                坐標平面與直線方程式單元測驗
+            </h1>
+            <div class="flex justify-between text-lg">
+                <div>
+                    班級：<span
+                        class="inline-block w-24 border-b border-black"
+                    ></span>
+                </div>
+                <div>
+                    姓名：<span
+                        class="inline-block w-32 border-b border-black"
+                    ></span>
+                </div>
+                <div>
+                    座號：<span
+                        class="inline-block w-16 border-b border-black"
+                    ></span>
+                </div>
+                <div>
+                    得分：<span
+                        class="inline-block w-16 border-b border-black"
+                    ></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Questions Container -->
+        <div class="max-w-4xl mx-auto space-y-10">
+            <!-- Question 1 -->
+            <div class="question">
+                <p class="mb-2">
+                    1. 若直線 $ax + by = 1$ 與兩軸所圍成的三角形面積為 2，則直線
+                    $2ax - 3by = 6$ 與兩軸所圍成的三角形面積為
+                    <span class="answer-line"></span> 平方單位。
+                </p>
+            </div>
+
+            <!-- Question 2 -->
+            <div class="question">
+                <p class="mb-2">
+                    2. 在直角坐標平面上，已知 $A(a, b)$ 與 $B(c, d)$
+                    為兩點，則：
+                </p>
+                <div class="pl-6 space-y-2">
+                    <p>
+                        (1) $\triangle OAB$ 的面積可表示為：<span
+                            class="answer-line"
+                        ></span>
+                        （以 $a, b, c, d$ 表示）。
+                    </p>
+                    <p>
+                        (2) 若 $B(-3, 3)$ 且 $\triangle OAB$ 面積為 24，已知 $A$
+                        點坐標為 $(5, k)$，則 $k = $
+                        <span class="answer-line"></span>。
+                    </p>
+                </div>
+            </div>
+
+            <!-- Question 3 -->
+            <div class="question">
+                <div class="flex flex-col md:flex-row gap-6">
+                    <div class="flex-1">
+                        <p class="mb-2">
+                            3. 在直角坐標平面上，直線 $8x + 7y = 56$ 分別交 $x$
+                            軸、$y$ 軸於 $E$、$B$ 兩點。若 $A$
+                            點在此直線上，且四邊形 $ACOD$ 為正方形（其中 $O$
+                            為原點，$C$ 在 $y$ 軸上，$D$ 在 $x$ 軸上），則正方形
+                            $ACOD$ 的面積為
+                            <span class="answer-line"></span> 平方單位。
+                        </p>
+                    </div>
+                    <div id="box3" class="jxgbox mx-auto"></div>
+                </div>
+            </div>
+
+            <!-- Question 4 -->
+            <div class="question">
+                <p class="mb-2">
+                    4. 在直角坐標平面上，有兩條直線 $2x - 3y = 6$ 和 $x + 3y =
+                    6$，則：
+                </p>
+                <div class="pl-6 space-y-2">
+                    <p>
+                        (1) 這兩條直線與 $y$ 軸所圍成的三角形面積為
+                        <span class="answer-line"></span> 平方單位。
+                    </p>
+                    <p>
+                        (2) 這兩條直線與 $x$ 軸所圍成的三角形面積為
+                        <span class="answer-line"></span> 平方單位。
+                    </p>
+                </div>
+            </div>
+
+            <!-- Question 5 -->
+            <div class="question">
+                <p class="mb-2">
+                    5. 有一隻螞蟻在直角坐標平面上做等速直線運動，它由點 $A(-23,
+                    5)$ 前進到點 $B(-22, 3)$ 只需 1
+                    秒。若前進的方向與速度均不變，繼續由 $B$ 點前進 5 秒到達 $C$
+                    點，求 $C$ 點的坐標為 <span class="answer-line"></span>。
+                </p>
+            </div>
+
+            <!-- Question 6 -->
+            <div class="question">
+                <p class="mb-2">
+                    6. 在坐標平面上，直線 $3x - y + 3 = 0$ 與 $ax + 2y + 5 = 0$
+                    的交點在 $x$ 軸上，則 $a = $
+                    <span class="answer-line"></span>。
+                </p>
+            </div>
+
+            <!-- Question 7 -->
+            <div class="question">
+                <p class="mb-2">
+                    7. 坐標平面上 $O$ 為原點，$A$ 點坐標為 $(3, 0)$。若直線 $2x
+                    - 3y = 12$ 分別交 $x$ 軸、$y$ 軸於 $B$、$C$ 兩點。今 $P$
+                    點在線段 $\overline{BC}$ 上，且 $\triangle OAP$ 的面積為 2
+                    平方單位，則 $P$ 點坐標為
+                    <span class="answer-line"></span>。
+                </p>
+            </div>
+
+            <!-- Question 8 -->
+            <div class="question">
+                <p class="mb-4">
+                    8. 若 $a < 0$ 且 $b > 0$，則下列哪一個圖形可能是直線 $ax +
+                    by = 2$ 的圖形？
+                </p>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                    <div>
+                        (A)
+                        <div id="box8A" class="jxgbox w-full h-40 mt-2"></div>
+                    </div>
+                    <div>
+                        (B)
+                        <div id="box8B" class="jxgbox w-full h-40 mt-2"></div>
+                    </div>
+                    <div>
+                        (C)
+                        <div id="box8C" class="jxgbox w-full h-40 mt-2"></div>
+                    </div>
+                    <div>
+                        (D)
+                        <div id="box8D" class="jxgbox w-full h-40 mt-2"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question 9 -->
+            <div class="question">
+                <p class="mb-2">
+                    9. 求通過 $(37, 19)$ 和 $(59, 12)$ 兩點的直線方程式為
+                    <span class="answer-line"></span>。
+                </p>
+            </div>
+
+            <!-- Question 10 -->
+            <div class="question">
+                <p class="mb-2">
+                    10. 已知 $P(-4, 7)$ 是直角坐標平面上一點，則：
+                </p>
+                <div class="pl-6 space-y-2">
+                    <p>
+                        (1) 通過 $P$ 點且平行 $y$ 軸的直線方程式為何？
+                        <span class="answer-line"></span>
+                    </p>
+                    <p>
+                        (2) 若在通過 $P$ 點且垂直 $y$ 軸的直線上有一點 $(-5,
+                        m)$，求 $m$ 的值為 <span class="answer-line"></span>。
+                    </p>
+                </div>
+            </div>
+
+            <!-- Question 11 -->
+            <div class="question">
+                <p class="mb-2">
+                    11. 在直角坐標平面上，$O$ 為原點，且二元一次方程式 $2x + 3y
+                    = 10$ 的圖形與 $x$ 軸交於 $P$ 點，與 $y$ 軸交於 $Q$ 點，則：
+                </p>
+                <div class="pl-6 space-y-2">
+                    <p>
+                        (1) $\triangle POQ$ 的面積為
+                        <span class="answer-line"></span> 平方單位。
+                    </p>
+                    <p>
+                        (2) 請找出一條直線方程式，使得它與直線 $2x + 3y = 10$ 及
+                        $x$ 軸所形成的三角形面積為 40：<span
+                            class="answer-line"
+                        ></span
+                        >。
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Script for JSXGraph -->
+        <script type="text/javascript">
+            // Helper function to create standard board
+            function createBoard(id, boundingbox) {
+                return JXG.JSXGraph.initBoard(id, {
+                    boundingbox: boundingbox || [-2, 6, 8, -2],
+                    axis: true,
+                    showCopyright: false,
+                    showNavigation: false,
+                    defaultAxes: {
+                        x: { ticks: { drawLabels: false } },
+                        y: { ticks: { drawLabels: false } },
+                    },
+                });
+            }
+
+            // Question 3 Diagram
+            const b3 = createBoard("box3", [-1, 5, 6, -1]);
+            const pE = b3.create("point", [5, 0], {
+                name: "E",
+                size: 2,
+                fixed: true,
+            });
+            const pB = b3.create("point", [0, 10 / 3], {
+                name: "B",
+                size: 2,
+                fixed: true,
+            });
+            const lineEB = b3.create("line", [pB, pE], {
+                strokeColor: "black",
+                strokeWidth: 2,
+            });
+            const pO = b3.create("point", [0, 0], {
+                name: "O",
+                size: 2,
+                fixed: true,
+            });
+            // Square ACOD. Since A is on 2x+3y=10 and x=y for square in 1st quad: 5x=10 => x=2
+            const pA = b3.create("point", [2, 2], {
+                name: "A",
+                size: 2,
+                fixed: true,
+            });
+            const pC = b3.create("point", [0, 2], {
+                name: "C",
+                size: 2,
+                fixed: true,
+            });
+            const pD = b3.create("point", [2, 0], {
+                name: "D",
+                size: 2,
+                fixed: true,
+            });
+            b3.create("polygon", [pO, pD, pA, pC], {
+                fillColor: "none",
+                strokeColor: "black",
+                strokeWidth: 1,
+            });
+
+            // Question 8 Options Diagrams
+            // Line ax + by = 2 with a<0, b>0 => Intercepts: (neg, 0) and (0, pos)
+
+            // (A) Pos x-int, Pos y-int
+            const b8A = createBoard("box8A", [-5, 5, 5, -5]);
+            b8A.create(
+                "line",
+                [
+                    [4, 0],
+                    [0, 4],
+                ],
+                { strokeColor: "black" },
+            );
+
+            // (B) Neg x-int, Pos y-int (Correct)
+            const b8B = createBoard("box8B", [-5, 5, 5, -5]);
+            b8B.create(
+                "line",
+                [
+                    [-4, 0],
+                    [0, 4],
+                ],
+                { strokeColor: "black" },
+            );
+
+            // (C) Pos x-int, Neg y-int
+            const b8C = createBoard("box8C", [-5, 5, 5, -5]);
+            b8C.create(
+                "line",
+                [
+                    [4, 0],
+                    [0, -4],
+                ],
+                { strokeColor: "black" },
+            );
+
+            // (D) Neg x-int, Neg y-int
+            const b8D = createBoard("box8D", [-5, 5, 5, -5]);
+            b8D.create(
+                "line",
+                [
+                    [-4, 0],
+                    [0, -4],
+                ],
+                { strokeColor: "black" },
+            );
+        </script>
+    </body>
+</html>
