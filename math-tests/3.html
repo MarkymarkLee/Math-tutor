@@ -1,0 +1,588 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>國中七年級數學：比與比例式 高階挑戰試題集</title>
+        <!-- Tailwind CSS -->
+        <script src="https://cdn.tailwindcss.com"></script>
+        <!-- MathJax -->
+        <script>
+            window.MathJax = {
+                tex: {
+                    inlineMath: [
+                        ["$", "$"],
+                        ["\\(", "\\)"],
+                    ],
+                    displayMath: [
+                        ["$$", "$$"],
+                        ["\\[", "\\]"],
+                    ],
+                },
+                svg: { fontCache: "global" },
+            };
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <!-- JSXGraph -->
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraph.css"
+        />
+        <script
+            type="text/javascript"
+            src="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraphcore.js"
+        ></script>
+        <style>
+            @media print {
+                .no-print {
+                    display: none;
+                }
+                body {
+                    background-color: white;
+                }
+                .page-break {
+                    page-break-after: always;
+                }
+            }
+            body {
+                font-family: "Noto Sans TC", sans-serif;
+                background-color: #f9f9f9;
+                color: black;
+            }
+            .jxgbox {
+                border: 1px solid #000;
+                background-color: #fff;
+                margin: 10px 0;
+            }
+            .underline-input {
+                border-bottom: 1px solid black;
+                width: 120px;
+                display: inline-block;
+                height: 1.2em;
+                vertical-align: bottom;
+                margin-left: 5px;
+            }
+            .question-block {
+                margin-bottom: 2rem;
+                break-inside: avoid;
+            }
+        </style>
+    </head>
+    <body class="p-4 md:p-8">
+        <!-- Header Section -->
+        <div
+            class="max-w-4xl mx-auto border-2 border-black p-6 bg-white shadow-sm mb-8"
+        >
+            <h1 class="text-2xl font-bold text-center mb-4">
+                國中七年級數學：比與比例式 高階挑戰試題集（精煉版）
+            </h1>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
+                <div>班級：<span class="underline-input w-24"></span></div>
+                <div>姓名：<span class="underline-input w-24"></span></div>
+                <div>座號：<span class="underline-input w-16"></span></div>
+                <div>得分：<span class="underline-input w-16"></span></div>
+            </div>
+            <div class="mt-4 text-xs text-gray-600 italic">
+                注意事項：本試卷共 50 題，請詳細閱讀後作答。計算題請列出過程。
+            </div>
+        </div>
+
+        <div class="max-w-4xl mx-auto bg-white p-8 border border-gray-200">
+            <!-- Part 1: Algebra -->
+            <h2 class="text-xl font-bold border-b-2 border-black mb-6 pb-2">
+                第一部分：代數變換與純量比例
+            </h2>
+            <div id="part1" class="space-y-8">
+                <div class="question-block">
+                    1. 若 $5x - 2y = 3x + 4y$，且 $xy \neq 0$，求 $(x+y) :
+                    (x-y)$ 之比值。 <span class="underline-input"></span>
+                </div>
+                <div class="question-block">
+                    2. 設 $2x : 3y : 4z = 3 : 4 : 5$，求 $(x+2y) : z$
+                    的最簡整數比。 <span class="underline-input"></span>
+                </div>
+                <div class="question-block">
+                    3. 已知 $x, y$ 為正數，滿足 $x : y = 2 : 1$ 且 $2x + y =
+                    20$，求 $(x+1) : (y+1)$ 之比值。
+                    <span class="underline-input"></span>
+                </div>
+                <div class="question-block">
+                    4. 若 $\frac{a}{2} = \frac{b}{3} = \frac{c}{4}$ 且 $a^2 +
+                    b^2 + c^2 = 116$，求 $a + b + c$ 之所有可能值。
+                    <span class="underline-input"></span>
+                </div>
+                <div class="question-block">
+                    5. 設 $x : y = \frac{1}{2} : \frac{1}{3}$，$y : z = 0.4 :
+                    0.6$，求連比 $x : y : z$。
+                    <span class="underline-input"></span>
+                </div>
+                <div class="question-block">
+                    6. 已知 $(x+y) : (y+z) : (z+x) = 5 : 7 : 8$，求 $x : y : z$
+                    之比。 <span class="underline-input"></span>
+                </div>
+                <div class="question-block">
+                    7. 若三角形三邊長 $a, b, c$ 滿足 $3a = 4b = 6c$，且周長為
+                    $54$，求最長邊之長。 <span class="underline-input"></span>
+                </div>
+                <div class="question-block">
+                    8. 設 $ab \neq 0$，若 $\frac{3a-2b}{a+4b} = \frac{2}{3}$，求
+                    $a^2 : b^2$。 <span class="underline-input"></span>
+                </div>
+                <div class="question-block">
+                    9. 若 $\frac{M}{45} = \frac{3}{5}$ 且 $\frac{60}{N} =
+                    \frac{3}{5}$，求 $M + N$ 之值。
+                    <span class="underline-input"></span>
+                </div>
+                <div class="question-block">
+                    10. 已知 $x, y, z$ 均不為 $0$，且 $\frac{1}{x} : \frac{1}{y}
+                    : \frac{1}{z} = 2 : 3 : 4$。若 $x + y + z = 156$，求 $z$
+                    之值。 <span class="underline-input"></span>
+                </div>
+                <div class="question-block">
+                    11. 設 $x : y = 3 : 4$，$y : z = 2 : 5$。若 $x + y + z =
+                    102$，求 $x \cdot z$ 之值。
+                    <span class="underline-input"></span>
+                </div>
+                <div class="question-block">
+                    12. 若 $x, y, z$ 為正數，且 $x^2 : y^2 : z^2 = 1 : 4 :
+                    9$，求 $\frac{x+y}{z}$ 之值。
+                    <span class="underline-input"></span>
+                </div>
+                <div class="question-block">
+                    13. 若 $(2x+y) : (x-y) = 5 : 1$，求 $x : y$ 之比。
+                    <span class="underline-input"></span>
+                </div>
+                <div class="question-block">
+                    14. 設 $a : b : c = 1 : 2 : 3$，求
+                    $\frac{ab+bc+ca}{a^2+b^2+c^2}$ 之比值。
+                    <span class="underline-input"></span>
+                </div>
+                <div class="question-block">
+                    15. 已知 $2a = 3b$ 且 $4b = 5c$，求 $a : c$ 之比值。
+                    <span class="underline-input"></span>
+                </div>
+            </div>
+
+            <!-- Part 2: Geometry -->
+            <h2
+                class="text-xl font-bold border-b-2 border-black mt-12 mb-6 pb-2 page-break"
+            >
+                第二部分：幾何應用與圖形比例
+            </h2>
+            <div id="part2" class="space-y-8">
+                <div class="question-block">
+                    16. 某三角形三內角角度比為 $1 : 3 :
+                    5$，求最大角與最小角的度數差。
+                    <span class="underline-input"></span>
+                </div>
+                <div class="question-block">
+                    17. 某建築模型比例尺為 $1 : 20$。若真實建築高 $289$
+                    呎，求模型高度（四捨五入至整數位）。
+                    <span class="underline-input"></span>
+                </div>
+                <div class="question-block">
+                    18. 兩圓半徑比為 $2 : 3$。若大圓面積為
+                    $36\pi$，求小圓之周長。
+                    <span class="underline-input"></span>
+                </div>
+                <div class="question-block">
+                    19. 如下圖所示，三同心圓半徑比為 $1 : 2 :
+                    3$。求「內圓與中環面積之和」與「外環面積」之比值。
+                    <div
+                        id="box19"
+                        class="jxgbox w-[300px] h-[250px] mx-auto"
+                    ></div>
+                    答：<span class="underline-input"></span>
+                </div>
+                <div class="question-block">
+                    20. 如圖所示，在方格紙上畫一十二邊形（由 $3 \times 3$
+                    正方形及四個底 $2$ 高 $1$ 的三角形組成），求其總面積。
+                    <div
+                        id="box20"
+                        class="jxgbox w-[300px] h-[250px] mx-auto"
+                    ></div>
+                    答：<span class="underline-input"></span>
+                </div>
+                <div class="question-block">
+                    21. 如圖所示，邊長 $4, 7, 9, 10$
+                    之四個正方形左下角對齊疊放。若顏色依序為白、灰、白、灰，求灰色區域總面積。
+                    <div
+                        id="box21"
+                        class="jxgbox w-[300px] h-[250px] mx-auto"
+                    ></div>
+                    答：<span class="underline-input"></span>
+                </div>
+                <div class="question-block">
+                    22. 長方體之長、寬、高比為 $3 : 2 : 1$，表面積為
+                    $352\text{cm}^2$，求其體積。
+                    <span class="underline-input"></span>
+                </div>
+                <div class="question-block">
+                    23. 如圖，繩子按 $3 : 4 : 5$ 剪開圍成一斜邊長 $15\text{cm}$
+                    的直角三角形，求原繩總長。
+                    <div
+                        id="box23"
+                        class="jxgbox w-[300px] h-[250px] mx-auto"
+                    ></div>
+                    答：<span class="underline-input"></span>
+                </div>
+                <div class="question-block">
+                    24. 如圖所示，坐標平面上點 $A(0,0), B(3,1), C(15,3),
+                    D(16,5)$。判斷通過 $A, C$ 與 $B, D$ 之直線與圖形比例關係。
+                    <div
+                        id="box24"
+                        class="jxgbox w-[300px] h-[250px] mx-auto"
+                    ></div>
+                    答：<span class="underline-input"></span>
+                </div>
+                <div class="question-block">
+                    25. 圓柱體高度增加 $20\%$，底半徑減少
+                    $10\%$，求新體積與原體積之比。
+                    <span class="underline-input"></span>
+                </div>
+                <div class="question-block">
+                    26. 地圖比例尺 $1 : 250,000$，圖上距離 $4.8$
+                    公分。若另兩地實距 $20$ 公里，其圖上距離為何？
+                    <span class="underline-input"></span>
+                </div>
+                <div class="question-block">
+                    27. 若一球體與一正方體表面積相等，求兩者體積之比。
+                    <span class="underline-input"></span>
+                </div>
+                <div class="question-block">
+                    28.
+                    將正方形紙兩次對折後沿對角線剪開，展開後各碎片面積與原面積之比。
+                    <span class="underline-input"></span>
+                </div>
+                <div class="question-block">
+                    29.
+                    如圖所示，一單位大圓內含多個不同直徑的小圓（部分陰影），求陰影區域占總面積之分率。
+                    <div
+                        id="box29"
+                        class="jxgbox w-[300px] h-[250px] mx-auto"
+                    ></div>
+                    答：<span class="underline-input"></span>
+                </div>
+                <div class="question-block">
+                    30. 膠帶捲外徑 $4$ 英吋、內徑 $2$ 英吋、厚度 $0.015$
+                    英吋。利用截面積守恆求其展開總長。
+                    <span class="underline-input"></span>
+                </div>
+            </div>
+
+            <!-- Part 3: Applied -->
+            <h2
+                class="text-xl font-bold border-b-2 border-black mt-12 mb-6 pb-2 page-break"
+            >
+                第三部分：實務應用與變動比例邏輯
+            </h2>
+            <div id="part3" class="space-y-8">
+                <div class="question-block">
+                    31. 檸檬水配方：水是糖的 $4$ 倍，糖是檸檬汁的 $2$ 倍。若用
+                    $3$ 杯檸檬汁，需多少杯水？
+                    <span class="underline-input"></span>
+                </div>
+                <div class="question-block">
+                    32.
+                    瑪麗亞收藏紅、綠、藍大理石。紅是綠的一半，藍是綠的兩倍。若總數介於
+                    $20 \sim 30$，總數為何？
+                    <span class="underline-input"></span>
+                </div>
+                <div class="question-block">
+                    33. 某競賽男女比原為 $5 : 4$。男生加 $2$ 人、女生減 $2$
+                    人後比變為 $3 : 2$，求原總人數。
+                    <span class="underline-input"></span>
+                </div>
+                <div class="question-block">
+                    34. 在 $12 \times 16$ 呎房間鋪磚，邊緣用 $1 \times 1$
+                    呎磚，內部用 $2 \times 2$ 呎磚，求兩者數量比。
+                    <span class="underline-input"></span>
+                </div>
+                <div class="question-block">
+                    35. 行駛高速公路 $50$ 哩與一般路 $10$ 哩。高速車速為一般路
+                    $3$ 倍。若一般路開 $30$ 分，求總時程。
+                    <span class="underline-input"></span>
+                </div>
+                <div class="question-block">
+                    36. 鹽水比例 $1 : 19$。蒸發部分水後比例變 $1 : 9$。若鹽重
+                    $10$ 克不變，求蒸發水量。
+                    <span class="underline-input"></span>
+                </div>
+                <div class="question-block">
+                    37. 青蛙群綠黃比 $3 : 1$。若 $3$ 隻綠變黃、$5$
+                    隻黃變綠後比為 $4 : 1$，求原兩色數量差。
+                    <span class="underline-input"></span>
+                </div>
+                <div class="question-block">
+                    38. 甲乙丙原得 $15, 20, 40$ 元。若欲三人平分總酬勞，拿 $40$
+                    元者需給出多少元？ <span class="underline-input"></span>
+                </div>
+                <div class="question-block">
+                    39. 池中草魚與鯉魚比 $6 : 1$。抽樣 $180$ 條中有 $30$
+                    條鯉魚。依此比例推估全池總魚數。
+                    <span class="underline-input"></span>
+                </div>
+                <div class="question-block">
+                    40. 產品售價 $100$ 元，利潤與成本比 $1 : 4$。若成本升 $10\%$
+                    且售價不變，求新利潤。 <span class="underline-input"></span>
+                </div>
+                <div class="question-block">
+                    41. 水壺裝 $3/4$ 滿果汁，平分倒入 $5$
+                    個杯子，每杯果汁占水壺總容量之百分比為何？
+                    <span class="underline-input"></span>
+                </div>
+                <div class="question-block">
+                    42.
+                    貓罐頭直徑增加一倍且高度減半。若每日餵食體積固定，其可餵食天數之比如何變動？
+                    <span class="underline-input"></span>
+                </div>
+                <div class="question-block">
+                    43. 沙灘上戴帽者中 $2/5$
+                    戴墨鏡。若戴墨鏡與戴帽者之比例已知，求墨鏡族中戴帽之比例。
+                    <span class="underline-input"></span>
+                </div>
+                <div class="question-block">
+                    44. 時鐘每小時快 $2$ 分鐘。早上 $8:00$ 對準，當該鐘顯示下午
+                    $7:00$ 時，標準時間為何？
+                    <span class="underline-input"></span>
+                </div>
+                <div class="question-block">
+                    45. 萊拉五次測試前四次同分，第五次較高，平均 $82$
+                    分。求第五次分數可能之值有多少種？
+                    <span class="underline-input"></span>
+                </div>
+                <div class="question-block">
+                    46. 計算 $1, 2, 4$ 三個數字的諧和平均數（Harmonic Mean）。
+                    <span class="underline-input"></span>
+                </div>
+                <div class="question-block">
+                    47. 路徑 $15$ 哩車速 $30\text{mph}$。欲使全程（含後續 $30$
+                    哩）平均速率達 $50\text{mph}$，後段車速需為何？
+                    <span class="underline-input"></span>
+                </div>
+                <div class="question-block">
+                    48. 皮餅被哈洛吃掉 $1/4$，剩下的被麋鹿吃掉
+                    $1/3$，再剩的被豪豬吃 $1/2$，求最後剩餘分率。
+                    <span class="underline-input"></span>
+                </div>
+                <div class="question-block">
+                    49. 三商品單價比 $2 : 3 : 5$，購買數量比 $5 : 4 :
+                    2$，求最高單價商品占總花費之比例。
+                    <span class="underline-input"></span>
+                </div>
+                <div class="question-block">
+                    50. 求連乘積
+                    $(1+\frac{1}{1})(1+\frac{1}{2})(1+\frac{1}{3})\dots(1+\frac{1}{6})$
+                    之最終結果。 <span class="underline-input"></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Script for JSXGraph rendering -->
+        <script>
+            window.onload = function () {
+                // Common settings for all boards
+                const boardSettings = {
+                    axis: true,
+                    grid: true,
+                    showCopyright: false,
+                    defaultAxes: {
+                        x: { ticks: { drawLabels: false } },
+                        y: { ticks: { drawLabels: false } },
+                    },
+                };
+
+                // Q19: Concentric Circles
+                const b19 = JXG.JSXGraph.initBoard("box19", {
+                    ...boardSettings,
+                    boundingbox: [-4, 4, 4, -4],
+                });
+                b19.create("circle", [[0, 0], 1], {
+                    strokeColor: "black",
+                    dash: 1,
+                });
+                b19.create("circle", [[0, 0], 2], { strokeColor: "black" });
+                b19.create("circle", [[0, 0], 3], {
+                    strokeColor: "black",
+                    strokeWidth: 2,
+                });
+
+                // Q20: 12-gon pattern
+                const b20 = JXG.JSXGraph.initBoard("box20", {
+                    ...boardSettings,
+                    boundingbox: [-3, 3, 3, -3],
+                });
+                b20.create(
+                    "polygon",
+                    [
+                        [-1, -1],
+                        [1, -1],
+                        [1, 1],
+                        [-1, 1],
+                    ],
+                    { fillColor: "#eee", fillOpacity: 0.5 },
+                );
+                b20.create(
+                    "polygon",
+                    [
+                        [-1, 1],
+                        [1, 1],
+                        [0, 2],
+                    ],
+                    { fillColor: "none", strokeColor: "black" },
+                );
+                b20.create(
+                    "polygon",
+                    [
+                        [-1, -1],
+                        [1, -1],
+                        [0, -2],
+                    ],
+                    { fillColor: "none", strokeColor: "black" },
+                );
+                b20.create(
+                    "polygon",
+                    [
+                        [1, -1],
+                        [1, 1],
+                        [2, 0],
+                    ],
+                    { fillColor: "none", strokeColor: "black" },
+                );
+                b20.create(
+                    "polygon",
+                    [
+                        [-1, -1],
+                        [-1, 1],
+                        [-2, 0],
+                    ],
+                    { fillColor: "none", strokeColor: "black" },
+                );
+
+                // Q21: Overlapping Squares
+                const b21 = JXG.JSXGraph.initBoard("box21", {
+                    ...boardSettings,
+                    boundingbox: [-1, 11, 11, -1],
+                });
+                b21.create(
+                    "polygon",
+                    [
+                        [0, 0],
+                        [10, 0],
+                        [10, 10],
+                        [0, 10],
+                    ],
+                    {
+                        fillColor: "#ddd",
+                        fillOpacity: 1,
+                        borders: { strokeColor: "black" },
+                    },
+                ); // Gray 10
+                b21.create(
+                    "polygon",
+                    [
+                        [0, 0],
+                        [9, 0],
+                        [9, 9],
+                        [0, 9],
+                    ],
+                    {
+                        fillColor: "white",
+                        fillOpacity: 1,
+                        borders: { strokeColor: "black" },
+                    },
+                ); // White 9
+                b21.create(
+                    "polygon",
+                    [
+                        [0, 0],
+                        [7, 0],
+                        [7, 7],
+                        [0, 7],
+                    ],
+                    {
+                        fillColor: "#bbb",
+                        fillOpacity: 1,
+                        borders: { strokeColor: "black" },
+                    },
+                ); // Gray 7
+                b21.create(
+                    "polygon",
+                    [
+                        [0, 0],
+                        [4, 0],
+                        [4, 4],
+                        [0, 4],
+                    ],
+                    {
+                        fillColor: "white",
+                        fillOpacity: 1,
+                        borders: { strokeColor: "black" },
+                    },
+                ); // White 4
+
+                // Q23: Right Triangle (3:4:5)
+                const b23 = JXG.JSXGraph.initBoard("box23", {
+                    ...boardSettings,
+                    boundingbox: [-1, 5, 5, -1],
+                });
+                b23.create(
+                    "polygon",
+                    [
+                        [0, 0],
+                        [4, 0],
+                        [0, 3],
+                    ],
+                    { strokeColor: "black", fillColor: "none" },
+                );
+                b23.create("text", [2, -0.3, "4k"]);
+                b23.create("text", [-0.5, 1.5, "3k"]);
+                b23.create("text", [2, 2, "15cm"]);
+
+                // Q24: Points A, B, C, D
+                const b24 = JXG.JSXGraph.initBoard("box24", {
+                    ...boardSettings,
+                    boundingbox: [-1, 6, 17, -1],
+                });
+                const A = b24.create("point", [0, 0], {
+                    name: "A",
+                    color: "black",
+                });
+                const B = b24.create("point", [3, 1], {
+                    name: "B",
+                    color: "black",
+                });
+                const C = b24.create("point", [15, 3], {
+                    name: "C",
+                    color: "black",
+                });
+                const D = b24.create("point", [16, 5], {
+                    name: "D",
+                    color: "black",
+                });
+                b24.create("line", [A, C], { strokeColor: "black", dash: 2 });
+                b24.create("line", [B, D], { strokeColor: "gray" });
+
+                // Q29: Circle inside Circles (Visual Representation)
+                const b29 = JXG.JSXGraph.initBoard("box29", {
+                    ...boardSettings,
+                    boundingbox: [-2, 2, 2, -2],
+                });
+                b29.create("circle", [[0, 0], 1.5], { strokeColor: "black" });
+                b29.create("circle", [[0.7, 0], 0.7], {
+                    fillColor: "gray",
+                    fillOpacity: 0.3,
+                });
+                b29.create("circle", [[-0.4, 0.4], 0.4], {
+                    fillColor: "gray",
+                    fillOpacity: 0.3,
+                });
+                b29.create("circle", [[-0.5, -0.6], 0.3], {
+                    fillColor: "gray",
+                    fillOpacity: 0.3,
+                });
+            };
+        </script>
+    </body>
+</html>
