@@ -1,0 +1,580 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>數學科隨堂測驗 - 比例與座標平面</title>
+
+        <!-- Tailwind CSS -->
+        <script src="https://cdn.tailwindcss.com"></script>
+
+        <!-- MathJax for Math Notation -->
+        <script>
+            window.MathJax = {
+                tex: {
+                    inlineMath: [
+                        ["$", "$"],
+                        ["\\(", "\\)"],
+                    ],
+                    displayMath: [["$$", "$$"]],
+                },
+                svg: { fontCache: "global" },
+            };
+        </script>
+        <script
+            id="MathJax-script"
+            async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+        ></script>
+
+        <!-- JSXGraph for Geometry -->
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraph.css"
+        />
+        <script
+            type="text/javascript"
+            src="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraphcore.js"
+        ></script>
+
+        <style>
+            @media print {
+                .no-print {
+                    display: none !important;
+                }
+                body {
+                    font-family: "Noto Sans TC", sans-serif;
+                }
+            }
+            .jxgbox {
+                border: 1px solid #000;
+                background-color: #fff !important;
+                margin: 10px 0;
+            }
+            .question-item {
+                page-break-inside: avoid;
+            }
+            .answer-line {
+                border-bottom: 1px solid #000;
+                display: inline-block;
+                min-width: 150px;
+                text-align: center;
+                vertical-align: bottom;
+            }
+            .answer-text {
+                color: #dc2626; /* text-red-600 */
+                font-weight: bold;
+            }
+        </style>
+    </head>
+    <body class="bg-white text-black p-8 max-w-4xl mx-auto relative">
+        <!-- Toggle Button (Floating, Non-printable) -->
+        <button
+            onclick="toggleAnswers()"
+            class="no-print fixed top-4 right-4 bg-black text-white px-4 py-2 rounded-lg shadow-md hover:bg-gray-800 transition-all z-50"
+        >
+            顯示/隱藏答案
+        </button>
+
+        <!-- Header Section -->
+        <header class="border-2 border-black p-4 mb-8">
+            <h1 class="text-3xl font-bold text-center mb-4">
+                數學科隨堂測驗：比例與直線方程式
+            </h1>
+            <div class="grid grid-cols-4 gap-4 text-lg">
+                <div class="border-b border-black">班級：</div>
+                <div class="border-b border-black">姓名：</div>
+                <div class="border-b border-black">座號：</div>
+                <div class="border-b border-black text-center font-bold">
+                    得分：
+                </div>
+            </div>
+        </header>
+
+        <!-- Worksheet Content -->
+        <div class="space-y-8">
+            <!-- Q1 -->
+            <div class="question-item">
+                <p class="text-lg">
+                    1. 已知點 $P(a, b)$ 在第二象限，則點 $Q(ab, a-b)$
+                    在第幾象限？
+                </p>
+                <div class="mt-2 ml-4">
+                    答：<span class="answer-line"
+                        ><span class="answer-text hidden">第三象限</span></span
+                    >
+                </div>
+            </div>
+
+            <!-- Q2 -->
+            <div class="question-item">
+                <p class="text-lg">
+                    2. 若直線 $ax + by + c = 0$ 不經過第三象限，則 $ac$ 與 $bc$
+                    的正負號關係為何？
+                </p>
+                <div class="mt-2 ml-4">
+                    答：<span class="answer-line"
+                        ><span class="answer-text hidden"
+                            >$ac < 0$ 且 $bc < 0$</span
+                        ></span
+                    >
+                </div>
+            </div>
+
+            <!-- Q3 (Geometric) -->
+            <div class="question-item">
+                <p class="text-lg">
+                    3. 如圖所示，直線 $y = mx + 2$ 與線段 $AB$ 相交，其中 $A(1,
+                    4)$、$B(3, 1)$，求 $m$ 的範圍？
+                </p>
+                <div
+                    id="box3"
+                    class="jxgbox"
+                    style="width: 300px; height: 250px"
+                ></div>
+                <div class="mt-2 ml-4">
+                    答：<span class="answer-line"
+                        ><span class="answer-text hidden"
+                            >$-\frac{1}{3} \le m \le 2$</span
+                        ></span
+                    >
+                </div>
+            </div>
+
+            <!-- Q4 -->
+            <div class="question-item">
+                <p class="text-lg">
+                    4. 已知三點 $A(k, 2)$、$B(2, 5)$、$C(4, 11)$ 共線，求 $k$
+                    之值？
+                </p>
+                <div class="mt-2 ml-4">
+                    答：<span class="answer-line"
+                        ><span class="answer-text hidden">1</span></span
+                    >
+                </div>
+            </div>
+
+            <!-- Q5 -->
+            <div class="question-item">
+                <p class="text-lg">
+                    5. 方程式 $2x - 3y = 12$ 與 $x$ 軸、$y$
+                    軸所圍成的三角形中，內部 (不含邊界) 的格子點 (整數點)
+                    共有幾個？
+                </p>
+                <div class="mt-2 ml-4">
+                    答：<span class="answer-line"
+                        ><span class="answer-text hidden">7個</span></span
+                    >
+                </div>
+            </div>
+
+            <!-- Q6 -->
+            <div class="question-item">
+                <p class="text-lg">
+                    6. 若 $\frac{x}{2} = \frac{y}{3} = \frac{z}{4}$，且 $x + y +
+                    z = 27$，則 $2x - y + z =$？
+                </p>
+                <div class="mt-2 ml-4">
+                    答：<span class="answer-line"
+                        ><span class="answer-text hidden">15</span></span
+                    >
+                </div>
+            </div>
+
+            <!-- Q7 -->
+            <div class="question-item">
+                <p class="text-lg">
+                    7. 已知 $y$ 與 $x^2$ 成正比，當 $x = 2$ 時，$y = 12$。若 $x
+                    = -3$，$y$ 的值為何？
+                </p>
+                <div class="mt-2 ml-4">
+                    答：<span class="answer-line"
+                        ><span class="answer-text hidden">27</span></span
+                    >
+                </div>
+            </div>
+
+            <!-- Q8 -->
+            <div class="question-item">
+                <p class="text-lg">
+                    8. 若 $(x + y) : (x - y) = 5 : 2$，求 $(x^2 - y^2) : x^2$
+                    的比值？
+                </p>
+                <div class="mt-2 ml-4">
+                    答：<span class="answer-line"
+                        ><span class="answer-text hidden"
+                            >$\frac{40}{49}$</span
+                        ></span
+                    >
+                </div>
+            </div>
+
+            <!-- Q9 -->
+            <div class="question-item">
+                <p class="text-lg">
+                    9. 某工程甲獨做 12 天完成，乙獨做 18
+                    天完成。若兩人合作，完成工程所需天數為何？
+                </p>
+                <div class="mt-2 ml-4">
+                    答：<span class="answer-line"
+                        ><span class="answer-text hidden">7.2天</span></span
+                    >
+                </div>
+            </div>
+
+            <!-- Q10 -->
+            <div class="question-item">
+                <p class="text-lg">
+                    10. 已知直線 $L_1: x + ay = 3$ 與 $L_2: ax + 4y = 6$
+                    平行，求 $a$ 的值為何？
+                </p>
+                <div class="mt-2 ml-4">
+                    答：<span class="answer-line"
+                        ><span class="answer-text hidden">-2</span></span
+                    >
+                </div>
+            </div>
+
+            <!-- Q11 -->
+            <div class="question-item">
+                <p class="text-lg">
+                    11. 坐標平面上，直線 $y = ax + b$ 與 $y = bx + a$
+                    的交點恆在哪一條直線上？ (假設 $a \ne b$)
+                </p>
+                <div class="mt-2 ml-4">
+                    答：<span class="answer-line"
+                        ><span class="answer-text hidden">$x = 1$</span></span
+                    >
+                </div>
+            </div>
+
+            <!-- Q12 -->
+            <div class="question-item">
+                <p class="text-lg">
+                    12. 兩正實數 $x, y$ 滿足 $x:y = 3:4$ 且 $x^2 + y^2 =
+                    100$，求 $xy$ 之值？
+                </p>
+                <div class="mt-2 ml-4">
+                    答：<span class="answer-line"
+                        ><span class="answer-text hidden">48</span></span
+                    >
+                </div>
+            </div>
+
+            <!-- Q13 -->
+            <div class="question-item">
+                <p class="text-lg">
+                    13. 若點 $A(a, -b)$ 在第四象限，則直線 $bx - ay = ab$
+                    不經過哪一個象限？
+                </p>
+                <div class="mt-2 ml-4">
+                    答：<span class="answer-line"
+                        ><span class="answer-text hidden">第二象限</span></span
+                    >
+                </div>
+            </div>
+
+            <!-- Q14 -->
+            <div class="question-item">
+                <p class="text-lg">
+                    14. 設 $a, b, c$ 均不為零，且 $2ab = 3bc = 4ca$，求
+                    $a:b:c$？
+                </p>
+                <div class="mt-2 ml-4">
+                    答：<span class="answer-line"
+                        ><span class="answer-text hidden">$3:4:2$</span></span
+                    >
+                </div>
+            </div>
+
+            <!-- Q15 (Geometric) -->
+            <div class="question-item">
+                <p class="text-lg">
+                    15. 如圖，直線 $L_1: y = 2x$ 與 $L_2: y = -x + 6$ 交於 $A$
+                    點。若 $P$ 在 $x$ 軸上，且 $\triangle PAA'$ 面積為 12 ($A'$
+                    為 $A$ 在 $x$ 軸投影點)，求 $P$ 的 $x$ 坐標？
+                </p>
+
+                <div class="mt-2 ml-4">
+                    答：<span class="answer-line"
+                        ><span class="answer-text hidden">8 或 -4</span></span
+                    >
+                </div>
+            </div>
+
+            <!-- Q16 -->
+            <div class="question-item">
+                <p class="text-lg">
+                    16. 若 $(2x + y) : (x - y) = 4 : 1$，求直線 $y = kx$
+                    通過原點與點 $(x, y)$ 時，$k$ 的值為何？
+                </p>
+                <div class="mt-2 ml-4">
+                    答：<span class="answer-line"
+                        ><span class="answer-text hidden"
+                            >$\frac{2}{5}$</span
+                        ></span
+                    >
+                </div>
+            </div>
+
+            <!-- Q17 (Geometric) -->
+            <div class="question-item">
+                <p class="text-lg">
+                    17. 一直線過點 $(-2, 3)$
+                    且如圖所示，與兩軸在第二象限圍成一個面積為 12
+                    的三角形，求此直線方程式？
+                </p>
+
+                <div class="mt-2 ml-4">
+                    答：<span class="answer-line"
+                        ><span class="answer-text hidden"
+                            >$3x - 2y + 12 = 0$</span
+                        ></span
+                    >
+                </div>
+            </div>
+
+            <!-- Q18 -->
+            <div class="question-item">
+                <p class="text-lg">
+                    18. 設 $x, y, z$ 為實數且 $x + y + z = 12$。已知 $(x + 1) :
+                    (y + 1) : (z + 1) = 2 : 3 : 4$，求 $x$ 的值？
+                </p>
+                <div class="mt-2 ml-4">
+                    答：<span class="answer-line"
+                        ><span class="answer-text hidden"
+                            >$\frac{7}{3}$</span
+                        ></span
+                    >
+                </div>
+            </div>
+
+            <!-- Q19 -->
+            <div class="question-item">
+                <p class="text-lg">
+                    19. 小明走路上學，若速度增加 25%，則所需時間減少百分之幾？
+                </p>
+                <div class="mt-2 ml-4">
+                    答：<span class="answer-line"
+                        ><span class="answer-text hidden">20%</span></span
+                    >
+                </div>
+            </div>
+
+            <!-- Q20 -->
+            <div class="question-item">
+                <p class="text-lg">
+                    20. 在 $\triangle ABC$ 中，三邊長 $a, b, c$ 的高分別為 $h_a,
+                    h_b, h_c$。已知 $h_a : h_b : h_c = 2 : 3 : 4$，求 $a : b :
+                    c$？
+                </p>
+                <div class="mt-2 ml-4">
+                    答：<span class="answer-line"
+                        ><span class="answer-text hidden"
+                            >$6 : 4 : 3$</span
+                        ></span
+                    >
+                </div>
+            </div>
+
+            <!-- Q21 -->
+            <div class="question-item">
+                <p class="text-lg">
+                    21. 甲、乙兩車的速度比為 $5:4$，兩車同時從 $A, B$
+                    兩地相向而行，相遇時，甲車比乙車多行了 20 公里。求 $A, B$
+                    兩地距離？
+                </p>
+                <div class="mt-2 ml-4">
+                    答：<span class="answer-line"
+                        ><span class="answer-text hidden">180公里</span></span
+                    >
+                </div>
+            </div>
+
+            <!-- Q22 (Geometric) -->
+            <div class="question-item">
+                <p class="text-lg">
+                    22. 如圖所示，坐標平面上，直線 $y = |x| - 2$ 與 $x$
+                    軸所圍成的封閉區域面積為何？
+                </p>
+
+                <div class="mt-2 ml-4">
+                    答：<span class="answer-line"
+                        ><span class="answer-text hidden">4</span></span
+                    >
+                </div>
+            </div>
+
+            <!-- Q23 -->
+            <div class="question-item">
+                <p class="text-lg">
+                    23. 有兩杯鹽水，甲杯重量 200 克濃度 10%，乙杯重量 300 克濃度
+                    20%。混合後濃度為何？
+                </p>
+                <div class="mt-2 ml-4">
+                    答：<span class="answer-line"
+                        ><span class="answer-text hidden">16%</span></span
+                    >
+                </div>
+            </div>
+
+            <!-- Q24 -->
+            <div class="question-item">
+                <p class="text-lg">
+                    24. 某次段考，班上男、女生成績平均分別為 75 分與 80
+                    分。若全班平均為 78 分，求班上男、女生人數比？
+                </p>
+                <div class="mt-2 ml-4">
+                    答：<span class="answer-line"
+                        ><span class="answer-text hidden">$2 : 3$</span></span
+                    >
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer for Printable -->
+        <footer class="mt-12 text-center text-sm border-t pt-4 border-gray-300">
+            <p>第 1 頁，共 1 頁</p>
+        </footer>
+
+        <script type="text/javascript">
+            // Toggle Answers Logic
+            function toggleAnswers() {
+                const answers = document.querySelectorAll(".answer-text");
+                answers.forEach((ans) => {
+                    ans.classList.toggle("hidden");
+                });
+            }
+
+            window.onload = function () {
+                // Common Attributes for JSXGraph
+                const commonAttr = {
+                    boundingbox: [-5, 7, 7, -5],
+                    axis: true,
+                    showCopyright: false,
+                    defaultAxes: {
+                        x: { ticks: { drawLabels: false } },
+                        y: { ticks: { drawLabels: false } },
+                    },
+                };
+
+                // Diagram for Q3
+                (function () {
+                    var board = JXG.JSXGraph.initBoard("box3", commonAttr);
+                    var a = board.create("point", [1, 4], {
+                        name: "A",
+                        fixed: true,
+                    });
+                    var b = board.create("point", [3, 1], {
+                        name: "B",
+                        fixed: true,
+                    });
+                    board.create("segment", [a, b], {
+                        strokeColor: "black",
+                        strokeWidth: 2,
+                    });
+                    board.create(
+                        "line",
+                        [
+                            [0, 2],
+                            [1, 2.5],
+                        ],
+                        { strokeColor: "gray", dash: 2 },
+                    ); // Example m
+                })();
+
+                // Diagram for Q15
+                (function () {
+                    var board = JXG.JSXGraph.initBoard("box15", {
+                        ...commonAttr,
+                        boundingbox: [-2, 8, 8, -2],
+                    });
+                    var l1 = board.create("line", [0, 2, -1], {
+                        strokeColor: "black",
+                    }); // y=2x -> 2x - y = 0
+                    var l2 = board.create("line", [-6, 1, 1], {
+                        strokeColor: "black",
+                    }); // y=-x+6 -> x + y - 6 = 0
+                    var a = board.create("intersection", [l1, l2, 0], {
+                        name: "A",
+                        strokeColor: "black",
+                    });
+                    var aPrime = board.create(
+                        "point",
+                        [
+                            function () {
+                                return a.X();
+                            },
+                            0,
+                        ],
+                        { name: "A'", strokeColor: "black" },
+                    );
+                    board.create("segment", [a, aPrime], {
+                        dash: 1,
+                        strokeColor: "black",
+                    });
+                })();
+
+                // Diagram for Q17
+                (function () {
+                    var board = JXG.JSXGraph.initBoard("box17", {
+                        ...commonAttr,
+                        boundingbox: [-6, 8, 4, -2],
+                    });
+                    var p = board.create("point", [-2, 3], {
+                        name: "(-2,3)",
+                        strokeColor: "black",
+                        fixed: true,
+                    });
+                    var l = board.create("line", [12, 3, -2], {
+                        strokeColor: "black",
+                    }); // 3x - 2y + 12 = 0
+                    var xInt = board.create("point", [-4, 0], {
+                        name: "",
+                        size: 0,
+                    });
+                    var yInt = board.create("point", [0, 6], {
+                        name: "",
+                        size: 0,
+                    });
+                    board.create("polygon", [[0, 0], xInt, yInt], {
+                        fillColor: "#eee",
+                        fillOpacity: 0.5,
+                        borders: { strokeColor: "black" },
+                    });
+                })();
+
+                // Diagram for Q22
+                (function () {
+                    var board = JXG.JSXGraph.initBoard("box22", commonAttr);
+                    var f = board.create(
+                        "functiongraph",
+                        [
+                            function (x) {
+                                return Math.abs(x) - 2;
+                            },
+                        ],
+                        { strokeColor: "black", strokeWidth: 2 },
+                    );
+                    var p1 = board.create("point", [-2, 0], {
+                        name: "",
+                        size: 0,
+                    });
+                    var p2 = board.create("point", [2, 0], {
+                        name: "",
+                        size: 0,
+                    });
+                    var p3 = board.create("point", [0, -2], {
+                        name: "",
+                        size: 0,
+                    });
+                    board.create("polygon", [p1, p2, p3], {
+                        fillColor: "#ccc",
+                        fillOpacity: 0.3,
+                    });
+                })();
+            };
+        </script>
+    </body>
+</html>
