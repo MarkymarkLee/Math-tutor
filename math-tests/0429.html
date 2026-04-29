@@ -1,0 +1,436 @@
+<!doctype html>
+<html lang="zh-TW">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>數學科練習題庫</title>
+        <!-- Tailwind CSS -->
+        <script src="https://cdn.tailwindcss.com"></script>
+        <!-- MathJax -->
+        <script>
+            window.MathJax = {
+                tex: {
+                    inlineMath: [
+                        ["$", "$"],
+                        ["\\(", "\\)"],
+                    ],
+                    displayMath: [
+                        ["$$", "$$"],
+                        ["\\[", "\\]"],
+                    ],
+                },
+                svg: { fontCache: "global" },
+            };
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <!-- JSXGraph -->
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraph.css"
+        />
+        <script
+            type="text/javascript"
+            src="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraphcore.js"
+        ></script>
+        <style>
+            @media print {
+                .no-print {
+                    display: none;
+                }
+                body {
+                    font-family:
+                        "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+                }
+            }
+            .jxgbox {
+                border: 1px solid #ccc;
+                border-radius: 8px;
+                margin: 10px 0;
+            }
+            .question-item {
+                page-break-inside: avoid;
+            }
+            .answer-line {
+                border-bottom: 1px solid black;
+                min-width: 120px;
+                display: inline-block;
+            }
+        </style>
+    </head>
+    <body class="bg-white p-8 md:p-16 text-black">
+        <!-- Header Section -->
+        <header class="border-b-2 border-black pb-4 mb-8">
+            <h1 class="text-3xl font-bold text-center mb-6">
+                數學科 綜合能力檢測卷
+            </h1>
+            <div class="grid grid-cols-4 gap-4 text-lg">
+                <div>班級：<span class="answer-line w-24"></span></div>
+                <div>姓名：<span class="answer-line w-32"></span></div>
+                <div>座號：<span class="answer-line w-16"></span></div>
+                <div>得分：<span class="answer-line w-16"></span></div>
+            </div>
+        </header>
+
+        <!-- Instructions and Toggle Button -->
+        <div
+            class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 no-print gap-4"
+        >
+            <section class="italic text-gray-700">
+                <p>
+                    ※
+                    請在空格內寫出完整的解題過程或最終答案。排序已根據題目難度由易到難調整。
+                </p>
+            </section>
+            <button
+                id="toggleAnswersBtn"
+                class="bg-blue-600 text-white px-4 py-2 rounded shadow hover:bg-blue-700 transition font-bold"
+            >
+                顯示 / 隱藏解答
+            </button>
+        </div>
+
+        <!-- Questions Grid -->
+        <main
+            id="question-container"
+            class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8"
+        >
+            <!-- Questions will be dynamically rendered here -->
+        </main>
+
+        <script>
+            // Data logic: Corrected LaTeX strings with double backslashes for JS literals
+            const rawQuestions = [
+                // Level 1-5 (Basic)
+                {
+                    diff: 1,
+                    q: "解方程式：$|4y - 12| = 28$",
+                    ans: "$y = 10$ 或 $y = -4$",
+                },
+                {
+                    diff: 1,
+                    q: "解方程式：$| -x + 9 | = 15$",
+                    ans: "$x = -6$ 或 $x = 24$",
+                },
+                {
+                    diff: 2,
+                    q: "解不等式：$3.5t - 7 \\geq 1.5t + 13$",
+                    ans: "$t \\geq 10$",
+                },
+                {
+                    diff: 2,
+                    q: "解方程式：$0.75x - 0.25 = 0.5x + 1$",
+                    ans: "$x = 5$",
+                },
+                {
+                    diff: 3,
+                    q: "解方程式：$\\frac{2}{3}m - 5 = \\frac{1}{4}m + 2$",
+                    ans: "$m = \\frac{84}{5}$",
+                },
+                {
+                    diff: 3,
+                    q: "解不等式：$4(2x - 3) - 5(x + 2) < -7$",
+                    ans: "$x < 5$",
+                },
+                { diff: 4, q: "解不等式：$-0.5x + 3.2 < 1.7$", ans: "$x > 3$" },
+                {
+                    diff: 4,
+                    q: "解不等式：$|2p + 6| \\leq 14$",
+                    ans: "$-10 \\leq p \\leq 4$",
+                },
+                {
+                    diff: 5,
+                    q: "解不等式：$0.125x + 0.5 \\leq 0.2x - 1$",
+                    ans: "$x \\geq 20$",
+                },
+                {
+                    diff: 5,
+                    q: "解不等式：$3(x - 5) \\geq 7x + 11$",
+                    ans: "$x \\leq -\\frac{13}{2}$",
+                },
+                // Level 6-10 (Intermediate)
+                {
+                    diff: 6,
+                    q: "解不等式：$-8 < 2k - 4 \\leq 10$",
+                    ans: "$-2 < k \\leq 7$",
+                },
+                {
+                    diff: 6,
+                    q: "解不等式：$\\frac{3}{5}x - 2 > \\frac{1}{2}x + 4$",
+                    ans: "$x > 60$",
+                },
+                {
+                    diff: 7,
+                    q: "解不等式：$n - \\frac{1}{3}n - \\frac{1}{5}n \\leq 14$",
+                    ans: "$n \\leq 30$",
+                },
+                {
+                    diff: 7,
+                    q: "解不等式：$0.04x - 0.1(x - 20) \\geq 5$",
+                    ans: "$x \\leq -50$",
+                },
+                {
+                    diff: 8,
+                    q: "解不等式：$\\frac{3x+5}{4} > \\frac{5x-2}{6}$",
+                    ans: "$x < 19$",
+                },
+                {
+                    diff: 8,
+                    q: "解不等式：$|3x - 5| > 10$",
+                    ans: "$x > 5$ 或 $x < -\\frac{5}{3}$",
+                },
+                {
+                    diff: 9,
+                    q: "解不等式：$-(3y + 4) + 8y \\leq 21$",
+                    ans: "$y \\leq 5$",
+                },
+                {
+                    diff: 9,
+                    q: "解方程式：$|2x - 7| + 3 = 12$",
+                    ans: "$x = 8$ 或 $x = -1$",
+                },
+                {
+                    diff: 10,
+                    q: "解不等式：$0.6(x + 10) \\leq 0.9x - 3$",
+                    ans: "$x \\geq 30$",
+                },
+                {
+                    diff: 10,
+                    q: "解不等式：$4x - [3x - (2x + 5)] \\geq 15$",
+                    ans: "$x \\geq \\frac{20}{3}$",
+                },
+                // Advanced Section
+                {
+                    diff: 11,
+                    q: "若 $\\frac{5}{a+2}$ 的倒數等於 $2a - 1$，求 $a$。",
+                    ans: "$a = \\frac{7}{9}$",
+                },
+                {
+                    diff: 11,
+                    q: "解不等式：$\\frac{x-4}{3} - \\frac{2x+1}{6} \\leq 1$",
+                    ans: "任意實數",
+                },
+                {
+                    diff: 12,
+                    q: "若 $\\frac{1}{x-3}$ 的倒數等於 $\\frac{1}{2}x + 5$，求 $x$。",
+                    ans: "$x = 16$",
+                },
+                {
+                    diff: 12,
+                    q: "解不等式：$\\frac{2x-1}{5} < \\frac{x+4}{2}$",
+                    ans: "$x > -22$",
+                },
+                {
+                    diff: 13,
+                    q: "解不等式：$12 - 3(2b - 1) > 27$",
+                    ans: "$b < -2$",
+                },
+                {
+                    diff: 13,
+                    q: "解不等式：$\\frac{4}{9}(x - 18) \\leq \\frac{2}{3}x - 4$",
+                    ans: "$x \\geq -18$",
+                },
+                {
+                    diff: 14,
+                    q: "解不等式：$|15 - z| \\leq 7$",
+                    ans: "$8 \\leq z \\leq 22$",
+                },
+                {
+                    diff: 14,
+                    q: "解不等式：$\\frac{3x+1}{8} - \\frac{x-2}{4} \\geq \\frac{1}{2}$",
+                    ans: "$x \\geq -1$",
+                },
+                {
+                    diff: 15,
+                    q: "解不等式：$-2(x - 0.4) \\leq 0.8(x + 5)$",
+                    ans: "$x \\geq -\\frac{8}{7}$",
+                },
+                {
+                    diff: 15,
+                    q: "解不等式：$x - \\frac{2}{5}x - \\frac{1}{10}x < 15$",
+                    ans: "$x < 30$",
+                },
+                // Challenge Section
+                {
+                    diff: 20,
+                    q: "解不等式：$|3u - 1| + |u + 4| \\leq 15$",
+                    ans: "$-\\frac{9}{2} \\leq u \\leq 3$",
+                },
+                {
+                    diff: 21,
+                    q: "解不等式：$\\frac{x-3}{3} + \\frac{x-3}{6} + \\frac{x-3}{10} + \\frac{x-3}{15} \\leq 4$",
+                    ans: "$x \\leq 9$",
+                },
+                {
+                    diff: 22,
+                    q: "解方程式：$| |2w - 5| - 7 | = 2$",
+                    ans: "$w = 7, 5, 0, -2$",
+                },
+                {
+                    diff: 23,
+                    q: "若不等式 $ax + 10 \\leq 4x - 2$ 的解為 $x \\geq 6$，求 $a$ 之值。",
+                    ans: "$a = 2$",
+                },
+                {
+                    diff: 24,
+                    q: "解不等式：$|x + 2| \\leq 2x + 10$",
+                    ans: "$x \\geq -4$",
+                },
+                {
+                    diff: 25,
+                    q: "解不等式：$\\frac{1}{2}\\{v - \\frac{1}{3}[v - \\frac{1}{4}(v - 2)]\\} < 2$",
+                    ans: "$v < \\frac{50}{9}$",
+                },
+                {
+                    diff: 26,
+                    q: "解不等式：$|2x - 3| + |x + 1| \\leq 7$",
+                    ans: "$-\\frac{5}{3} \\leq x \\leq 3$",
+                },
+                {
+                    diff: 27,
+                    q: "解不等式：$\\frac{1}{4}|3x - 6| - \\frac{2}{3} \\geq \\frac{5}{6}$",
+                    ans: "$x \\geq 4$ 或 $x \\leq 0$",
+                },
+                {
+                    diff: 28,
+                    q: "解不等式：$|x - 3| + |x - 9| \\leq 8$ (如圖示，利用數線距離思考)",
+                    hasGraph: true,
+                    graphId: "graph-39",
+                    ans: "$2 \\leq x \\leq 10$",
+                },
+                {
+                    diff: 30,
+                    q: "解不等式：$2 < | \\frac{5x-3}{4} | \\leq 7$",
+                    ans: "$\\frac{11}{5} < x \\leq \\frac{31}{5}$ 或 $-5 \\leq x < -1$",
+                },
+                // 應用問題 (Word Problems) - 全改為不等式情境
+                {
+                    diff: 16,
+                    q: "父親今年 42 歲，兒子今年 12 歲。請問至少從幾年後開始，父親的年齡會小於兒子的 2 倍？（答案取整數）",
+                    ans: "19 年後",
+                },
+                {
+                    diff: 17,
+                    q: "小明帶了 500 元去文具店買筆，已知每枝原子筆 35 元，他先買了 1 塊 25 元的橡皮擦。請問他最多可以買幾枝原子筆？",
+                    ans: "13 枝",
+                },
+                {
+                    diff: 18,
+                    q: "甲、乙兩地相距 60 公里，小華與小明同時相向而行。小華時速 15 公里，小明時速 45 公里。請問至少要經過多少小時，兩人之間的距離會縮短至 12 公里以內？（假設尚未相遇）",
+                    ans: "大於 0.8 小時 (或 $\\frac{4}{5}$ 小時)",
+                },
+                {
+                    diff: 19,
+                    q: "有濃度 5% 的食鹽水 200 克，請問至少需要加入多少克純水，才能使食鹽水濃度降至 2% 以下（含 2%）？",
+                    ans: "300 克",
+                },
+                {
+                    diff: 22.5,
+                    q: "某商品按成本加四成作為定價，再打八折出售。若希望賣出後能賺至少 60 元，請問該商品的成本最少是多少元？",
+                    ans: "500 元",
+                },
+                {
+                    diff: 25.5,
+                    q: "一項工程，甲獨做需 10 天，乙獨做需 15 天。若規定工程必須在 7 天以內（含 7 天）完工，且甲從頭到尾全程參與，則乙最少需要加入工作幾天？（答案取整數）",
+                    ans: "5 天",
+                },
+                {
+                    diff: 29.5,
+                    q: "有三個連續偶數，其和不大於 90。請問這三個連續偶數中，最大的一個偶數最大可能是多少？",
+                    ans: "32",
+                },
+                {
+                    diff: 31,
+                    q: "遊樂園門票全票一張 200 元，半票一張 120 元。某旅行團共 30 人，已知買門票的總花費不超過 4880 元。請問該旅行團中半票至少有幾人？",
+                    ans: "14 人",
+                },
+                {
+                    diff: 33,
+                    q: "學校將一批蘋果分給學生。如果每人分 3 顆，會剩下 20 顆；如果每人分 4 顆，會有一個人分到蘋果但不足 4 顆。請問學生人數可能是多少人？",
+                    ans: "21、22 或 23 人",
+                },
+                {
+                    diff: 35,
+                    q: "電信公司推出兩種上網方案：甲方案月租費 300 元，可免費上網 5GB，超過部分每 GB 收費 50 元；乙方案月租費 500 元，上網吃到飽。請問每個月上網量必須大於多少 GB 時，選擇乙方案才會比甲方案划算？",
+                    ans: "9 GB",
+                },
+            ];
+
+            // Sort by difficulty
+            rawQuestions.sort((a, b) => a.diff - b.diff);
+
+            // Render questions
+            const container = document.getElementById("question-container");
+            rawQuestions.forEach((item, index) => {
+                const qDiv = document.createElement("div");
+                qDiv.className =
+                    "question-item flex flex-col border-b border-gray-100 pb-4";
+
+                let html = `
+                <div class="font-bold mb-2">${index + 1}. ${item.q}</div>
+                <div class="mt-auto pt-2 flex items-end">
+                    <span class="text-sm shrink-0">答：</span>
+                    <span class="answer-line min-w-[150px] inline-flex items-end justify-center px-2 text-red-600 font-bold pb-1">
+                        <span class="answer-text hidden">${item.ans}</span>
+                    </span>
+                </div>
+            `;
+
+                if (item.hasGraph) {
+                    html += `<div id="${item.graphId}" class="jxgbox w-full max-w-[300px] h-[150px]"></div>`;
+                }
+
+                qDiv.innerHTML = html;
+                container.appendChild(qDiv);
+            });
+
+            // Re-run MathJax after dynamically rendering answers
+            if (window.MathJax) {
+                MathJax.typesetPromise();
+            }
+
+            // Toggle Answers Logic
+            document
+                .getElementById("toggleAnswersBtn")
+                .addEventListener("click", () => {
+                    const answers = document.querySelectorAll(".answer-text");
+                    answers.forEach((el) => el.classList.toggle("hidden"));
+                });
+
+            // Initialize JSXGraph diagrams
+            window.onload = function () {
+                if (document.getElementById("graph-39")) {
+                    const board = JXG.JSXGraph.initBoard("graph-39", {
+                        boundingbox: [-2, 2, 14, -2],
+                        axis: true,
+                        showCopyright: false,
+                        defaultAxes: {
+                            x: { ticks: { drawLabels: false } },
+                            y: { visible: false },
+                        },
+                    });
+                    board.create("point", [3, 0], {
+                        name: "3",
+                        fixed: true,
+                        color: "black",
+                        label: { offset: [0, -15] },
+                    });
+                    board.create("point", [9, 0], {
+                        name: "9",
+                        fixed: true,
+                        color: "black",
+                        label: { offset: [0, -15] },
+                    });
+                    board.create(
+                        "segment",
+                        [
+                            [3, 0],
+                            [9, 0],
+                        ],
+                        { strokeColor: "gray", dash: 2 },
+                    );
+                }
+            };
+        </script>
+    </body>
+</html>
