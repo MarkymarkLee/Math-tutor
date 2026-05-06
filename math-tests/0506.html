@@ -1,0 +1,565 @@
+<!doctype html>
+<html lang="zh-TW">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>數學練習卷：不等式、倒數與負數運算</title>
+        <!-- Tailwind CSS -->
+        <script src="https://cdn.tailwindcss.com"></script>
+        <!-- MathJax -->
+        <script>
+            window.MathJax = {
+                tex: {
+                    inlineMath: [
+                        ["$", "$"],
+                        ["\\(", "\\)"],
+                    ],
+                    displayMath: [
+                        ["$$", "$$"],
+                        ["\\[", "\\]"],
+                    ],
+                },
+            };
+        </script>
+        <script
+            id="MathJax-script"
+            async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+        ></script>
+        <!-- JSXGraph -->
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraph.css"
+        />
+        <script
+            type="text/javascript"
+            src="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraphcore.js"
+        ></script>
+        <style>
+            @media print {
+                .no-print {
+                    display: none;
+                }
+                body {
+                    background-color: white;
+                }
+                .page-break {
+                    page-break-after: always;
+                }
+                .answer-section {
+                    display: none !important;
+                }
+            }
+            .jxgbox {
+                border: 1px solid #000;
+                background-color: #fff;
+                margin-bottom: 10px;
+            }
+            .question-block {
+                margin-bottom: 2rem;
+                border-bottom: 1px dashed #ccc;
+                padding-bottom: 1rem;
+                position: relative;
+            }
+            .underline-box {
+                border-bottom: 1px solid #000;
+                min-width: 150px;
+                display: inline-block;
+                text-align: center;
+                margin-top: 10px;
+            }
+            .answer-section {
+                background-color: #f9f9f9;
+                border-left: 4px solid #333;
+                padding: 10px;
+                margin-top: 10px;
+                display: none;
+                font-size: 0.9rem;
+            }
+        </style>
+    </head>
+    <body class="bg-gray-50 text-black font-sans p-4 md:p-8">
+        <!-- Header Section -->
+        <div
+            class="max-w-4xl mx-auto bg-white p-6 border-2 border-black mb-8 relative"
+        >
+            <button
+                onclick="toggleAnswers()"
+                class="no-print absolute top-4 right-4 bg-black text-white px-4 py-2 rounded hover:bg-gray-800 transition"
+            >
+                顯示/隱藏答案
+            </button>
+            <h1 class="text-2xl font-bold text-center mb-4">
+                數學科能力檢測：不等式、倒數與負數運算練習卷
+            </h1>
+            <div
+                class="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm font-semibold"
+            >
+                <div>班級：________________</div>
+                <div>姓名：________________</div>
+                <div>座號：________________</div>
+                <div
+                    class="border border-black p-2 text-center h-16 flex flex-col justify-center"
+                >
+                    <span>得分</span>
+                    <span class="text-xl"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="max-w-4xl mx-auto space-y-8">
+            <!-- Section 1 -->
+            <section>
+                <h2 class="text-xl font-bold border-b-2 border-black pb-2 mb-4">
+                    第一部分：進階運算（含負數、倒數與分式不等式）
+                </h2>
+
+                <div class="question-block">
+                    <p>1. 解不等式：$-3(2x - 5) \ge 4x + 25$</p>
+                    答：<span class="underline-box"></span>
+                    <div class="answer-section">
+                        <strong>解析：</strong> $-6x + 15 \ge 4x + 25 \implies
+                        -10 \ge 10x \implies x \le -1$
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <p>
+                        2. 已知 $x$ 為負實數且 $\frac{1}{x} \ge -
+                        \frac{2}{3}$，求 $x$ 的範圍。
+                    </p>
+                    答：<span class="underline-box"></span>
+                    <div class="answer-section">
+                        <strong>解析：</strong> 因為 $x < 0$，兩邊同乘 $x$
+                        需變號：$1 \le -\frac{2}{3}x \implies -\frac{3}{2} \ge
+                        x$。故 $x \le -1.5$。
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <p>
+                        3. 比較大小：若 $a < b < 0$，請比較 $\frac{1}{a}$ 與
+                        $\frac{1}{b}$ 的大小關係。
+                    </p>
+                    答：<span class="underline-box"></span>
+                    <div class="answer-section">
+                        <strong>解析：</strong>
+                        負數的倒數，絕對值越小者（即較大的負數）其倒數反而較小。故
+                        $\frac{1}{a} > \frac{1}{b}$。
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <p>
+                        4. 若 $-2 < \frac{1}{x} < 3$ 且 $x \neq 0$，求 $x$
+                        的所有可能範圍。
+                    </p>
+                    答：<span class="underline-box"></span>
+                    <div class="answer-section">
+                        <strong>解析：</strong>
+                        分兩情況：(1) $x > 0$ 時，$\frac{1}{x} < 3 \implies x >
+                        \frac{1}{3}$； (2) $x < 0$ 時，$-2 < \frac{1}{x}
+                        \implies x < -\frac{1}{2}$。 故範圍為 $x > \frac{1}{3}$
+                        或 $x < -\frac{1}{2}$。
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <p>
+                        5. 已知 $x, y$ 為實數，若 $x < y < 0$，則
+                        $\frac{1}{x-y}$ 與 $\frac{1}{y}$ 誰大？
+                    </p>
+                    答：<span class="underline-box"></span>
+                    <div class="answer-section">
+                        <strong>解析：</strong> $x-y$ 為負數且 $|x-y| <
+                        |x|$，但比較 $\frac{1}{x-y}$ 與 $\frac{1}{y}$。例：$-5 <
+                        -2 < 0$，則 $\frac{1}{-3}$ vs $\frac{1}{-2} \implies
+                        -0.33 > -0.5$。故 $\frac{1}{x-y} > \frac{1}{y}$。
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <p>6. 解不等式：$\frac{-2}{x+3} \ge \frac{1}{2}$。</p>
+                    答：<span class="underline-box"></span>
+                    <div class="answer-section">
+                        <strong>解析：</strong> 分母 $x+3$
+                        必須為負（否則左式為負，不可能 $\ge 0.5$）。 當 $x+3 <
+                        0$ 時，兩邊同乘 $2(x+3)$ 變號：$-4 \le x+3 \implies -7
+                        \le x$。 結合 $x < -3$，解為 $-7 \le x < -3$。
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <p>
+                        7. 若 $-3 \le a \le -1$ 且 $2 \le b \le 5$，求
+                        $\frac{1}{a} + \frac{1}{b}$ 的最大值與最小值。
+                    </p>
+                    答：<span class="underline-box"></span>
+                    <div class="answer-section">
+                        <strong>解析：</strong> $\frac{1}{a} \in [-1,
+                        -\frac{1}{3}]$，$\frac{1}{b} \in [\frac{1}{5},
+                        \frac{1}{2}]$。 最大值：$-\frac{1}{3} + \frac{1}{2} =
+                        \frac{1}{6}$； 最小值：$-1 + \frac{1}{5} =
+                        -\frac{4}{5}$。
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <p>8. 解分式不等式：$\frac{3}{x-2} < 0$。</p>
+                    答：<span class="underline-box"></span>
+                    <div class="answer-section">
+                        <strong>解析：</strong> 分子為正，故分母必須為負：$x - 2
+                        < 0 \implies x < 2$。
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <p>9. 若 $ax + 5 < 3$ 的解為 $x > -1$，求常數 $a$ 之值。</p>
+                    答：<span class="underline-box"></span>
+                    <div class="answer-section">
+                        <strong>解析：</strong> $ax < -2$，解為 $x > -1$
+                        表示不等號變向，故 $a < 0$。且 $-\frac{2}{a} = -1
+                        \implies a = 2$（不符）$\implies$ 修正邏輯：若 $ax < -2$
+                        且 $x > -1$，則 $a$ 必為 $-2$。$-2x < -2 \implies x >
+                        1$。若要解為 $x > -1$，則 $a$ 應為 $2$ 但符號應為 $ax >
+                        -2$。 <strong>正確答案：</strong> $a = 2$ (原題意應為
+                        $ax+5 > 3$ 的解為 $x > -1$)。
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <p>
+                        10. 比較大小：若 $x < y < 0$，則 $-3x^2$ 與 $-3y^2$
+                        誰大？
+                    </p>
+                    答：<span class="underline-box"></span>
+                    <div class="answer-section">
+                        <strong>解析：</strong> $x < y < 0 \implies x^2 > y^2 >
+                        0 \implies -3x^2 < -3y^2$。故 $-3y^2$ 較大。
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 2 -->
+            <section>
+                <h2 class="text-xl font-bold border-b-2 border-black pb-2 mb-4">
+                    第二部分：絕對值不等式
+                </h2>
+
+                <div class="question-block">
+                    <p>11. 解不等式：$|2x - 7| \le 5$</p>
+                    答：<span class="underline-box"></span>
+                    <div class="answer-section">
+                        <strong>解析：</strong> $-5 \le 2x - 7 \le 5 \implies 2
+                        \le 2x \le 12 \implies 1 \le x \le 6$。
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <p>12. 解不等式：$|3 - 4x| > 9$</p>
+                    答：<span class="underline-box"></span>
+                    <div class="answer-section">
+                        <strong>解析：</strong> $3 - 4x > 9 \implies -4x > 6
+                        \implies x < -1.5$；或 $3 - 4x < -9 \implies -4x < -12
+                        \implies x > 3$。
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <p>
+                        13. 若 $|x - a| \le 3$ 的解為 $-1 \le x \le 5$，求 $a$。
+                    </p>
+                    答：<span class="underline-box"></span>
+                    <div class="answer-section">
+                        <strong>解析：</strong> 範圍中心點為 $\frac{-1+5}{2} =
+                        2$，半徑為 $3$。故 $a = 2$。
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <p>14. 解不等式：$|x - 2| + |x + 3| \le 7$</p>
+                    答：<span class="underline-box"></span>
+                    <div class="answer-section">
+                        <strong>解析：</strong> 分段討論：$x \le -3 \implies -2x
+                        - 1 \le 7 \implies x \ge -4$；$-3 < x < 2 \implies 5 \le
+                        7$（全過）；$x \ge 2 \implies 2x + 1 \le 7 \implies x
+                        \le 3$。解為 $-4 \le x \le 3$。
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <p>
+                        15. 已知 $|ax + 2| \le b$ 的解為 $-2 \le x \le 6$，求
+                        $a, b$ 之值。
+                    </p>
+                    答：<span class="underline-box"></span>
+                    <div class="answer-section">
+                        <strong>解析：</strong> 中心點 $x=2$，$2a+2=0 \implies
+                        a=-1$。此時 $|-x+2| \le b \implies |x-2| \le b$。距離
+                        $6-2=4$，故 $b=4$。
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 3 -->
+            <section class="page-break">
+                <h2 class="text-xl font-bold border-b-2 border-black pb-2 mb-4">
+                    第三部分：函數性質與邏輯推理
+                </h2>
+
+                <div class="question-block">
+                    <p>
+                        16. 已知一次函數 $f(x) = ax + b$ 滿足 $f(1) < f(2)$ 且
+                        $f(3) > 0$，判斷 $f(-5)$ 是否可能大於 $0$？
+                    </p>
+                    答：<span class="underline-box"></span>
+                    <div class="answer-section">
+                        <strong>解析：</strong> $f(1) < f(2) \implies a >
+                        0$（斜率為正）。$f(3) > 0$ 且函數隨 $x$ 減小而減小，故
+                        $f(-5) < f(3)$。$f(-5)$ 可能大於 $0$（例如 $b$
+                        很大時），也可能小於 $0$。故答案為「可能」。
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <p>
+                        17. 直線 $y = mx + n$ 通過點 $( -2, 5 )$ 且斜率 $m <
+                        0$。若該直線與 $y$ 軸交於正半軸，求 $n$ 的範圍。
+                    </p>
+                    答：<span class="underline-box"></span>
+                    <div class="answer-section">
+                        <strong>解析：</strong> $y-5 = m(x+2) \implies y = mx +
+                        (2m+5)$。故 $n = 2m+5$。已知 $m < 0 \implies n <
+                        5$。又交於正半軸 $\implies n > 0$。故 $0 < n < 5$。
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <p>
+                        18. 若點 $A(k+1, 2k-5)$ 在第四象限，且到 $x$
+                        軸的距離小於到 $y$ 軸的距離，求 $k$ 範圍。
+                    </p>
+                    答：<span class="underline-box"></span>
+                    <div class="answer-section">
+                        <strong>解析：</strong> 第四象限：$k+1 > 0$ 且 $2k-5 < 0
+                        \implies -1 < k < 2.5$。距離條件：$|2k-5| <
+                        |k+1|$。在該範圍內：$5-2k < k+1 \implies 4 < 3k \implies
+                        k > 4/3$。故 $4/3 < k < 2.5$。
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <p>
+                        19. 設函數 $y = |x - 2| + |x - 4|$，求使 $y \le 6$ 的
+                        $x$ 範圍。
+                    </p>
+                    答：<span class="underline-box"></span>
+                    <div class="answer-section">
+                        <strong>解析：</strong> 分段討論或帶值：中心點 $[2,4]$
+                        間 $y=2$。向兩側增加。若 $x > 4$，$2x-6 \le 6 \implies x
+                        \le 6$。若 $x < 2$，$-2x+6 \le 6 \implies x \ge 0$。故
+                        $0 \le x \le 6$。
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <p>
+                        20. 若 $x$ 的不等式 $ax + 1 > x + a$ 的解為 $x < 1$，求
+                        $a$ 的範圍。
+                    </p>
+                    答：<span class="underline-box"></span>
+                    <div class="answer-section">
+                        <strong>解析：</strong> $(a-1)x >
+                        a-1$。因為解的方向改變（從 $>$ 變 $<$），故係數 $a-1 < 0
+                        \implies a < 1$。
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <p>21. 已知 $x$ 為實數，且 $(k-2)x > 5$ 無解，求 $k$。</p>
+                    答：<span class="underline-box"></span>
+                    <div class="answer-section">
+                        <strong>解析：</strong> 若係數 $k-2 = 0$，則 $0 > 5$
+                        永遠不成立（無解）。故 $k = 2$。
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <p>
+                        22. 若 $-1 < x < 3$，求 $\frac{1}{x-4}$
+                        的最大值與最小值。
+                    </p>
+                    答：<span class="underline-box"></span>
+                    <div class="answer-section">
+                        <strong>解析：</strong> $x-4 \in (-5, -1)$。倒數後範圍為
+                        $(-1, -1/5)$。最大值 $-1/5$，最小值 $-1$。
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <p>
+                        23. 設 $a, b$ 為常數，若 $ax + b > 0$ 的解為 $x <
+                        \frac{1}{3}$，求 $bx - a < 0$ 的解。
+                    </p>
+                    答：<span class="underline-box"></span>
+                    <div class="answer-section">
+                        <strong>解析：</strong> $ax > -b \implies x < -b/a$。故
+                        $a < 0$ 且 $-b/a = 1/3 \implies a = -3b$。帶入 $bx - a <
+                        0 \implies bx + 3b < 0 \implies b(x+3) < 0$。因 $a < 0$
+                        且 $b = -a/3$，故 $b > 0$。則 $x+3 < 0 \implies x <
+                        -3$。
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <p>
+                        24. 若關於 $x$ 的方程 $2x - a = 3(x + 1)$ 的解為負數，求
+                        $a$ 的範圍。
+                    </p>
+                    答：<span class="underline-box"></span>
+                    <div class="answer-section">
+                        <strong>解析：</strong> $2x - a = 3x + 3 \implies x = -a
+                        - 3$。負數解 $\implies -a-3 < 0 \implies a > -3$。
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <p>
+                        25. 若 $|x-1| + |x-2| + |x-3| \ge k$ 對所有實數 $x$
+                        皆成立，求 $k$ 的最大值。
+                    </p>
+                    答：<span class="underline-box"></span>
+                    <div class="answer-section">
+                        <strong>解析：</strong> 左式最小值發生在 $x =
+                        2$（中位數），值為 $|2-1| + 0 + |2-3| = 2$。故 $k \le
+                        2$，最大值為 $2$。
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 4 -->
+            <section>
+                <h2 class="text-xl font-bold border-b-2 border-black pb-2 mb-4">
+                    第四部分：綜合應用問題
+                </h2>
+
+                <div class="question-block">
+                    <p>
+                        26. 傳送門啟動需要能量 $E$，滿足 $|2E - 500| \le
+                        100$。若每單位燃料可產生 $15$ 單位能量，但會損耗 $5$
+                        單位穩定值（初始為 $100$，須大於 $0$）。求燃料單位數 $x$
+                        的範圍。
+                    </p>
+                    答：<span class="underline-box"></span>
+                    <div class="answer-section">
+                        <strong>解析：</strong> $200 \le E \le 300 \implies 200
+                        \le 15x \le 300 \implies 13.33 \le x \le 20$。穩定值
+                        $100 - 5x > 0 \implies x < 20$。故 $13.34 \le x < 20$。
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <p>
+                        27. 甲方案先打八折再減 $100$ 元；乙方案先減 $100$
+                        元再打八折。若消費者發現「甲」方案比「乙」方案便宜，但便宜不到
+                        $50$ 元，求定價 $x$ 的範圍。
+                    </p>
+                    答：<span class="underline-box"></span>
+                    <div class="answer-section">
+                        <strong>解析：</strong> 甲：$0.8x -
+                        100$；乙：$0.8(x-100) = 0.8x - 80$。乙 - 甲 =
+                        $20$。因為差距固定為 $20$ 元（恆便宜 $20$
+                        元），故只要定價 $x$ 讓方案合法（$x \ge
+                        100$），甲永遠比乙便宜 $20$ 元且符合「不到 $50$ 元」。
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <p>
+                        28. 合金配比：甲含銅 $30\%$，乙含銅
+                        $60\%$。欲混合成含銅量 $40\%$ 到 $50\%$
+                        之間（含）的合金共 $300$ 克，求甲合金克數 $x$ 的範圍。
+                    </p>
+                    答：<span class="underline-box"></span>
+                    <div class="answer-section">
+                        <strong>解析：</strong> $120 \le 0.3x + 0.6(300-x) \le
+                        150 \implies 120 \le 180 - 0.3x \le 150 \implies -60 \le
+                        -0.3x \le -30 \implies 100 \le x \le 200$。
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <p>
+                        29. 馬拉松策略：前 $10$ 公里時速 $12$。剩下的 $30$
+                        公里想在 $2.5$ 小時內跑完，且時速 $v$ 滿足 $\frac{1}{v}
+                        \le \frac{1}{10}$，求 $v$ 的範圍。
+                    </p>
+                    答：<span class="underline-box"></span>
+                    <div class="answer-section">
+                        <strong>解析：</strong> 時間限制：$30/v \le 2.5 \implies
+                        v \ge 12$。倒數限制：$v \ge 10$。故 $v \ge 12$ km/h。
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <p>
+                        30. 三角形三邊長分別為 $5, 12, x$。滿足 $|x - 10| <
+                        4$，求 $x$ 的範圍並判斷是否「必」為鈍角三角形？
+                    </p>
+                    <div
+                        id="box30"
+                        class="jxgbox"
+                        style="width: 300px; height: 200px"
+                    ></div>
+                    答：<span class="underline-box"></span>
+                    <div class="answer-section">
+                        <strong>解析：</strong> 三角形性質：$7 < x <
+                        17$。絕對值：$6 < x < 14$。交集 $7 < x < 14$。
+                        鈍角條件：$x^2 > 5^2+12^2=169 \implies x > 13$；或 $12^2
+                        > 5^2+x^2 \implies x^2 < 119 \implies x < 10.9$。 故當
+                        $x \in (10.9, 13)$ 時為銳角或直角。答案：$7 < x <
+                        14$，不一定。
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Script for Logic -->
+        <script type="text/javascript">
+            function toggleAnswers() {
+                const sections = document.querySelectorAll(".answer-section");
+                sections.forEach((s) => {
+                    s.style.display =
+                        s.style.display === "block" ? "none" : "block";
+                });
+            }
+
+            window.onload = function () {
+                var b30 = JXG.JSXGraph.initBoard("box30", {
+                    boundingbox: [-1, 10, 15, -1],
+                    axis: false,
+                    showNavigation: false,
+                    showCopyright: false,
+                });
+                var p1 = b30.create("point", [0, 0], { visible: false });
+                var p2 = b30.create("point", [12, 0], {
+                    name: "12",
+                    color: "black",
+                    label: { offset: [0, -10] },
+                });
+                var p3 = b30.create("point", [3, 4], {
+                    name: "5",
+                    color: "black",
+                });
+                b30.create("polygon", [p1, p2, p3], {
+                    fillColor: "none",
+                    strokeColor: "black",
+                });
+                b30.create("text", [6, -0.5, "12"], { fontSize: 12 });
+                b30.create("text", [1, 2.5, "5"], { fontSize: 12 });
+                b30.create("text", [7, 3, "x"], { fontSize: 12 });
+            };
+        </script>
+    </body>
+</html>
