@@ -1,0 +1,398 @@
+<!doctype html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>數學練習卷：乘法公式與多項式</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [["$", "$"], ["\\(", "\\)"]],
+                displayMath: [["$$", "$$"], ["\\[", "\\]"]],
+            },
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        @media print {
+            .no-print { display: none; }
+            body { background-color: white; }
+            .answer-section { display: none !important; }
+        }
+        .question-block {
+            margin-bottom: 2rem;
+            border-bottom: 1px dashed #ccc;
+            padding-bottom: 1rem;
+        }
+        .underline-box {
+            border-bottom: 1px solid #000;
+            min-width: 150px;
+            display: inline-block;
+            text-align: center;
+            margin-top: 10px;
+        }
+        .answer-section {
+            background-color: #f9f9f9;
+            border-left: 4px solid #333;
+            padding: 10px;
+            margin-top: 10px;
+            display: none;
+            font-size: 0.9rem;
+        }
+        .difficulty-medium {
+            background-color: #fef3c7;
+            color: #92400e;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: bold;
+        }
+        .difficulty-hard {
+            background-color: #fecaca;
+            color: #991b1b;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-black font-sans p-4 md:p-8">
+    <div class="max-w-4xl mx-auto bg-white p-6 border-2 border-black mb-8 relative">
+        <button onclick="toggleAnswers()" class="no-print absolute top-4 right-4 bg-black text-white px-4 py-2 rounded hover:bg-gray-800 transition">
+            顯示/隱藏答案
+        </button>
+        <h1 class="text-2xl font-bold text-center mb-4">
+            數學科能力檢測：第一章 乘法公式與多項式
+        </h1>
+        <p class="text-center text-sm text-gray-500 mb-4">範圍：1-1 乘法公式 ｜ 1-2 多項式 ｜ 1-3 多項式的四則運算</p>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm font-semibold">
+            <div>班級：________________</div>
+            <div>姓名：________________</div>
+            <div>座號：________________</div>
+            <div class="border border-black p-2 text-center h-16 flex flex-col justify-center">
+                <span>得分</span>
+                <span class="text-xl"></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="max-w-4xl mx-auto space-y-8">
+
+        <!-- 第一部分：乘法公式（中等） -->
+        <section>
+            <h2 class="text-xl font-bold border-b-2 border-black pb-2 mb-4">
+                第一部分：乘法公式 <span class="difficulty-medium">中等</span>
+            </h2>
+
+            <div class="question-block">
+                <p>1. 展開 $(x+3)(x+5)$。</p>
+                答：<span class="underline-box"></span>
+                <div class="answer-section">
+                    <strong>解析：</strong> 利用 $(a+b)(c+d)=ac+ad+bc+bd$：$x \cdot x + x \cdot 5 + 3 \cdot x + 3 \cdot 5 = x^2 + 5x + 3x + 15 = x^2 + 8x + 15$。<br>
+                    <strong>答案：</strong> $x^2 + 8x + 15$
+                </div>
+            </div>
+
+            <div class="question-block">
+                <p>2. 展開 $(2x-1)(3x+4)$。</p>
+                答：<span class="underline-box"></span>
+                <div class="answer-section">
+                    <strong>解析：</strong> $2x \cdot 3x + 2x \cdot 4 + (-1) \cdot 3x + (-1) \cdot 4 = 6x^2 + 8x - 3x - 4 = 6x^2 + 5x - 4$。<br>
+                    <strong>答案：</strong> $6x^2 + 5x - 4$
+                </div>
+            </div>
+
+            <div class="question-block">
+                <p>3. 利用和的平方公式展開 $(x+7)^2$。</p>
+                答：<span class="underline-box"></span>
+                <div class="answer-section">
+                    <strong>解析：</strong> $(a+b)^2 = a^2 + 2ab + b^2$，令 $a=x, b=7$：$x^2 + 2 \cdot x \cdot 7 + 49 = x^2 + 14x + 49$。<br>
+                    <strong>答案：</strong> $x^2 + 14x + 49$
+                </div>
+            </div>
+
+            <div class="question-block">
+                <p>4. 利用差的平方公式展開 $(3x-2)^2$。</p>
+                答：<span class="underline-box"></span>
+                <div class="answer-section">
+                    <strong>解析：</strong> $(a-b)^2 = a^2 - 2ab + b^2$，令 $a=3x, b=2$：$9x^2 - 12x + 4$。<br>
+                    <strong>答案：</strong> $9x^2 - 12x + 4$
+                </div>
+            </div>
+
+            <div class="question-block">
+                <p>5. 利用平方差公式計算 $(x+6)(x-6)$。</p>
+                答：<span class="underline-box"></span>
+                <div class="answer-section">
+                    <strong>解析：</strong> $(a+b)(a-b) = a^2 - b^2$：$x^2 - 36$。<br>
+                    <strong>答案：</strong> $x^2 - 36$
+                </div>
+            </div>
+
+            <div class="question-block">
+                <p>6. 利用乘法公式計算 $51 \times 49$。</p>
+                答：<span class="underline-box"></span>
+                <div class="answer-section">
+                    <strong>解析：</strong> $51 \times 49 = (50+1)(50-1) = 50^2 - 1^2 = 2500 - 1 = 2499$。<br>
+                    <strong>答案：</strong> $2499$
+                </div>
+            </div>
+
+            <div class="question-block">
+                <p>7. 利用乘法公式計算 $103^2$。</p>
+                答：<span class="underline-box"></span>
+                <div class="answer-section">
+                    <strong>解析：</strong> $103^2 = (100+3)^2 = 10000 + 600 + 9 = 10609$。<br>
+                    <strong>答案：</strong> $10609$
+                </div>
+            </div>
+
+            <div class="question-block">
+                <p>8. 展開 $(2a+3b)(2a-3b)$。</p>
+                答：<span class="underline-box"></span>
+                <div class="answer-section">
+                    <strong>解析：</strong> 平方差公式：$(2a)^2 - (3b)^2 = 4a^2 - 9b^2$。<br>
+                    <strong>答案：</strong> $4a^2 - 9b^2$
+                </div>
+            </div>
+        </section>
+
+        <!-- 第二部分：乘法公式（困難） -->
+        <section>
+            <h2 class="text-xl font-bold border-b-2 border-black pb-2 mb-4">
+                第二部分：乘法公式進階 <span class="difficulty-hard">困難</span>
+            </h2>
+
+            <div class="question-block">
+                <p>9. 若 $x + \dfrac{1}{x} = 5$，求 $x^2 + \dfrac{1}{x^2}$ 之值。</p>
+                答：<span class="underline-box"></span>
+                <div class="answer-section">
+                    <strong>解析：</strong> 將 $x + \frac{1}{x} = 5$ 兩邊平方：$x^2 + 2 + \frac{1}{x^2} = 25$，故 $x^2 + \frac{1}{x^2} = 23$。<br>
+                    <strong>答案：</strong> $23$
+                </div>
+            </div>
+
+            <div class="question-block">
+                <p>10. 若 $a - b = 3$ 且 $ab = 10$，求 $a^2 + b^2$ 之值。</p>
+                答：<span class="underline-box"></span>
+                <div class="answer-section">
+                    <strong>解析：</strong> $(a-b)^2 = a^2 - 2ab + b^2 = 9$，故 $a^2 + b^2 = 9 + 2ab = 9 + 20 = 29$。<br>
+                    <strong>答案：</strong> $29$
+                </div>
+            </div>
+
+            <div class="question-block">
+                <p>11. 展開 $(x+2y-3)^2$。</p>
+                答：<span class="underline-box"></span>
+                <div class="answer-section">
+                    <strong>解析：</strong> 令 $A = x+2y, B = 3$，$(A-B)^2 = A^2 - 2AB + B^2$：$(x+2y)^2 - 2 \cdot 3(x+2y) + 9 = x^2 + 4xy + 4y^2 - 6x - 12y + 9$。<br>
+                    <strong>答案：</strong> $x^2 + 4xy + 4y^2 - 6x - 12y + 9$
+                </div>
+            </div>
+
+            <div class="question-block">
+                <p>12. 計算 $997 \times 1003$。</p>
+                答：<span class="underline-box"></span>
+                <div class="answer-section">
+                    <strong>解析：</strong> $(1000-3)(1000+3) = 1000^2 - 9 = 999991$。<br>
+                    <strong>答案：</strong> $999991$
+                </div>
+            </div>
+
+            <div class="question-block">
+                <p>13. 若 $a + b = 7, a - b = 3$，求 $a^2 - b^2$ 及 $ab$ 之值。</p>
+                答：<span class="underline-box"></span>
+                <div class="answer-section">
+                    <strong>解析：</strong> $a^2 - b^2 = (a+b)(a-b) = 7 \times 3 = 21$。又 $a = 5, b = 2$，$ab = 10$。<br>
+                    <strong>答案：</strong> $a^2 - b^2 = 21$，$ab = 10$
+                </div>
+            </div>
+
+            <div class="question-block">
+                <p>14. 展開並化簡 $(x+1)(x-1)(x^2+1)$。</p>
+                答：<span class="underline-box"></span>
+                <div class="answer-section">
+                    <strong>解析：</strong> $(x+1)(x-1) = x^2 - 1$，再乘 $(x^2+1)$：$(x^2-1)(x^2+1) = x^4 - 1$。<br>
+                    <strong>答案：</strong> $x^4 - 1$
+                </div>
+            </div>
+        </section>
+
+        <!-- 第三部分：多項式基礎（中等） -->
+        <section>
+            <h2 class="text-xl font-bold border-b-2 border-black pb-2 mb-4">
+                第三部分：認識多項式 <span class="difficulty-medium">中等</span>
+            </h2>
+
+            <div class="question-block">
+                <p>15. 多項式 $3x^3 - 5x^2 + 2x - 7$ 是幾次多項式？最高次項係數為何？常數項為何？</p>
+                答：<span class="underline-box"></span>
+                <div class="answer-section">
+                    <strong>解析：</strong> 最高次為 $x^3$ 項，故為三次多項式。最高次項係數為 $3$，常數項為 $-7$。<br>
+                    <strong>答案：</strong> 三次多項式；最高次項係數 $3$；常數項 $-7$
+                </div>
+            </div>
+
+            <div class="question-block">
+                <p>16. 將 $4x - 2x^3 + 5 + x^2$ 以降冪排列寫出。</p>
+                答：<span class="underline-box"></span>
+                <div class="answer-section">
+                    <strong>解析：</strong> 按 $x$ 的次數由高到低排列。<br>
+                    <strong>答案：</strong> $-2x^3 + x^2 + 4x + 5$
+                </div>
+            </div>
+
+            <div class="question-block">
+                <p>17. 將 $7 - 3x^2 + x^4 + 2x$ 以升冪排列寫出。</p>
+                答：<span class="underline-box"></span>
+                <div class="answer-section">
+                    <strong>解析：</strong> 按 $x$ 的次數由低到高排列。<br>
+                    <strong>答案：</strong> $7 + 2x - 3x^2 + x^4$
+                </div>
+            </div>
+
+            <div class="question-block">
+                <p>18. 合併同類項：$5x^2 + 3x - 2x^2 + 7 - x + 4$。</p>
+                答：<span class="underline-box"></span>
+                <div class="answer-section">
+                    <strong>解析：</strong> $x^2$ 項：$5-2=3$；$x$ 項：$3-1=2$；常數：$7+4=11$。<br>
+                    <strong>答案：</strong> $3x^2 + 2x + 11$
+                </div>
+            </div>
+        </section>
+
+        <!-- 第四部分：多項式四則運算（中等） -->
+        <section>
+            <h2 class="text-xl font-bold border-b-2 border-black pb-2 mb-4">
+                第四部分：多項式的加減乘 <span class="difficulty-medium">中等</span>
+            </h2>
+
+            <div class="question-block">
+                <p>19. 計算 $(3x^2 + 2x - 5) + (x^2 - 4x + 3)$。</p>
+                答：<span class="underline-box"></span>
+                <div class="answer-section">
+                    <strong>解析：</strong> 同類項合併：$(3+1)x^2 + (2-4)x + (-5+3) = 4x^2 - 2x - 2$。<br>
+                    <strong>答案：</strong> $4x^2 - 2x - 2$
+                </div>
+            </div>
+
+            <div class="question-block">
+                <p>20. 計算 $(5x^2 - 3x + 1) - (2x^2 + x - 6)$。</p>
+                答：<span class="underline-box"></span>
+                <div class="answer-section">
+                    <strong>解析：</strong> $5x^2 - 3x + 1 - 2x^2 - x + 6 = 3x^2 - 4x + 7$。<br>
+                    <strong>答案：</strong> $3x^2 - 4x + 7$
+                </div>
+            </div>
+
+            <div class="question-block">
+                <p>21. 計算 $3x(2x^2 - x + 4)$。</p>
+                答：<span class="underline-box"></span>
+                <div class="answer-section">
+                    <strong>解析：</strong> $3x \cdot 2x^2 - 3x \cdot x + 3x \cdot 4 = 6x^3 - 3x^2 + 12x$。<br>
+                    <strong>答案：</strong> $6x^3 - 3x^2 + 12x$
+                </div>
+            </div>
+
+            <div class="question-block">
+                <p>22. 計算 $(x+2)(x^2 - 3x + 1)$。</p>
+                答：<span class="underline-box"></span>
+                <div class="answer-section">
+                    <strong>解析：</strong> $x(x^2-3x+1) + 2(x^2-3x+1) = x^3 - 3x^2 + x + 2x^2 - 6x + 2 = x^3 - x^2 - 5x + 2$。<br>
+                    <strong>答案：</strong> $x^3 - x^2 - 5x + 2$
+                </div>
+            </div>
+        </section>
+
+        <!-- 第五部分：多項式除法與綜合（困難） -->
+        <section>
+            <h2 class="text-xl font-bold border-b-2 border-black pb-2 mb-4">
+                第五部分：多項式除法與綜合應用 <span class="difficulty-hard">困難</span>
+            </h2>
+
+            <div class="question-block">
+                <p>23. 計算 $(6x^3 - 9x^2 + 12x) \div 3x$。</p>
+                答：<span class="underline-box"></span>
+                <div class="answer-section">
+                    <strong>解析：</strong> 每項除以 $3x$：$\frac{6x^3}{3x} - \frac{9x^2}{3x} + \frac{12x}{3x} = 2x^2 - 3x + 4$。<br>
+                    <strong>答案：</strong> $2x^2 - 3x + 4$
+                </div>
+            </div>
+
+            <div class="question-block">
+                <p>24. 計算 $(2x^2 + 5x - 3) \div (x + 3)$，求商式與餘式。</p>
+                答：<span class="underline-box"></span>
+                <div class="answer-section">
+                    <strong>解析：</strong> 長除法：$2x^2 \div x = 2x$，$2x(x+3)=2x^2+6x$，餘 $-x-3$。$-x \div x = -1$，$-1(x+3) = -x-3$，餘 $0$。<br>
+                    <strong>答案：</strong> 商式 $2x - 1$，餘式 $0$
+                </div>
+            </div>
+
+            <div class="question-block">
+                <p>25. 計算 $(x^3 - 8) \div (x - 2)$（注意缺項）。</p>
+                答：<span class="underline-box"></span>
+                <div class="answer-section">
+                    <strong>解析：</strong> 補缺項：$x^3 + 0x^2 + 0x - 8$。長除法得商 $x^2 + 2x + 4$，餘 $0$。<br>
+                    <strong>答案：</strong> 商式 $x^2 + 2x + 4$，餘式 $0$
+                </div>
+            </div>
+
+            <div class="question-block">
+                <p>26. 若多項式 $f(x)$ 除以 $(x-1)$ 的商式為 $(2x+3)$，餘式為 $5$，求 $f(x)$。</p>
+                答：<span class="underline-box"></span>
+                <div class="answer-section">
+                    <strong>解析：</strong> 被除式 = 除式 × 商式 + 餘式。$f(x) = (x-1)(2x+3) + 5 = 2x^2 + 3x - 2x - 3 + 5 = 2x^2 + x + 2$。<br>
+                    <strong>答案：</strong> $f(x) = 2x^2 + x + 2$
+                </div>
+            </div>
+
+            <div class="question-block">
+                <p>27. 化簡 $(x+3)^2 - (x-3)^2$。</p>
+                答：<span class="underline-box"></span>
+                <div class="answer-section">
+                    <strong>解析：</strong> 令 $A=x+3, B=x-3$，$A^2-B^2=(A+B)(A-B)=(2x)(6)=12x$。<br>
+                    <strong>答案：</strong> $12x$
+                </div>
+            </div>
+
+            <div class="question-block">
+                <p>28. 若 $(2x^2 + ax + b) \div (x - 2)$ 餘式為 $0$，且 $(2x^2 + ax + b) \div (x + 1)$ 餘式也為 $0$，求 $a, b$。</p>
+                答：<span class="underline-box"></span>
+                <div class="answer-section">
+                    <strong>解析：</strong> $f(2) = 8 + 2a + b = 0$，$f(-1) = 2 - a + b = 0$。由第二式 $b = a - 2$，代入第一式 $8 + 2a + a - 2 = 0 \implies 3a = -6 \implies a = -2, b = -4$。<br>
+                    <strong>答案：</strong> $a = -2, b = -4$
+                </div>
+            </div>
+
+            <div class="question-block">
+                <p>29. 一個長方形的面積為 $6x^2 + 7x - 20$ 平方公分，已知其中一邊長為 $(2x + 5)$ 公分，求另一邊長。</p>
+                答：<span class="underline-box"></span>
+                <div class="answer-section">
+                    <strong>解析：</strong> $(6x^2+7x-20) \div (2x+5)$。$6x^2 \div 2x = 3x$，$3x(2x+5)=6x^2+15x$，餘 $-8x-20$。$-8x \div 2x = -4$，$-4(2x+5) = -8x-20$，餘 $0$。<br>
+                    <strong>答案：</strong> 另一邊長為 $(3x - 4)$ 公分
+                </div>
+            </div>
+
+            <div class="question-block">
+                <p>30. 已知 $x - \dfrac{1}{x} = 3$，求 $x^2 + \dfrac{1}{x^2}$ 及 $x^4 + \dfrac{1}{x^4}$ 之值。</p>
+                答：<span class="underline-box"></span>
+                <div class="answer-section">
+                    <strong>解析：</strong> $(x - \frac{1}{x})^2 = x^2 - 2 + \frac{1}{x^2} = 9$，故 $x^2 + \frac{1}{x^2} = 11$。再平方：$(x^2 + \frac{1}{x^2})^2 = x^4 + 2 + \frac{1}{x^4} = 121$，故 $x^4 + \frac{1}{x^4} = 119$。<br>
+                    <strong>答案：</strong> $x^2 + \frac{1}{x^2} = 11$，$x^4 + \frac{1}{x^4} = 119$
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        function toggleAnswers() {
+            const sections = document.querySelectorAll(".answer-section");
+            sections.forEach((s) => {
+                s.style.display = s.style.display === "block" ? "none" : "block";
+            });
+        }
+    </script>
+</body>
+</html>
