@@ -1,0 +1,893 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>國中數學：乘法公式與多項式進階挑戰 30 題</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- MathJax 數學公式渲染 -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+            },
+            startup: {
+                pageReady: () => {
+                    return MathJax.startup.defaultPageReady().then(() => {
+                        console.log('MathJax initial typesetting complete');
+                    });
+                }
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        /* 平滑過渡動畫 */
+        .collapsible-content {
+            transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
+        }
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap');
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen pb-16">
+
+    <!-- 頂部導覽列 -->
+    <header class="bg-white border-b border-slate-200 sticky top-0 z-50 shadow-sm backdrop-blur-md bg-white/90">
+        <div class="max-w-5xl mx-auto px-4 py-4 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="flex items-center gap-3">
+                <div class="bg-indigo-600 text-white p-2 rounded-lg">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+                    </svg>
+                </div>
+                <div>
+                    <h1 class="font-bold text-lg md:text-xl text-slate-900">乘法公式與多項式四則運算</h1>
+                    <p class="text-xs text-slate-500">國中數學領域 • 30題特訓進階版</p>
+                </div>
+            </div>
+            
+            <div class="flex items-center gap-3 w-full md:w-auto">
+                <button id="toggle-all-btn" onclick="toggleAllAnswers()" class="flex-1 md:flex-initial bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2.5 rounded-lg text-sm font-medium transition-all shadow-sm hover:shadow flex items-center justify-center gap-2">
+                    <svg id="toggle-icon" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                    <span id="toggle-text">展開所有答案與解析</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- 學習控制台與進度 -->
+    <main class="max-w-5xl mx-auto px-4 mt-6">
+        <section class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm mb-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
+                <!-- 左側：篩選 -->
+                <div class="md:col-span-2 space-y-3">
+                    <h2 class="font-semibold text-slate-950 text-sm">主題篩選</h2>
+                    <div class="flex flex-wrap gap-2" id="filter-container">
+                        <button onclick="filterCategory('all')" class="category-filter active px-3 py-1.5 rounded-lg text-xs font-medium border transition-all bg-indigo-50 border-indigo-200 text-indigo-700" data-cat="all">全部 (30)</button>
+                        <button onclick="filterCategory('identity')" class="category-filter px-3 py-1.5 rounded-lg text-xs font-medium border transition-all bg-white border-slate-200 text-slate-600 hover:bg-slate-50" data-cat="identity">乘法公式與求值 (13)</button>
+                        <button onclick="filterCategory('arithmetic')" class="category-filter px-3 py-1.5 rounded-lg text-xs font-medium border transition-all bg-white border-slate-200 text-slate-600 hover:bg-slate-50" data-cat="arithmetic">多項式四則運算 (9)</button>
+                        <button onclick="filterCategory('remainder')" class="category-filter px-3 py-1.5 rounded-lg text-xs font-medium border transition-all bg-white border-slate-200 text-slate-600 hover:bg-slate-50" data-cat="remainder">除法原理與餘式 (8)</button>
+                    </div>
+                    <!-- 搜尋 -->
+                    <div class="relative mt-2">
+                        <input type="text" id="search-input" oninput="handleSearch()" placeholder="搜尋題目內容或關鍵字..." class="w-full pl-9 pr-4 py-2 border border-slate-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 bg-slate-50/50">
+                        <svg class="w-4 h-4 text-slate-400 absolute left-3 top-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                    </div>
+                </div>
+
+                <!-- 右側：進度 -->
+                <div class="bg-slate-50 rounded-xl p-4 border border-slate-200 flex flex-col justify-between h-full">
+                    <div class="flex justify-between items-center mb-2">
+                        <span class="text-xs font-medium text-slate-500">精熟度學習進度</span>
+                        <span class="text-xs font-bold text-indigo-600" id="progress-percent">0%</span>
+                    </div>
+                    <div class="w-full bg-slate-200 rounded-full h-2.5 mb-3 overflow-hidden">
+                        <div id="progress-bar" class="bg-indigo-600 h-2.5 rounded-full transition-all duration-500" style="width: 0%"></div>
+                    </div>
+                    <div class="grid grid-cols-3 gap-2 text-center">
+                        <div class="bg-white rounded-lg p-2 border border-slate-100">
+                            <span class="block text-xs text-slate-400">總題數</span>
+                            <span class="text-base font-bold text-slate-700" id="stat-total">30</span>
+                        </div>
+                        <div class="bg-white rounded-lg p-2 border border-slate-100">
+                            <span class="block text-xs text-slate-400">已答對</span>
+                            <span class="text-base font-bold text-emerald-600" id="stat-correct">0</span>
+                        </div>
+                        <div class="bg-white rounded-lg p-2 border border-slate-100">
+                            <span class="block text-xs text-slate-400">已掌握</span>
+                            <span class="text-base font-bold text-indigo-600" id="stat-mastered">0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 題目列表區 -->
+        <div id="questions-list" class="space-y-6">
+            <!-- 題目卡片由 JavaScript 動態生成 -->
+        </div>
+    </main>
+
+    <!-- JavaScript 邏輯與 30 題數據 -->
+    <script>
+        // 題目資料庫
+        const questionsData = [
+            {
+                id: 1,
+                category: "identity",
+                categoryName: "乘法公式與求值",
+                difficulty: "⭐⭐⭐",
+                question: "若 $x + \\frac{1}{x} = 5$，求 $x^4 + \\frac{1}{x^4}$ 的值。",
+                options: [
+                    "527",
+                    "623",
+                    "529",
+                    "23"
+                ],
+                correctIndex: 0,
+                hint: "連續使用兩次完全平方公式，注意每次展開後的常數交叉項。",
+                rationale: "首先，利用完全平方公式將等式 $x + \\frac{1}{x} = 5$ 兩邊平方：<br>$$\\left(x + \\frac{1}{x}\\right)^2 = 5^2 \\Rightarrow x^2 + 2 \\cdot x \\cdot \\frac{1}{x} + \\frac{1}{x^2} = 25$$<br>化簡得：$$x^2 + 2 + \\frac{1}{x^2} = 25 \\Rightarrow x^2 + \\frac{1}{x^2} = 23$$<br>接著，再對此式兩邊進行平方：<br>$$\\left(x^2 + \\frac{1}{x^2}\\right)^2 = 23^2 \\Rightarrow x^4 + 2 \\cdot x^2 \\cdot \\frac{1}{x^2} + \\frac{1}{x^4} = 529$$<br>化簡得：$$x^4 + 2 + \\frac{1}{x^4} = 529 \\Rightarrow x^4 + \\frac{1}{x^4} = 527$$"
+            },
+            {
+                id: 2,
+                category: "identity",
+                categoryName: "乘法公式與求值",
+                difficulty: "⭐⭐⭐⭐",
+                question: "計算 $(2+1)(2^2+1)(2^4+1)(2^8+1)(2^{16}+1) + 1$ 的值為何？",
+                options: [
+                    "$2^{32}$",
+                    "$2^{32} - 1$",
+                    "$2^{16}$",
+                    "$2^{64}$"
+                ],
+                correctIndex: 0,
+                hint: "嘗試在最前面創造一個隱藏的乘數 $(2-1)$，並連續利用平方差公式簡化。",
+                rationale: "由於 $2-1 = 1$，我們可以在算式最前面乘以 $(2-1)$ 卻不改變其值：<br>設原式為 $S = (2-1)(2+1)(2^2+1)(2^4+1)(2^8+1)(2^{16}+1) + 1$<br>利用平方差公式 $(a-b)(a+b) = a^2-b^2$ 依序合併：<br>1. $(2-1)(2+1) = 2^2-1$<br>2. $(2^2-1)(2^2+1) = 2^4-1$<br>3. $(2^4-1)(2^4+1) = 2^8-1$<br>4. $(2^8-1)(2^8+1) = 2^{16}-1$<br>5. $(2^{16}-1)(2^{16}+1) = 2^{32}-1$<br>最後，代回原式加上常數項 $1$：<br>$$S = (2^{32} - 1) + 1 = 2^{32}$$"
+            },
+            {
+                id: 3,
+                category: "remainder",
+                categoryName: "除法原理與餘式",
+                difficulty: "⭐⭐⭐",
+                question: "已知多項式 $A$ 除以 $2x-1$ 得到商式為 $4x+3$，餘式為 $5$。若改用 $A$ 除以 $x - \\frac{1}{2}$，則新商式與新餘式分別為何？",
+                options: [
+                    "商式為 $8x+6$，餘式為 $5$",
+                    "商式為 $4x+3$，餘式為 $5$",
+                    "商式為 $2x+\\frac{3}{2}$，餘式為 $5$",
+                    "商式為 $8x+6$，餘式為 $10$"
+                ],
+                correctIndex: 0,
+                hint: "寫出除法原理算式：$A = B \\cdot Q + R$，再調整除數與商的關係。",
+                rationale: "依據除法原理，原式可以表示為：<br>$$A = (2x-1)(4x+3) + 5$$<br>為了配合新的除數 $x - \\frac{1}{2}$，我們可以把原除式 $2x-1$ 提取公因數 2：<br>$$2x-1 = 2\\left(x - \\frac{1}{2}\\right)$$<br>代回原式中：<br>$$A = 2\\left(x - \\frac{1}{2}\\right)(4x+3) + 5$$<br>將常數 2 與商式結合：<br>$$A = \\left(x - \\frac{1}{2}\\right) \\cdot [2(4x+3)] + 5 = \\left(x - \\frac{1}{2}\\right)(8x+6) + 5$$<br>因此，新的商式為 $8x+6$，餘式依然為 $5$。"
+            },
+            {
+                id: 4,
+                category: "identity",
+                categoryName: "乘法公式與求值",
+                difficulty: "⭐⭐",
+                question: "計算 $123456^2 - 123455 \\times 123457$ 的值。",
+                options: [
+                    "1",
+                    "-1",
+                    "0",
+                    "123456"
+                ],
+                correctIndex: 0,
+                hint: "令 $123456 = x$，將其他兩數表示成與 $x$ 相關的代數式。",
+                rationale: "令 $x = 123456$，則：<br>$123455 = x - 1$<br>$123457 = x + 1$<br>原式可以代入寫成：<br>$$x^2 - (x-1)(x+1)$$<br>利用平方差公式展開：<br>$$x^2 - (x^2 - 1) = x^2 - x^2 + 1 = 1$$"
+            },
+            {
+                id: 5,
+                category: "arithmetic",
+                categoryName: "多項式四則運算",
+                difficulty: "⭐⭐⭐⭐",
+                question: "若多項式 $3x^3 - 4x^2 + ax + b$ 能被 $3x^2 - x + 2$ 整除，求 $a+b$ 的值。",
+                options: [
+                    "1",
+                    "5",
+                    "-1",
+                    "0"
+                ],
+                correctIndex: 0,
+                hint: "直接進行直式除法，因為是整除，除到最後餘式的 $x$ 項與常數項均須為 0。",
+                rationale: "利用直式除法計算 $(3x^3 - 4x^2 + ax + b) \\div (3x^2 - x + 2)$：<br>商式第一項為 $x$，乘回除式得到 $3x^3 - x^2 + 2x$<br>相減得到：$-3x^2 + (a-2)x + b$<br>商式第二項選用 $-1$，乘回除式得到 $-3x^2 + x - 2$<br>相減所得餘式為：$[(a-2)-1]x + (b - (-2)) = (a-3)x + (b+2)$<br>因為是「整除」，所以餘式必為零多項式：<br>$$a-3 = 0 \\Rightarrow a=3$$<br>$$b+2 = 0 \\Rightarrow b=-2$$<br>所以 $a+b = 3 + (-2) = 1$。"
+            },
+            {
+                id: 6,
+                category: "identity",
+                categoryName: "乘法公式與求值",
+                difficulty: "⭐⭐⭐",
+                question: "已知 $a-b=3$，$ab=2$，求 $a^3 - b^3$ 的值。（延伸公式：$a^3-b^3=(a-b)(a^2+ab+b^2)$）",
+                options: [
+                    "45",
+                    "27",
+                    "39",
+                    "54"
+                ],
+                correctIndex: 0,
+                hint: "先求出完全平方公式中的 $a^2+b^2$，再代入三次差展開式。",
+                rationale: "由完全平方差公式：<br>$$(a-b)^2 = a^2 - 2ab + b^2$$<br>代入已知數值：<br>$$3^2 = a^2 - 2(2) + b^2 \\Rightarrow 9 = a^2 - 4 + b^2 \\Rightarrow a^2+b^2 = 13$$<br>接著利用 $a^3-b^3$ 的公式：<br>$$a^3 - b^3 = (a-b)(a^2+ab+b^2)$$<br>$$a^3 - b^3 = 3 \\cdot (13 + 2) = 3 \\cdot 15 = 45$$"
+            },
+            {
+                id: 7,
+                category: "remainder",
+                categoryName: "除法原理與餘式",
+                difficulty: "⭐⭐⭐⭐",
+                question: "設 $f(x)$ 為一多項式，若 $(x-1)f(x) = 3x^3 - 5x^2 + ax + 1$，求 $a$ 的值。",
+                options: [
+                    "1",
+                    "-1",
+                    "2",
+                    "0"
+                ],
+                correctIndex: 0,
+                hint: "利用「代入消去法」，找一個合適的 $x$ 值代入使等式左側變為 0。",
+                rationale: "因為等式左邊含有因式 $(x-1)$，如果我們令 $x = 1$，那麼 $(1-1) \\cdot f(1) = 0 \\cdot f(1) = 0$。<br>所以，將 $x=1$ 代入整個等式的左右兩邊：<br>$$0 = 3(1)^3 - 5(1)^2 + a(1) + 1$$<br>$$0 = 3 - 5 + a + 1$$<br>$$0 = -1 + a \\Rightarrow a = 1$$"
+            },
+            {
+                id: 8,
+                category: "identity",
+                categoryName: "乘法公式與求值",
+                difficulty: "⭐⭐⭐",
+                question: "若 $x^2 - 3x + 1 = 0$，求 $x^2 + \\frac{1}{x^2}$ 的值。",
+                options: [
+                    "7",
+                    "9",
+                    "11",
+                    "5"
+                ],
+                correctIndex: 0,
+                hint: "方程式兩邊同除以 $x$，可找出倒數和 $x + \\frac{1}{x}$ 的基本值。",
+                rationale: "因為 $x=0$ 代入原式 $0-0+1 \\ne 0$，故 $x \\ne 0$。我們將 $x^2 - 3x + 1 = 0$ 的左右兩邊同時除以 $x$：<br>$$x - 3 + \\frac{1}{x} = 0 \\Rightarrow x + \\frac{1}{x} = 3$$<br>接著利用完全平方公式：<br>$$\\left(x + \\frac{1}{x}\\right)^2 = x^2 + 2 + \\frac{1}{x^2}$$<br>$$3^2 = x^2 + 2 + \\frac{1}{x^2} \\Rightarrow 9 = x^2 + 2 + \\frac{1}{x^2} \\Rightarrow x^2 + \\frac{1}{x^2} = 7$$"
+            },
+            {
+                id: 9,
+                category: "arithmetic",
+                categoryName: "多項式四則運算",
+                difficulty: "⭐⭐⭐⭐⭐",
+                question: "展開多項式 $(x-1)(x-2)(x+3)(x+4)$ 後，其 $x^2$ 項的係數為何？",
+                options: [
+                    "-7",
+                    "4",
+                    "-11",
+                    "-14"
+                ],
+                correctIndex: 0,
+                hint: "重新分組：將常數和相同的括號兩兩搭配展開，再使用變數變換法簡化計算。",
+                rationale: "觀察四個一次因式的常數項：$-1, -2, 3, 4$。<br>我們可以將其兩兩配對，使每組一次項係數相同：<br>選擇 $(-1) + 3 = 2$ 與 $(-2) + 4 = 2$。因此重新分組：<br>$$[(x-1)(x+3)] \\cdot [(x-2)(x+4)]$$<br>展開各別括號：<br>$$[x^2 + 2x - 3] \\cdot [x^2 + 2x - 8]$$<br>令 $y = x^2 + 2x$，原式化為：<br>$$(y - 3)(y - 8) = y^2 - 11y + 24$$<br>將 $y = x^2 + 2x$ 代回：<br>$$(x^2 + 2x)^2 - 11(x^2 + 2x) + 24$$<br>展開並整理：<br>$$(x^4 + 4x^3 + 4x^2) - (11x^2 + 22x) + 24$$<br>$$= x^4 + 4x^3 - 7x^2 - 22x + 24$$<br>由此可知，$x^2$ 的係數為 $-7$。"
+            },
+            {
+                id: 10,
+                category: "arithmetic",
+                categoryName: "多項式四則運算",
+                difficulty: "⭐⭐⭐",
+                question: "若 $(3x^2 - 2x + 2)(x^2 + ax - 4)$ 展開後沒有 $x^2$ 項，求 $a$ 的值。",
+                options: [
+                    "-5",
+                    "5",
+                    "-6",
+                    "-11"
+                ],
+                correctIndex: 0,
+                hint: "不用完整展開，只需鎖定相乘能產生 $x^2$ 項的所有搭配並加總。",
+                rationale: "要產生展開式中的 $x^2$ 項，其乘法搭配只能有以下三種：<br>1. 左邊的 $x^2$ 項 $\\times$ 右邊的常數項 $\\Rightarrow (3x^2) \\times (-4) = -12x^2$<br>2. 左邊的 $x$ 項 $\\times$ 右邊的 $x$ 項 $\\Rightarrow (-2x) \\times (ax) = -2ax^2$<br>3. 左邊的常數項 $\\times$ 右邊的 $x^2$ 項 $\\Rightarrow (2) \\times (x^2) = 2x^2$<br>將這些項合併得到：<br>$$(-12 - 2a + 2)x^2 = (-10 - 2a)x^2$$<br>題目表示「展開後沒有 $x^2$ 項」，代表其係數為 0：<br>$$-10 - 2a = 0 \\Rightarrow 2a = -10 \\Rightarrow a = -5$$"
+            },
+            {
+                id: 11,
+                category: "identity",
+                categoryName: "乘法公式與求值",
+                difficulty: "⭐⭐⭐",
+                question: "求多項式 $(x^3 - 2x^2 + 5x - 7)^2$ 展開式中「所有項的係數總和」（包含常數項）。",
+                options: [
+                    "9",
+                    "-3",
+                    "49",
+                    "1"
+                ],
+                correctIndex: 0,
+                hint: "任何多項式 $P(x)$ 的所有係數和，皆可以直接代入 $x = 1$ 求出值。",
+                rationale: "設 $P(x) = (x^3 - 2x^2 + 5x - 7)^2$。<br>展開後各項的係數和，其值等同於將 $x=1$ 代入 $P(x)$：<br>$$P(1) = (1^3 - 2(1)^2 + 5(1) - 7)^2$$<br>$$P(1) = (1 - 2 + 5 - 7)^2$$<br>$$P(1) = (-3)^2 = 9$$<br>所以展開式中所有項的係數和為 9。"
+            },
+            {
+                id: 12,
+                category: "identity",
+                categoryName: "乘法公式與求值",
+                difficulty: "⭐⭐⭐⭐",
+                question: "將多項式 $x^4 + 4$ 進行因式變形，它可以表示成下列哪一個式子？",
+                options: [
+                    "$(x^2 + 2x + 2)(x^2 - 2x + 2)$",
+                    "$(x^2+2)^2$",
+                    "$(x^2-2)^2$",
+                    "$(x^2+2x-2)(x^2-2x-2)$"
+                ],
+                correctIndex: 0,
+                hint: "嘗試「強迫配方」：加上 $4x^2$ 來湊完全平方式，再扣掉 $4x^2$ 利用平方差公式因式分解。",
+                rationale: "利用配方法，強迫加上 $4x^2$ 使其成為完全平方式，隨後再減去 $4x^2$ 以保持等式平衡：<br>$$x^4 + 4 = (x^4 + 4x^2 + 4) - 4x^2$$<br>寫成完全平方與平方項：<br>$$x^4 + 4 = (x^2 + 2)^2 - (2x)^2$$<br>利用平方差公式 $A^2 - B^2 = (A+B)(A-B)$：<br>$$x^4 + 4 = [(x^2 + 2) + 2x][(x^2 + 2) - 2x]$$<br>整理順序得：<br>$$(x^2 + 2x + 2)(x^2 - 2x + 2)$$"
+            },
+            {
+                id: 13,
+                category: "remainder",
+                categoryName: "除法原理與餘式",
+                difficulty: "⭐⭐",
+                question: "若 $\\frac{x^3-3x+a}{x+2}$ 的商式為 $x^2-2x+1$，且餘式為 $0$，求 $a$ 的值。",
+                options: [
+                    "2",
+                    "-2",
+                    "1",
+                    "0"
+                ],
+                correctIndex: 0,
+                hint: "利用「被除式 $=$ 除式 $\\times$ 商式」，將右邊展開即可對照常數項。",
+                rationale: "因為餘式為 $0$，所以：<br>$$x^3 - 3x + a = (x+2)(x^2-2x+1)$$<br>我們可以直接展開右側的乘積：<br>$$(x+2)(x^2-2x+1) = x(x^2-2x+1) + 2(x^2-2x+1)$$<br>$$= (x^3 - 2x^2 + x) + (2x^2 - 4x + 2)$$<br>$$= x^3 - 3x + 2$$<br>對照左右兩式，可清楚得到 $a = 2$。"
+            },
+            {
+                id: 14,
+                category: "identity",
+                categoryName: "乘法公式與求值",
+                difficulty: "⭐⭐⭐",
+                question: "已知 $a+b+c = 6$，$a^2+b^2+c^2 = 14$，求 $ab+bc+ca$ 的值。",
+                options: [
+                    "11",
+                    "22",
+                    "25",
+                    "16"
+                ],
+                correctIndex: 0,
+                hint: "套用三項和完全平方公式：$(a+b+c)^2 = a^2+b^2+c^2 + 2(ab+bc+ca)$。",
+                rationale: "利用公式：<br>$$(a+b+c)^2 = a^2+b^2+c^2 + 2(ab+bc+ca)$$<br>代入已知數值：<br>$$6^2 = 14 + 2(ab+bc+ca)$$<br>$$36 = 14 + 2(ab+bc+ca)$$<br>$$22 = 2(ab+bc+ca) \\Rightarrow ab+bc+ca = 11$$"
+            },
+            {
+                id: 15,
+                category: "arithmetic",
+                categoryName: "多項式四則運算",
+                difficulty: "⭐⭐",
+                question: "若多項式 $4x^2 - 12x + k$ 是一個完全平方式，則 $k$ 的值為何？",
+                options: [
+                    "9",
+                    "3",
+                    "-9",
+                    "36"
+                ],
+                correctIndex: 0,
+                hint: "對照完全平方展開式 $(2x-d)^2$ 的各項係數。",
+                rationale: "因為首項 $4x^2$ 可寫為 $(2x)^2$，完全平方展開式應為：<br>$$(2x - d)^2 = (2x)^2 - 2(2x)(d) + d^2 = 4x^2 - 4dx + d^2$$<br>對照一次項係數：<br>$$-12x = -4dx \\Rightarrow 4d = 12 \\Rightarrow d = 3$$<br>再對照常數項 $k$：<br>$$k = d^2 = 3^2 = 9$$"
+            },
+            {
+                id: 16,
+                category: "identity",
+                categoryName: "乘法公式與求值",
+                difficulty: "⭐⭐⭐⭐⭐",
+                question: "計算 $\\frac{2026^3 - 1}{2026^2 + 2027}$ 的簡化數值。",
+                options: [
+                    "2025",
+                    "2026",
+                    "1",
+                    "2027"
+                ],
+                correctIndex: 0,
+                hint: "設 $2026 = x$，並注意分母的 $2027$ 可表示成 $x+1$，藉此尋求約分可能。",
+                rationale: "設 $2026 = x$，原式分子與分母可分別代數化：<br>分子：$x^3 - 1 = (x-1)(x^2 + x + 1)$<br>分母：$2026^2 + 2027 = x^2 + (x+1) = x^2 + x + 1$<br>將代數式帶回原分式：<br>$$\\frac{(x-1)(x^2+x+1)}{x^2+x+1}$$<br>上下約去共同因式 $(x^2+x+1)$，得到：<br>$$x - 1$$<br>代回 $x = 2026$ 得：$$2026 - 1 = 2025$$"
+            },
+            {
+                id: 17,
+                category: "arithmetic",
+                categoryName: "多項式四則運算",
+                difficulty: "⭐⭐⭐",
+                question: "若多項式 $A$ 乘以 $x+3$ 之後，再加上 $2x-1$，其結果為 $3x^2 + 9x - 7$，求多項式 $A$。",
+                options: [
+                    "$3x - 2$",
+                    "$3x + 2$",
+                    "$3x - 1$",
+                    "$3x - 4$"
+                ],
+                correctIndex: 0,
+                hint: "進行反向還原運算：先將結果減去加上的部分，再除以相乘的部分即可。",
+                rationale: "依據題意可以寫成關係式：<br>$$A \\cdot (x+3) + (2x-1) = 3x^2 + 9x - 7$$<br>首先將 $(2x-1)$ 移項減去：<br>$$A \\cdot (x+3) = (3x^2 + 9x - 7) - (2x-1)$$<br>$$A \\cdot (x+3) = 3x^2 + 7x - 6$$<br>接著將所得式子除以 $(x+3)$ 即可求得 $A$：<br>$$A = (3x^2 + 7x - 6) \\div (x+3)$$<br>利用直式除法或因式分解：<br>$$3x^2 + 7x - 6 = (x+3)(3x-2)$$<br>故商式即為多項式 $A = 3x-2$。"
+            },
+            {
+                id: 18,
+                category: "identity",
+                categoryName: "乘法公式與求值",
+                difficulty: "⭐⭐⭐",
+                question: "若 $x = \\sqrt{5} + 2$，求 $x^2 - 4x + 1$ 的值。",
+                options: [
+                    "2",
+                    "6",
+                    "0",
+                    "4"
+                ],
+                correctIndex: 0,
+                hint: "直接代入容易計算繁複，可嘗試先移項並平方，創造二次多項式關係式。",
+                rationale: "已知 $x = \\sqrt{5} + 2$，我們將整數項 2 移到左邊：<br>$$x - 2 = \\sqrt{5}$$<br>將等式兩邊同時平方，以消去根號：<br>$$(x-2)^2 = (\\sqrt{5})^2$$<br>$$x^2 - 4x + 4 = 5$$<br>一端保留 $x^2 - 4x$，得：<br>$$x^2 - 4x = 1$$<br>題目要求的式子為 $x^2 - 4x + 1$，直接代入上式結果：<br>$$(x^2 - 4x) + 1 = 1 + 1 = 2$$"
+            },
+            {
+                id: 19,
+                category: "arithmetic",
+                categoryName: "多項式四則運算",
+                difficulty: "⭐⭐",
+                question: "若兩個多項式 $3x^2 + ax - 2$ 與 $bx^2 - 5x + c$ 相加後為「零多項式」，求 $a+b+c$ 的值。",
+                options: [
+                    "4",
+                    "0",
+                    "-6",
+                    "10"
+                ],
+                correctIndex: 0,
+                hint: "「零多項式」代表所有次數項的係數皆為 0。表示相加的兩個多項式對應項係數互為相反數。",
+                rationale: "兩個多項式相加：<br>$$(3x^2 + ax - 2) + (bx^2 - 5x + c) = (3+b)x^2 + (a-5)x + (c-2)$$<br>因為相加後的結果為「零多項式」，代表每一項的係數都必須是 0：<br>1. 二次項係數：$3+b = 0 \\Rightarrow b = -3$<br>2. 一次項係數：$a-5 = 0 \\Rightarrow a = 5$<br>3. 常數項：$c-2 = 0 \\Rightarrow c = 2$<br>因此，$a+b+c = 5 + (-3) + 2 = 4$。"
+            },
+            {
+                id: 20,
+                category: "identity",
+                categoryName: "乘法公式與求值",
+                difficulty: "⭐⭐⭐⭐⭐",
+                question: "已知 $(x^2-x+1)^3 = a_6x^6 + a_5x^5 + a_4x^4 + a_3x^3 + a_2x^2 + a_1x + a_0$，求 $a_6 + a_4 + a_2 + a_0$（偶次項係數和）的值。",
+                options: [
+                    "14",
+                    "1",
+                    "27",
+                    "13"
+                ],
+                correctIndex: 0,
+                hint: "分別求出 $P(1)$（所有係數和）與 $P(-1)$（奇偶相交錯和），兩者相加除以 2 即可得到偶次項和。",
+                rationale: "設 $P(x) = (x^2-x+1)^3 = a_6x^6 + a_5x^5 + a_4x^4 + a_3x^3 + a_2x^2 + a_1x + a_0$。<br>1. 代入 $x=1$ 得：<br>$$P(1) = (1^2-1+1)^3 = 1^3 = 1$$<br>$$1 = a_6 + a_5 + a_4 + a_3 + a_2 + a_1 + a_0 \\quad \\text{--- (式一)}$$<br>2. 代入 $x=-1$ 得：<br>$$P(-1) = ((-1)^2 - (-1) + 1)^3 = (1+1+1)^3 = 3^3 = 27$$<br>$$27 = a_6 - a_5 + a_4 - a_3 + a_2 - a_1 + a_0 \\quad \\text{--- (式二)}$$<br>將兩式相加，奇數次項會被消去，剩下兩倍的偶次項：<br>$$\\text{式一} + \\text{式二} \\Rightarrow 1 + 27 = 2(a_6 + a_4 + a_2 + a_0)$$<br>$$28 = 2(a_6 + a_4 + a_2 + a_0) \\Rightarrow a_6 + a_4 + a_2 + a_0 = 14$$"
+            },
+            {
+                id: 21,
+                category: "remainder",
+                categoryName: "除法原理與餘式",
+                difficulty: "⭐⭐⭐",
+                question: "若多項式 $2x^3 - 3x^2 + kx - 5$ 除以 $x-2$ 的餘式為 $3$，求 $k$ 的值。",
+                options: [
+                    "2",
+                    "-2",
+                    "4",
+                    "0"
+                ],
+                correctIndex: 0,
+                hint: "根據「餘式定理」，令除式為 0 的 $x=2$ 代入被除式，所得的值即為餘式。",
+                rationale: "設被除式 $f(x) = 2x^3 - 3x^2 + kx - 5$。<br>根據餘式定理，當除式為 $x-2$ 時，餘式等於 $f(2)$：<br>$$f(2) = 2(2)^3 - 3(2)^2 + k(2) - 5 = 3$$<br>展開並計算：<br>$$2(8) - 3(4) + 2k - 5 = 3$$<br>$$16 - 12 + 2k - 5 = 3$$<br>$$2k - 1 = 3 \\Rightarrow 2k = 4 \\Rightarrow k = 2$$"
+            },
+            {
+                id: 22,
+                category: "identity",
+                categoryName: "乘法公式與求值",
+                difficulty: "⭐⭐⭐⭐",
+                question: "計算 $(a-b+c)(a+b-c)$ 的展開式為何？",
+                options: [
+                    "$a^2 - b^2 + 2bc - c^2$",
+                    "$a^2 - b^2 - c^2$",
+                    "$a^2 + b^2 - 2bc + c^2$",
+                    "$a^2 - b^2 - 2bc - c^2$"
+                ],
+                correctIndex: 0,
+                hint: "利用結合律為兩組括號重新分組，使其外觀符合 $(X-Y)(X+Y)$ 的平方差公式型式。",
+                rationale: "我們可以將算式中的後兩項重新分組，提取負號：<br>第一組：$a - b + c = a - (b - c)$<br>第二組：$a + b - c = a + (b - c)$<br>此時原式可改寫為：<br>$$[a - (b - c)][a + (b - c)]$$<br>這正符合平方差公式 $(X-Y)(X+Y) = X^2 - Y^2$，此處 $X = a, Y = b-c$：<br>$$= a^2 - (b-c)^2$$<br>展開完全平方部分：<br>$$= a^2 - (b^2 - 2bc + c^2)$$<br>去括號分配負號得：<br>$$= a^2 - b^2 + 2bc - c^2$$"
+            },
+            {
+                id: 23,
+                category: "arithmetic",
+                categoryName: "多項式四則運算",
+                difficulty: "⭐",
+                question: "若多項式 $A$ 是一個三次多項式，$B$ 是一個二次多項式，則多項式 $A \\times B$ 的次數為何？",
+                options: [
+                    "五次",
+                    "六次",
+                    "三次",
+                    "無法確定"
+                ],
+                correctIndex: 0,
+                hint: "多項式相乘時，最高次項是由原本兩個多項式的最高次項相乘所得，思考其指數變化律。",
+                rationale: "設 $A$ 的最高次項為 $p \\cdot x^3$，$B$ 的最高次項為 $q \\cdot x^2$（其中 $p, q \\ne 0$）。<br>當 $A \\times B$ 相乘時，展開式中最高次数的一項必為：<br>$$(p \\cdot x^3) \\cdot (q \\cdot x^2) = (p \\cdot q) \\cdot x^{3+2} = (pq) \\cdot x^5$$<br>因此乘積多項式的最高次數為 $5$ 次（五次多項式）。"
+            },
+            {
+                id: 24,
+                category: "arithmetic",
+                categoryName: "多項式四則運算",
+                difficulty: "⭐⭐",
+                question: "已知多項式 $x^2 - ax + b$ 可恆等於 $(x-3)^2 + 2$，求 $a+b$ 的值。",
+                options: [
+                    "17",
+                    "5",
+                    "15",
+                    "14"
+                ],
+                correctIndex: 0,
+                hint: "將右邊的式子利用完全平方展開後，與左側同次項係數進行比對。",
+                rationale: "我們將等式右側展開：<br>$$(x-3)^2 + 2 = (x^2 - 6x + 9) + 2 = x^2 - 6x + 11$$<br>現在將其與左側的 $x^2 - ax + b$ 進行係數比對：<br>1. 一次項係數：$-a = -6 \\Rightarrow a = 6$<br>2. 常數項：$b = 11$<br>故求 $a+b = 6 + 11 = 17$。"
+            },
+            {
+                id: 25,
+                category: "arithmetic",
+                categoryName: "多項式四則運算",
+                difficulty: "⭐⭐⭐",
+                question: "計算 $(3x-2)^2 - (2x-3)^2$ 的簡化結果為何？",
+                options: [
+                    "$5x^2 - 5$",
+                    "$5x^2 - 13$",
+                    "$5x^2 - 12x + 5$",
+                    "$x^2 - 5$"
+                ],
+                correctIndex: 0,
+                hint: "可以選擇直接展開兩項完全平方再相減，亦可套用平方差公式 $A^2 - B^2 = (A-B)(A+B)$ 化簡。",
+                rationale: "【方法一：平方差公式】<br>設 $A = (3x-2), B = (2x-3)$：<br>$$(3x-2)^2 - (2x-3)^2 = [(3x-2) - (2x-3)] \\cdot [(3x-2) + (2x-3)]$$<br>$$= [3x - 2 - 2x + 3] \\cdot [3x - 2 + 2x - 3]$$<br>$$= [x + 1] \\cdot [5x - 5]$$<br>$$= 5(x+1)(x-1) = 5(x^2 - 1) = 5x^2 - 5$$<br>【方法二：直接展開】<br>$$(9x^2 - 12x + 4) - (4x^2 - 12x + 9) = 9x^2 - 12x + 4 - 4x^2 + 12x - 9$$<br>$$= 5x^2 - 5$$"
+            },
+            {
+                id: 26,
+                category: "arithmetic",
+                categoryName: "多項式四則運算",
+                difficulty: "⭐⭐",
+                question: "若多項式 $6x^2 + 7x - 5$ 可以因式分解為 $(2x-1)(3x+k)$，求 $k$ 的值。",
+                options: [
+                    "5",
+                    "-5",
+                    "1",
+                    "2"
+                ],
+                correctIndex: 0,
+                hint: "直接比較兩側的常數項，或展開右側後對照一次項與常數項係數。",
+                rationale: "因為兩側多項式恆等：<br>$$6x^2 + 7x - 5 = (2x-1)(3x+k)$$<br>比較兩式的常數項：<br>左側常數項為 $-5$；右側展開後的常數項為 $(-1) \\times k = -k$。<br>因此：$$-k = -5 \\Rightarrow k = 5$$<br>（代回檢驗一次項：$2x \\cdot 5 + (-1) \\cdot 3x = 10x - 3x = 7x$，完全符合）。"
+            },
+            {
+                id: 27,
+                category: "remainder",
+                categoryName: "除法原理與餘式",
+                difficulty: "⭐⭐⭐⭐",
+                question: "若 $A$ 為多項式，且滿足關係式 $\\frac{x^2-4}{A} = 1 - \\frac{4}{x+2}$，則多項式 $A$ 為何？",
+                options: [
+                    "$x^2 + 4x + 4$",
+                    "$x - 2$",
+                    "$x + 2$",
+                    "$x^2 - 4$"
+                ],
+                correctIndex: 0,
+                hint: "先把等號右邊的算式進行分數通分，再將左側分子進行因式分解進行兩邊比對。",
+                rationale: "首先通分並化簡右側的算式：<br>$$1 - \\frac{4}{x+2} = \\frac{x+2}{x+2} - \\frac{4}{x+2} = \\frac{x+2-4}{x+2} = \\frac{x-2}{x+2}$$<br>此時原等式變為：<br>$$\\frac{x^2-4}{A} = \\frac{x-2}{x+2}$$<br>將左側分子 $x^2-4$ 利用平方差公式展開為 $(x-2)(x+2)$：<br>$$\\frac{(x-2)(x+2)}{A} = \\frac{x-2}{x+2}$$<br>等式兩邊同時除以 $(x-2)$：<br>$$\\frac{x+2}{A} = \\frac{1}{x+2}$$<br>交叉相乘得：$$A = (x+2)^2 = x^2 + 4x + 4$$"
+            },
+            {
+                id: 28,
+                category: "arithmetic",
+                categoryName: "多項式四則運算",
+                difficulty: "⭐⭐",
+                question: "已知 $3x^2 - 5x + 2$ 減去某多項式 $C$ 的差為 $x^2 - 2x + 3$，求多項式 $C$ 。",
+                options: [
+                    "$2x^2 - 3x - 1$",
+                    "$2x^2 - 7x + 5$",
+                    "$4x^2 - 7x + 5$",
+                    "$2x^2 - 3x + 5$"
+                ],
+                correctIndex: 0,
+                hint: "「被減式 $-$ 減式 $=$ 差」，因此「減式 $C$ $=$ 被減式 $-$ 差」，小心去括號時的變號問題。",
+                rationale: "依題意寫出式子：<br>$$(3x^2 - 5x + 2) - C = x^2 - 2x + 3$$<br>移項可得：<br>$$C = (3x^2 - 5x + 2) - (x^2 - 2x + 3)$$<br>去括號時，減號要分配到後方括號的每一項：<br>$$C = 3x^2 - 5x + 2 - x^2 + 2x - 3$$<br>合併同類項：<br>$$C = (3-1)x^2 + (-5+2)x + (2-3) = 2x^2 - 3x - 1$$"
+            },
+            {
+                id: 29,
+                category: "identity",
+                categoryName: "乘法公式與求值",
+                difficulty: "⭐⭐⭐",
+                question: "計算 $(x+1)(x-1)(x^2+1)(x^4+1)$ 的最終展開式為何？",
+                options: [
+                    "$x^8 - 1$",
+                    "$x^8 + 1$",
+                    "$x^4 - 1$",
+                    "$x^{16} - 1$"
+                ],
+                correctIndex: 0,
+                hint: "由左至右兩兩結合，連續、遞迴地使用平方差公式 $(A-B)(A+B) = A^2-B^2$。",
+                rationale: "這題是平方差公式的典型連續應用：<br>1. 先合併前兩項：<br>$$(x+1)(x-1) = x^2 - 1$$<br>2. 將結果與第三項結合：<br>$$(x^2 - 1)(x^2 + 1) = (x^2)^2 - 1 = x^4 - 1$$<br>3. 將結果與最後一項結合：<br>$$(x^4 - 1)(x^4 + 1) = (x^4)^2 - 1 = x^8 - 1$$<br>故最簡展開式為 $x^8 - 1$。"
+            },
+            {
+                id: 30,
+                category: "remainder",
+                categoryName: "除法原理與餘式",
+                difficulty: "⭐⭐⭐⭐",
+                question: "若多項式 $2x^2 - ax + 6$ 除以 $2x-3$ 能被整除，求 $a$ 的值。",
+                options: [
+                    "7",
+                    "-7",
+                    "5",
+                    "4"
+                ],
+                correctIndex: 0,
+                hint: "因為整除，所以可以設商式為 $(x - c)$，或者使用因式定理令 $x = 1.5$ 代入被除式等於 0。",
+                rationale: "【方法一：因式/餘式定理】<br>由於除式為 $2x-3$，整除意味著當 $2x-3 = 0 \\Rightarrow x = \\frac{3}{2}$ 代入時，值為 0：<br>$$2\\left(\\frac{3}{2}\\right)^2 - a\\left(\\frac{3}{2}\\right) + 6 = 0$$<br>$$2\\left(\\frac{9}{4}\\right) - \\frac{3}{2}a + 6 = 0$$<br>$$\\frac{9}{2} + 6 = \\frac{3}{2}a \\Rightarrow \\frac{21}{2} = \\frac{3}{2}a \\Rightarrow 3a = 21 \\Rightarrow a = 7$$<br>【方法二：商式還原】<br>因為被除式為 $2x^2 - ax + 6$，除式為 $2x-3$，商式必為一次式：<br>首項：$2x \\cdot (x) = 2x^2$<br>常數項：$-3 \\cdot (-2) = 6$<br>所以商式必為 $(x-2)$。展開除式與商式乘積：<br>$$(2x-3)(x-2) = 2x^2 - 4x - 3x + 6 = 2x^2 - 7x + 6$$<br>比對一次項：$-a = -7 \\Rightarrow a = 7$$"
+            }
+        ];
+
+        // 全域狀態管理
+        let currentFilter = 'all';
+        let searchQuery = '';
+        let allExpanded = false;
+        
+        // 記錄每題的使用者答題狀態
+        // 格式: { qId: { selectedOptionIndex: null, isMastered: false } }
+        const userState = {};
+        questionsData.forEach(q => {
+            userState[q.id] = {
+                selectedIndex: null,
+                isMastered: false
+            };
+        });
+
+        // 初始化渲染
+        window.addEventListener('DOMContentLoaded', () => {
+            renderQuestions();
+            updateStats();
+        });
+
+        // 核心渲染函數
+        function renderQuestions() {
+            const container = document.getElementById('questions-list');
+            container.innerHTML = '';
+
+            // 篩選資料
+            const filteredData = questionsData.filter(q => {
+                // 類別過濾
+                if (currentFilter !== 'all' && q.category !== currentFilter) return false;
+                // 搜尋過濾
+                if (searchQuery) {
+                    const normalizedQuery = searchQuery.toLowerCase();
+                    const inQuestion = q.question.toLowerCase().includes(normalizedQuery);
+                    const inRationale = q.rationale.toLowerCase().includes(normalizedQuery);
+                    const inCategory = q.categoryName.toLowerCase().includes(normalizedQuery);
+                    if (!inQuestion && !inRationale && !inCategory) return false;
+                }
+                return true;
+            });
+
+            if (filteredData.length === 0) {
+                container.innerHTML = `
+                    <div class="text-center py-12 bg-white rounded-2xl border border-slate-200 shadow-sm">
+                        <svg class="w-12 h-12 text-slate-300 mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        <p class="text-slate-500 text-sm">沒有找到符合條件的題目，請換個搜尋詞試試看！</p>
+                    </div>
+                `;
+                return;
+            }
+
+            filteredData.forEach((q, index) => {
+                const state = userState[q.id];
+                const card = document.createElement('div');
+                card.className = "bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden transition-all duration-200 hover:shadow-md";
+                card.id = `q-card-${q.id}`;
+
+                // 判斷選項狀態 class
+                const optionsHtml = q.options.map((opt, optIdx) => {
+                    let btnClass = "border-slate-200 hover:bg-slate-50 text-slate-700 bg-white";
+                    let iconHtml = '';
+
+                    if (state.selectedIndex !== null) {
+                        if (optIdx === q.correctIndex) {
+                            // 正確解答
+                            btnClass = "border-emerald-500 bg-emerald-50 text-emerald-800 font-medium";
+                            iconHtml = `<svg class="w-4 h-4 text-emerald-600 shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>`;
+                        } else if (state.selectedIndex === optIdx) {
+                            // 答錯解答
+                            btnClass = "border-rose-500 bg-rose-50 text-rose-800";
+                            iconHtml = `<svg class="w-4 h-4 text-rose-600 shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"></path></svg>`;
+                        } else {
+                            btnClass = "border-slate-100 text-slate-400 bg-slate-50/50 cursor-not-allowed";
+                        }
+                    }
+
+                    const prefix = String.fromCharCode(65 + optIdx); // A, B, C, D
+                    return `
+                        <button onclick="selectOption(${q.id}, ${optIdx})" ${state.selectedIndex !== null ? 'disabled' : ''} class="w-full border p-3.5 rounded-xl text-left text-sm flex items-center justify-between gap-3 transition-all ${btnClass}">
+                            <div class="flex items-center gap-3">
+                                <span class="w-6 h-6 rounded-lg bg-slate-100 flex items-center justify-center font-bold text-xs text-slate-500 shrink-0 select-none">${prefix}</span>
+                                <span>${opt}</span>
+                            </div>
+                            ${iconHtml}
+                        </button>
+                    `;
+                }).join('');
+
+                // 展開控制
+                const isExplanationVisible = allExpanded || state.showExplanation;
+                const isHintVisible = state.showHint;
+
+                card.innerHTML = `
+                    <!-- 頂部卡片標籤 -->
+                    <div class="px-6 py-4 bg-slate-50 border-b border-slate-100 flex flex-wrap justify-between items-center gap-2">
+                        <div class="flex items-center gap-2.5">
+                            <span class="bg-indigo-50 text-indigo-700 px-2.5 py-1 rounded-md text-xs font-bold border border-indigo-100">第 ${q.id} 題</span>
+                            <span class="text-xs text-slate-400">•</span>
+                            <span class="text-xs text-slate-500 font-medium">${q.categoryName}</span>
+                            <span class="text-xs text-slate-400">•</span>
+                            <span class="text-xs" title="難度評級">難度：<span class="text-amber-500">${q.difficulty}</span></span>
+                        </div>
+                        
+                        <!-- 標記已掌握按鈕 -->
+                        <button onclick="toggleMastered(${q.id})" class="flex items-center gap-1.5 px-3 py-1 rounded-lg border text-xs font-medium transition-all ${state.isMastered ? 'bg-emerald-50 border-emerald-200 text-emerald-700' : 'bg-white border-slate-200 text-slate-500 hover:bg-slate-50'}">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>${state.isMastered ? '已標記精熟' : '標記為精熟'}</span>
+                        </button>
+                    </div>
+
+                    <!-- 題目內容 -->
+                    <div class="p-6 space-y-6">
+                        <div class="text-base font-medium leading-relaxed text-slate-900 select-all">
+                            ${q.question}
+                        </div>
+
+                        <!-- 選項清單 -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                            ${optionsHtml}
+                        </div>
+
+                        <!-- 操作按鈕 -->
+                        <div class="flex flex-wrap gap-2 pt-2 border-t border-slate-100 justify-between items-center">
+                            <div class="flex gap-2">
+                                <button onclick="toggleHint(${q.id})" class="px-3.5 py-1.5 rounded-lg border border-slate-200 text-xs font-medium text-slate-600 hover:bg-slate-50 transition-all flex items-center gap-1.5">
+                                    <svg class="w-3.5 h-3.5 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 01-2 2h0a2 2 0 01-2-2v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
+                                    <span>${isHintVisible ? '隱藏提示' : '顯看提示'}</span>
+                                </button>
+                                <button onclick="toggleSingleExplanation(${q.id})" class="px-3.5 py-1.5 rounded-lg border border-slate-200 text-xs font-medium text-slate-600 hover:bg-slate-50 transition-all flex items-center gap-1.5">
+                                    <svg class="w-3.5 h-3.5 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                                    <span>${isExplanationVisible ? '隱藏解答' : '觀看解答'}</span>
+                                </button>
+                            </div>
+                            
+                            ${state.selectedIndex !== null ? `
+                                <div class="text-xs font-semibold ${state.selectedIndex === q.correctIndex ? 'text-emerald-600' : 'text-rose-600'}">
+                                    ${state.selectedIndex === q.correctIndex ? '✓ 回答正確' : '✗ 回答錯誤'}
+                                </div>
+                            ` : ''}
+                        </div>
+
+                        <!-- 提示區區塊 -->
+                        <div id="hint-box-${q.id}" class="${isHintVisible ? 'block' : 'hidden'} bg-amber-50/50 border border-amber-100 rounded-xl p-4 text-xs text-amber-900 leading-relaxed">
+                            <span class="font-bold text-amber-800 block mb-1">💡 解題提示：</span>
+                            ${q.hint}
+                        </div>
+
+                        <!-- 解析與答案區塊 -->
+                        <div id="exp-box-${q.id}" class="${isExplanationVisible ? 'block' : 'hidden'} bg-indigo-50/40 border border-indigo-100/60 rounded-xl p-5 text-sm text-slate-800 leading-relaxed">
+                            <div class="flex items-center gap-2 mb-3 pb-2 border-b border-indigo-100/40">
+                                <span class="bg-indigo-600 text-white text-xs px-2 py-0.5 rounded font-bold">正確答案：${String.fromCharCode(65 + q.correctIndex)}</span>
+                                <span class="text-xs text-indigo-700 font-bold">(${q.options[q.correctIndex]})</span>
+                            </div>
+                            <div class="space-y-2 select-all">
+                                <span class="font-bold text-slate-900 block text-xs">📝 詳細解析：</span>
+                                <div>${q.rationale}</div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+
+                container.appendChild(card);
+            });
+
+            // 重新觸發 MathJax 排版新加入的數學式
+            if (window.MathJax && window.MathJax.typesetPromise) {
+                window.MathJax.typesetPromise();
+            }
+        }
+
+        // 選擇選項互動
+        function selectOption(qId, optIdx) {
+            if (userState[qId].selectedIndex !== null) return; // 已回答過
+            userState[qId].selectedIndex = optIdx;
+            userState[qId].showExplanation = true; // 答完自動展開該題解析
+            
+            // 如果回答正確，自動將精熟狀態也開啟
+            const correctOptIdx = questionsData.find(q => q.id === qId).correctIndex;
+            if (optIdx === correctOptIdx) {
+                userState[qId].isMastered = true;
+            }
+
+            renderQuestions();
+            updateStats();
+        }
+
+        // 切換單題提示
+        function toggleHint(qId) {
+            userState[qId].showHint = !userState[qId].showHint;
+            renderQuestions();
+        }
+
+        // 切換單題解答
+        function toggleSingleExplanation(qId) {
+            // 如果正在「全局展開」狀態下，個別按鈕控制個別狀態
+            if (allExpanded) {
+                userState[qId].showExplanation = false; 
+            } else {
+                userState[qId].showExplanation = !userState[qId].showExplanation;
+            }
+            renderQuestions();
+        }
+
+        // 全局切換所有答案
+        function toggleAllAnswers() {
+            allExpanded = !allExpanded;
+            
+            // 同步所有個體狀態
+            questionsData.forEach(q => {
+                userState[q.id].showExplanation = allExpanded;
+            });
+
+            const btn = document.getElementById('toggle-all-btn');
+            const text = document.getElementById('toggle-text');
+            const icon = document.getElementById('toggle-icon');
+
+            if (allExpanded) {
+                text.textContent = '隱藏所有答案與解析';
+                btn.className = "flex-1 md:flex-initial bg-slate-700 hover:bg-slate-800 text-white px-4 py-2.5 rounded-lg text-sm font-medium transition-all shadow-sm flex items-center justify-center gap-2";
+                icon.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.882 9.882L9.9 9.9M13.882 13.882l-.1-.1m-1.957-1.959L4.95 4.95M19.05 19.05l-4.95-4.95m0 0L19.05 4.95"></path>`;
+            } else {
+                text.textContent = '展開所有答案與解析';
+                btn.className = "flex-1 md:flex-initial bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2.5 rounded-lg text-sm font-medium transition-all shadow-sm hover:shadow flex items-center justify-center gap-2";
+                icon.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>`;
+            }
+
+            renderQuestions();
+        }
+
+        // 標記精熟度狀態
+        function toggleMastered(qId) {
+            userState[qId].isMastered = !userState[qId].isMastered;
+            renderQuestions();
+            updateStats();
+        }
+
+        // 分類過濾
+        function filterCategory(cat) {
+            currentFilter = cat;
+            
+            // 更新按鈕樣式
+            document.querySelectorAll('.category-filter').forEach(btn => {
+                if (btn.getAttribute('data-cat') === cat) {
+                    btn.className = "category-filter active px-3 py-1.5 rounded-lg text-xs font-medium border transition-all bg-indigo-50 border-indigo-200 text-indigo-700";
+                } else {
+                    btn.className = "category-filter px-3 py-1.5 rounded-lg text-xs font-medium border transition-all bg-white border-slate-200 text-slate-600 hover:bg-slate-50";
+                }
+            });
+
+            renderQuestions();
+        }
+
+        // 搜尋處理
+        function handleSearch() {
+            searchQuery = document.getElementById('search-input').value;
+            renderQuestions();
+        }
+
+        // 更新數據看板
+        function updateStats() {
+            let correctCount = 0;
+            let masteredCount = 0;
+
+            questionsData.forEach(q => {
+                const state = userState[q.id];
+                if (state.selectedIndex === q.correctIndex) {
+                    correctCount++;
+                }
+                if (state.isMastered) {
+                    masteredCount++;
+                }
+            });
+
+            // 計算精熟進度百分比 (精熟掌握度比單純答對更具指標性)
+            const percent = Math.round((masteredCount / questionsData.length) * 100);
+
+            // 更新 DOM
+            document.getElementById('stat-correct').textContent = correctCount;
+            document.getElementById('stat-mastered').textContent = masteredCount;
+            document.getElementById('progress-percent').textContent = `${percent}%`;
+            document.getElementById('progress-bar').style.width = `${percent}%`;
+        }
+    </script>
+</body>
+</html>
