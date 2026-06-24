@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <title>均一教育平台-國中數學資優核心素養全方位特訓挑戰卷（精選修訂版）</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 15mm 12mm;
+            @bottom-right {
+                content: "第 " counter(page) " 頁，共 " counter(pages) " 頁";
+                font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+                font-size: 8pt;
+                color: #64748b;
+            }
+            @bottom-left {
+                content: "機密資料-高階觀念綜合挑戰卷";
+                font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+                font-size: 8pt;
+                color: #cbd5e1;
+                font-weight: bold;
+            }
+        }
+        
+        body {
+            font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+            color: #1e293b;
+            line-height: 1.5;
+            margin: 0;
+            padding: 0;
+            font-size: 10pt;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        .header-container {
+            border: 2px solid #1e293b;
+            padding: 12px;
+            margin-bottom: 15px;
+            background-color: #f8fafc;
+        }
+
+        .exam-title {
+            text-align: center;
+            font-size: 16pt;
+            font-weight: bold;
+            margin: 0 0 5px 0;
+            letter-spacing: 2px;
+            color: #0f172a;
+        }
+
+        .exam-subtitle {
+            text-align: center;
+            font-size: 10pt;
+            color: #475569;
+            margin: 0 0 10px 0;
+            font-weight: 500;
+        }
+
+        .info-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .info-table td {
+            border: none;
+            padding: 2px;
+            font-size: 9.5pt;
+        }
+
+        .underline-space {
+            border-bottom: 1px solid #1e293b;
+            display: inline-block;
+            width: 80px;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 11pt;
+            font-weight: bold;
+            background-color: #1e293b;
+            color: #ffffff;
+            padding: 5px 10px;
+            margin-top: 15px;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        .question-block {
+            margin-bottom: 12px;
+            page-break-inside: avoid;
+        }
+
+        .question-text {
+            font-weight: bold;
+            margin-bottom: 6px;
+            text-align: justify;
+        }
+
+        .options-container {
+            margin-left: 15px;
+            margin-bottom: 8px;
+        }
+
+        .option-item {
+            margin-bottom: 2px;
+        }
+
+        .math-expr {
+            font-family: "Times New Roman", Times, serif;
+            font-style: italic;
+            font-weight: bold;
+            color: #0f172a;
+        }
+
+        .data-table {
+            width: 75%;
+            margin: 10px auto;
+            border-collapse: collapse;
+            text-align: center;
+            page-break-inside: avoid;
+        }
+
+        .data-table th {
+            background-color: #f1f5f9;
+            font-weight: bold;
+            border: 1px solid #94a3b8;
+            padding: 4px;
+            font-size: 9pt;
+        }
+
+        .data-table td {
+            border: 1px solid #94a3b8;
+            padding: 4px;
+            font-size: 9pt;
+        }
+
+        .page-break {
+            page-break-before: always;
+        }
+
+        .solution-title {
+            color: #b91c1c;
+            font-weight: bold;
+            margin-top: 4px;
+            font-size: 9pt;
+        }
+
+        .solution-text {
+            color: #475569;
+            font-size: 9pt;
+            text-align: justify;
+            margin-bottom: 10px;
+            border-left: 2px solid #cbd5e1;
+            padding-left: 6px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header-container">
+        <div class="exam-title">均一教育平台 國中數學核心單元</div>
+        <div class="exam-subtitle">全方位思維特訓挑戰卷（精選修訂與高階綜合挑戰版）</div>
+        <table class="info-table">
+            <tr>
+                <td style="width: 25%;">班級：<span class="underline-space"></span></td>
+                <td style="width: 25%;">座號：<span class="underline-space"></span></td>
+                <td style="width: 25%;">姓名：<span class="underline-space"></span></td>
+                <td style="width: 25%; text-align: right; font-weight: bold; color: #b91c1c;">得分：________________</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="section-title">第一部份：單一選擇題（共 12 題）</div>
+
+    <div class="question-block">
+        <div class="question-text">1. 關於多項式的嚴謹定義，判斷下列代數式中，共有幾個「不是」多項式？<br/>
+        甲：<span class="math-expr">|x - 2| + 5</span> &nbsp;&nbsp;&nbsp;&nbsp; 乙：<span class="math-expr">1 / (x<sup>2</sup>+1)</span> &nbsp;&nbsp;&nbsp;&nbsp; 丙：<span class="math-expr">&radic;2 x + &radic;3</span> &nbsp;&nbsp;&nbsp;&nbsp; 丁：<span class="math-expr">3<sup>x</sup></span></div>
+        <div class="options-container">
+            <div class="option-item">(A) 1 個 &nbsp;&nbsp;&nbsp;&nbsp; (B) 2 個 &nbsp;&nbsp;&nbsp;&nbsp; (C) 3 個 &nbsp;&nbsp;&nbsp;&nbsp; (D) 4 個</div>
+        </div>
+    </div>
+
+    <div class="question-block">
+        <div class="question-text">2. 已知常數多項式 <span class="math-expr">f(x) = (k<sup>2</sup> - 9)x<sup>2</sup> + (k - 3)x + (k + 3)</span> 被定義為「零次多項式」，則參數 <span class="math-expr">k</span> 之值應為何？</div>
+        <div class="options-container">
+            <div class="option-item">(A) <span class="math-expr">k = 3</span> &nbsp;&nbsp;&nbsp;&nbsp; (B) <span class="math-expr">k = -3</span> &nbsp;&nbsp;&nbsp;&nbsp; (C) <span class="math-expr">k = &plusmn;3</span> &nbsp;&nbsp;&nbsp;&nbsp; (D) 條件矛盾，不存在此 <span class="math-expr">k</span></div>
+        </div>
+    </div>
+
+    <div class="question-block">
+        <div class="question-text">3. 計算 <span class="math-expr">(2+1)(2<sup>2</sup>+1)(2<sup>4</sup>+1)(2<sup>8</sup>+1)</span> 展開後的最終精簡結果為何？</div>
+        <div class="options-container">
+            <div class="option-item">(A) <span class="math-expr">2<sup>16</sup> - 1</span> &nbsp;&nbsp;&nbsp;&nbsp; (B) <span class="math-expr">2<sup>16</sup> + 1</span> &nbsp;&nbsp;&nbsp;&nbsp; (C) <span class="math-expr">2<sup>32</sup> - 1</span> &nbsp;&nbsp;&nbsp;&nbsp; (D) <span class="math-expr">(2<sup>16</sup> - 1) / 3</span></div>
+        </div>
+    </div>
+
+    <div class="question-block">
+        <div class="question-text">4. 若邊長為 <span class="math-expr">(a+b)</span> 的正方形，可分割成一個面積為 <span class="math-expr">a<sup>2</sup></span> 的正方形、一個面積為 <span class="math-expr">b<sup>2</sup></span> 的正方形，以及兩個長寬各為 <span class="math-expr">a, b</span> 的長方形。這在代數上完美對應下列哪一個公式？</div>
+        <div class="options-container">
+            <div class="option-item">(A) 分配律 &nbsp;&nbsp;&nbsp;&nbsp; (B) 和的平方公式 &nbsp;&nbsp;&nbsp;&nbsp; (C) 差的平方公式 &nbsp;&nbsp;&nbsp;&nbsp; (D) 平方差公式</div>
+        </div>
+    </div>
+
+    <div class="question-block">
+        <div class="question-text">5. 下列哪一個選項在展開後，會出現「無中間項」的情況？</div>
+        <div class="options-container">
+            <div class="option-item">(A) <span class="math-expr">(a-b)<sup>2</sup></span> &nbsp;&nbsp;&nbsp;&nbsp; (B) <span class="math-expr">(a+b)<sup>2</sup></span> &nbsp;&nbsp;&nbsp;&nbsp; (C) <span class="math-expr">(a+b)(a-b)</span> &nbsp;&nbsp;&nbsp;&nbsp; (D) <span class="math-expr">(a+b)(-a+b)</span></div>
+        </div>
+    </div>
+
+    <div class="question-block">
+        <div class="question-text">6. 已知某資料組共有 40 筆連續型數據，其「中位數」恰好落在 70~80 分這一組，則第 20 位與第 21 位學生的分數關係為何？</div>
+        <div class="options-container">
+            <div class="option-item">(A) 第 20 位在 60~70 組，第 21 位在 70~80 組</div>
+            <div class="option-item">(B) 兩人必定都落在 70~80 分這一組內</div>
+            <div class="option-item">(C) 兩人至少有一人或兩人皆落在 70~80 分這一組內</div>
+            <div class="option-item">(D) 第 20 位在 70~80 組，第 21 位在 80~90 組</div>
+        </div>
+    </div>
+
+    <div class="question-block">
+        <div class="question-text">7. 關於多項式 <span class="math-expr">P(x) = 0</span> 的敘述，下列何者「錯誤」？</div>
+        <div class="options-container">
+            <div class="option-item">(A) 它被稱為零多項式 &nbsp;&nbsp;&nbsp;&nbsp; (B) 它的項數為 0</div>
+            <div class="option-item">(C) 它的最高次數為 0 次 &nbsp;&nbsp;&nbsp;&nbsp; (D) 講義中不定義其次數</div>
+        </div>
+    </div>
+
+    <div class="question-block">
+        <div class="question-text">8. 當我們要交叉分類兩個類別變數（例如：性別與投票意向），藉此分析變數間的關聯性時，最適用的統計圖表為：</div>
+        <div class="options-container">
+            <div class="option-item">(A) 直方圖 &nbsp;&nbsp;&nbsp;&nbsp; (B) 列聯表 &nbsp;&nbsp;&nbsp;&nbsp; (C) 圓形圖 &nbsp;&nbsp;&nbsp;&nbsp; (D) 相對次數分配折線圖</div>
+        </div>
+    </div>
+
+    <div class="question-block">
+        <div class="question-text">9. 在三大統計集中趨勢指標中，「最容易受到極端值干擾」以及「最適合用來描述薪資、房價等偏態數據」的指標依序為何？</div>
+        <div class="options-container">
+            <div class="option-item">(A) 算術平均數、眾數 &nbsp;&nbsp;&nbsp;&nbsp; (B) 中位數、算術平均數</div>
+            <div class="option-item">(C) 算術平均數、中位數 &nbsp;&nbsp;&nbsp;&nbsp; (D) 中位數、眾數</div>
+        </div>
+    </div>
+
+    <div class="question-block">
+        <div class="question-text">10. 下列敘述中，哪一項符合講義對「同類項」的定義，因而能夠進行加減合併？</div>
+        <div class="options-container">
+            <div class="option-item">(A) <span class="math-expr">3x<sup>2</sup></span> 與 <span class="math-expr">3y<sup>2</sup></span> &nbsp;&nbsp;&nbsp;&nbsp; (B) <span class="math-expr">5x</span> 與 <span class="math-expr">5x<sup>2</sup></span> &nbsp;&nbsp;&nbsp;&nbsp; (C) <span class="math-expr">-7x<sup>2</sup></span> 與 <span class="math-expr">2x<sup>2</sup></span> &nbsp;&nbsp;&nbsp;&nbsp; (D) <span class="math-expr">4/x</span> 與 <span class="math-expr">2x</span></div>
+        </div>
+    </div>
+
+    <div class="question-block">
+        <div class="question-text">11. 圓形圖中，某項目所占的百分比為 <span class="math-expr">15%</span>，則其在圖中所對應的圓心角度數應為多少？</div>
+        <div class="options-container">
+            <div class="option-item">(A) <span class="math-expr">15&deg;</span> &nbsp;&nbsp;&nbsp;&nbsp; (B) <span class="math-expr">30&deg;</span> &nbsp;&nbsp;&nbsp;&nbsp; (C) <span class="math-expr">54&deg;</span> &nbsp;&nbsp;&nbsp;&nbsp; (D) <span class="math-expr">60&deg;</span></div>
+        </div>
+    </div>
+
+    <div class="question-block">
+        <div class="question-text">12. 累積相對次數分配中，最後一組的累積相對次數必然為多少？</div>
+        <div class="options-container">
+            <div class="option-item">(A) 視樣本數而定 &nbsp;&nbsp;&nbsp;&nbsp; (B) 50% &nbsp;&nbsp;&nbsp;&nbsp; (C) 100% &nbsp;&nbsp;&nbsp;&nbsp; (D) 0%</div>
+        </div>
+    </div>
+
+
+    <div class="page-break"></div>
+    <div class="section-title">第二部份：填空題（共 12 題）</div>
+
+    <div class="question-block">
+        <div class="question-text">13. 利用乘法公式速算：<span class="math-expr">198 &times; 202</span> 之值為 ________________。</div>
+    </div>
+
+    <div class="question-block">
+        <div class="question-text">14. 若已知 <span class="math-expr">a + b = 6</span> 且 <span class="math-expr">ab = 4</span>，則 <span class="math-expr">(a - b)<sup>2</sup></span> 之值為 ________________。</div>
+    </div>
+
+    <div class="question-block">
+        <div class="question-text">15. 設多項式 <span class="math-expr">A = 4x<sup>2</sup> - 3x + 5</span>，<span class="math-expr">B = -2x<sup>2</sup> + 5x - 1</span>，則 <span class="math-expr">2A - 3B</span> 依降冪排列的合併結果為 ____________________________。</div>
+    </div>
+
+    <div class="question-block">
+        <div class="question-text">16. 某班 40 位學生英文成績中，50分以下有2人，60分以下有7人，70分以下有19人，80分以下有30人。則該班英文分數的中位數落在哪一個分數組別？答：________________ 分。</div>
+    </div>
+
+    <div class="question-block">
+        <div class="question-text">17. 某企業調查員工滿意度，60分以下的累積相對次數為 25%，70分以下的累積相對次數為 60%。若總人數為 100 人，則 60~70 分這一組的相對次數為 ________________ %。</div>
+    </div>
+
+    <div class="question-block">
+        <div class="question-text">18. 承上題，60~70 分這一組的實際人數為 ________________ 人。</div>
+    </div>
+
+    <div class="question-block">
+        <div class="question-text">19. 算術中，若某分組資料的各組「組中點」公式為：組中點 = (該組上限 + 該組下限) &divide; 2。已知某一分組為 60~70 分，則其組中點為 ________________ 分。</div>
+    </div>
+
+    <div class="question-block">
+        <div class="question-text">20. 若一組數據中出現頻率最高的數值，在統計學上被稱為 ________________。</div>
+    </div>
+
+    <div class="question-block">
+        <div class="question-text">21. 繪製累積次數折線圖時，若第一組為 40~50 分，則其折線圖的起點必須連接至分數為 ________________ 分、次數為 0 處。</div>
+    </div>
+
+    <div class="question-block">
+        <div class="question-text">22. 已知 <span class="math-expr">x + 1/x = 5</span>，則 <span class="math-expr">x<sup>2</sup> + 1/x<sup>2</sup></span> 之值為 ________________。</div>
+    </div>
+
+    <div class="question-block">
+        <div class="question-text">23. 若多項式 <span class="math-expr">M = 3x<sup>2</sup> - 5x + 2</span> 且 <span class="math-expr">N = 5x - 2</span>，則 <span class="math-expr">M + N</span> 的常數項為 ________________。</div>
+    </div>
+
+    <div class="question-block">
+        <div class="question-text">24. 幾何上，若一個大長方形被分割為四個小長方形，已知其中三個的面積分別為 10, 15, 6，則第四個長方形的最大可能面積值為 ________________。</div>
+    </div>
+
+    <div class="question-block">
+        <div class="question-text">25. 已知三個實數 <span class="math-expr">a, b, c</span> 滿足 <span class="math-expr">a + b + c = 7</span> 且 <span class="math-expr">a<sup>2</sup> + b<sup>2</sup> + c<sup>2</sup> = 21</span>，則對稱交叉乘積之和 <span class="math-expr">ab + bc + ca</span> 之值為 ________________。</div>
+    </div>
+
+    <div class="question-block">
+        <div class="question-text">26. 已知實數 <span class="math-expr">x</span> 滿足 <span class="math-expr">x<sup>2</sup> - 4x + 1 = 0</span>，則利用平方公式與其對稱關係推導，四次方倒數和分式 <span class="math-expr">x<sup>4</sup> + 1 / x<sup>4</sup></span> 之最終數值為 ________________。</div>
+    </div>
+
+    <div class="question-block">
+        <div class="question-text">27. 化簡下列連鎖平方差巨型分數式，求其最終精簡後之常數值：<br/>
+        <span class="math-expr">[ (1<sup>2</sup> - 2<sup>2</sup>) + (3<sup>2</sup> - 4<sup>2</sup>) + (5<sup>2</sup> - 6<sup>2</sup>) + ... + (99<sup>2</sup> - 100<sup>2</sup>) ] / 50</span> = ________________。</div>
+    </div>
+
+
+    <div class="page-break"></div>
+    <div class="exam-title" style="color: #b91c1c;">【教師專用修訂版：標準答案與深度解析卷】</div>
+    <div style="border-bottom: 2px dashed #b91c1c; margin-bottom: 15px;"></div>
+
+    <div class="section-title" style="background-color: #b91c1c;">第一部份：選擇題答案</div>
+    <div class="question-block">
+        <p><strong>1. (C) 3 個</strong> [cite: 41] (甲絕對值、乙分母、丁指數非多項式 [cite: 41]；丙為多項式 [cite: 40, 41])</p>
+        <p><strong>2. (A) k = 3</strong> [cite: 43, 44] (當 k=3 時，二次項與一次項為0，常數項為6，符合零次定義 [cite: 43]；若 k=-3 則常數項亦為0變為零多項式 [cite: 44])</p>
+        <p><strong>3. (A) 2<sup>16</sup> - 1</strong> [cite: 25] (人為在最前乘 (2-1)=1，展開成平方差連鎖 [cite: 25])</p>
+        <p><strong>4. (B) 和的平方公式</strong> [cite: 15] ((a+b)<sup>2</sup> = a<sup>2</sup> + 2ab + b<sup>2</sup> 幾何涵義 [cite: 15, 17, 18])</p>
+        <p><strong>5. (C) (a+b)(a-b)</strong> [cite: 25] (展開為 a<sup>2</sup> - b<sup>2</sup> 完美無中間項 [cite: 25, 26])</p>
+        <p><strong>6. (C) 兩人至少有一人或兩人皆落在 70~80 分這一組內</strong> [cite: 68, 76] (中位數為第20、21名平均值 [cite: 68, 76]，其平均在該組 [cite: 81]，則至少有一人在該組內 [cite: 68, 80])</p>
+        <p><strong>7. (C) 它的最高次數為 0 次</strong> [cite: 44] (零多項式「無次數」而非0次 [cite: 44])</p>
+        <p><strong>8. (B) 列聯表</strong> [cite: 63] (交叉分析雙變數關聯之專用圖表 [cite: 63])</p>
+        <p><strong>9. (C) 算術平均數、中位數</strong> [cite: 68] (平均數極易受極端值干擾 [cite: 68]；中位數適合作偏態描述 [cite: 68])</p>
+        <p><strong>10. (C) -7x<sup>2</sup> 與 2x<sup>2</sup></strong> [cite: 48] (文字符號與次數皆完全相同者 [cite: 48])</p>
+        <p><strong>11. (C) 54&deg;</strong> [cite: 62] (360&deg; &times; 15% = 54&deg; [cite: 62])</p>
+        <p><strong>12. (C) 100%</strong> [cite: 91] (累積至末組之相對比例必然為100% [cite: 91])</p>
+    </div>
+
+    <div class="section-title" style="background-color: #b91c1c;">第二部份與高階挑戰題：填充題標準答案與深度解析</div>
+    <div class="question-block">
+        <p><strong>13. 39996</strong> [cite: 32] (解析：(200-2)(200+2) = 40000 - 4 = 39996 [cite: 32])</p>
+        <p><strong>14. 20</strong> [cite: 37] (解析：a<sup>2</sup>+b<sup>2</sup> = 6<sup>2</sup> - 2(4) = 28 [cite: 36]；(a-b)<sup>2</sup> = 28 - 2(4) = 20 [cite: 37])</p>
+        <p><strong>15. 14x<sup>2</sup> - 21x + 13</strong> [cite: 58] (解析：(8x<sup>2</sup>-6x+10) - (-6x<sup>2</sup>+15x-3) = 14x<sup>2</sup> - 21x + 13 [cite: 54, 55, 56, 58])</p>
+        <p><strong>16. 70~80</strong> [cite: 81] (解析：累積到19人之後 [cite: 79]，第20、21名全落在70~80組別內 [cite: 80, 81])</p>
+        <p><strong>17. 35</strong> [cite: 103] (解析：60% - 25% = 35% [cite: 103])</p>
+        <p><strong>18. 35</strong> [cite: 104] (解析：100人 &times; 35% = 35人 [cite: 104])</p>
+        <p><strong>19. 65</strong> [cite: 66] (解析：(60+70) &divide; 2 = 65 [cite: 66])</p>
+        <p><strong>20. 眾數</strong> [cite: 68] (出現頻率最高之集中趨勢指標 [cite: 68])</p>
+        <p><strong>21. 40</strong> [cite: 89] (累積次數折線圖起點必連至第一組之下限 [cite: 89])</p>
+        <p><strong>22. 23</strong> [cite: 15] (解析：(x + 1/x)<sup>2</sup> - 2 = 25 - 2 = 23 [cite: 15])</p>
+        <p><strong>23. 0</strong> [cite: 48] (解析：M+N = 3x<sup>2</sup>，其常數項 2 + (-2) = 0 [cite: 48])</p>
+        <p><strong>24. 9</strong> [cite: 12] (解析：對角乘積相等關係，10 &times; bd = 15 &times; 6 &rArr; bd = 9 [cite: 12])</p>
+        
+        <div style="border: 1px solid #b91c1c; padding: 8px; margin-top: 10px; background-color: #fdf2f2;">
+            <p><strong style="color: #b91c1c;">25.【高階挑戰題一解答】 14</strong> [cite: 15]<br/>
+            <strong>深度解析：</strong> 利用三項和的平方擴展公式：<span class="math-expr">(a + b + c)<sup>2</sup> = a<sup>2</sup> + b<sup>2</sup> + c<sup>2</sup> + 2(ab + bc + ca)</span> [cite: 15]。<br/>
+            將已知數據代入公式中：<span class="math-expr">7<sup>2</sup> = 21 + 2(ab + bc + ca)</span> &rArr; <span class="math-expr">49 = 21 + 2(ab + bc + ca)</span>。<br/>
+            移項得：<span class="math-expr">2(ab + bc + ca) = 28</span> &rArr; <span class="math-expr">ab + bc + ca = 14</span>。</p>
+            
+            <p><strong style="color: #b91c1c;">26.【高階挑戰題二解答】 194</strong> [cite: 15]<br/>
+            <strong>深度解析：</strong> 將已知同除以 <span class="math-expr">x</span>：<span class="math-expr">x<sup>2</sup> - 4x + 1 = 0 &rArr; x - 4 + 1/x = 0 &rArr; x + 1/x = 4</span>。<br/>
+            進行第一次平方 [cite: 15]：<span class="math-expr">(x + 1/x)<sup>2</sup> = 4<sup>2</sup> &rArr; x<sup>2</sup> + 2 + 1/x<sup>2</sup> = 16 &rArr; x<sup>2</sup> + 1/x<sup>2</sup> = 14</span>。<br/>
+            進行第二次平方 [cite: 15]：<span class="math-expr">(x<sup>2</sup> + 1/x<sup>2</sup>)<sup>2</sup> = 14<sup>2</sup> &rArr; x<sup>4</sup> + 2 + 1/x<sup>4</sup> = 196 &rArr; x<sup>4</sup> + 1/x<sup>4</sup> = 194</span>。</p>
+            
+            <p><strong style="color: #b91c1c;">27.【高階挑戰題三解答】 -101</strong> [cite: 25]<br/>
+            <strong>深度解析：</strong> 利用平方差公式拆解分子中的每一項 [cite: 25]：<br/>
+            <span class="math-expr">1<sup>2</sup> - 2<sup>2</sup> = (1 - 2)(1 + 2) = -1 &times; 3</span> [cite: 25]<br/>
+            <span class="math-expr">3<sup>2</sup> - 4<sup>2</sup> = (3 - 4)(3 + 4) = -1 &times; 7</span> [cite: 25]<br/>
+            每一項都有共同因數 <span class="math-expr">-1</span>，故分子可提出 <span class="math-expr">-1</span> 變為：<span class="math-expr">-1 &times; [ (1+2) + (3+4) + (5+6) + ... + (99+100) ]</span>。<br/>
+            括號內即為 <span class="math-expr">1</span> 加到 <span class="math-expr">100</span> 的總和，公式為：<span class="math-expr">(1 + 100) &times; 100 / 2 = 5050</span>。<br/>
+            因此分子總和為 <span class="math-expr">-5050</span>。將其除以分母 50：<span class="math-expr">-5050 / 50 = -101</span>。</p>
+        </div>
+    </div>
+
+</body>
+</html>
