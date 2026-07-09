@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>國中數學進階挑戰：平方根與畢氏定理填空測驗</title>
+    
+    <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/dist/skip-preview.js" id="MathJax-script" async></script>
+
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, 'Noto Sans TC', sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 30px auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            text-align: center;
+            color: #7f8c8d;
+            margin-bottom: 30px;
+        }
+        .quiz-item {
+            background: #fafbfc;
+            border-left: 5px solid #3498db;
+            padding: 20px;
+            margin-bottom: 25px;
+            border-radius: 0 8px 8px 0;
+            position: relative;
+        }
+        .question-text {
+            font-weight: 600;
+            font-size: 1.1em;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+        .input-container {
+            margin-bottom: 10px;
+        }
+        input[type="text"] {
+            width: 100%;
+            max-width: 300px;
+            padding: 10px;
+            font-size: 1em;
+            border: 2px solid #bdc3c7;
+            border-radius: 6px;
+            transition: border-color 0.3s;
+        }
+        input[type="text"]:focus {
+            border-color: #3498db;
+            outline: none;
+        }
+        .btn-hint {
+            background-color: #f1c40f;
+            color: #fff;
+            border: none;
+            padding: 6px 12px;
+            font-size: 0.85em;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-left: 10px;
+            transition: background 0.3s;
+        }
+        .btn-hint:hover {
+            background-color: #d4ac0d;
+        }
+        .hint-box {
+            display: none;
+            background: #fef9e7;
+            border: 1px dashed #f1c40f;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 6px;
+            font-size: 0.9em;
+            color: #7e5109;
+        }
+        .feedback {
+            margin-top: 10px;
+            font-weight: bold;
+            display: none;
+        }
+        .feedback.correct {
+            color: #27ae60;
+        }
+        .feedback.wrong {
+            color: #c0392b;
+        }
+        .rationale {
+            display: none;
+            background: #e8f8f5;
+            border: 1px solid #2cc990;
+            padding: 12px;
+            margin-top: 10px;
+            border-radius: 6px;
+            font-size: 0.9em;
+            color: #117864;
+        }
+        .action-container {
+            text-align: center;
+            margin-top: 40px;
+        }
+        .btn-submit {
+            background-color: #2ecc71;
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.2em;
+            border-radius: 8px;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(46, 204, 113, 0.2);
+            transition: background 0.3s, transform 0.2s;
+        }
+        .btn-submit:hover {
+            background-color: #27ae60;
+            transform: translateY(-2px);
+        }
+        .score-board {
+            display: none;
+            text-align: center;
+            background: #ebf5fb;
+            border: 2px solid #3498db;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 30px;
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>平方根與畢氏定理</h1>
+    <div class="subtitle">國中數學進階挑戰（填空題測驗）</div>
+    
+    <form id="quizForm">
+        <div class="quiz-item" id="item-0">
+            <div class="question-text">1. 若 $a = \sqrt{11 + \sqrt{112}}$，求 $a$ 的整數部分為何？</div>
+            <div class="input-container">
+                <input type="text" id="ans-0" placeholder="請輸入答案..." autocomplete="off">
+                <button type="button" class="btn-hint" onclick="toggleHint(0)">查看提示</button>
+            </div>
+            <div class="hint-box" id="hint-0"><strong>提示：</strong>嘗試將雙重根號內部進行完全平方公式的配方，再估算其近似值。</div>
+            <div class="feedback" id="fb-0"></div>
+            <div class="rationale" id="rat-0"><strong>解析：</strong>將根號內化簡為 $11 + 4\sqrt{7}$，可配方得 $(\sqrt{7} + 2)^2$，因此 $a = \sqrt{7} + 2$。因 $\sqrt{7} \approx 2.646$，得 $a \approx 4.646$，整數部分為 4。</div>
+        </div>
+
+        <div class="quiz-item" id="item-1">
+            <div class="question-text">2. 一個長方體的長、寬、高分別為 3、4、5。若有一隻螞蟻要從其中一個頂點沿著表面爬行到相對頂點，則最短路徑長度為何？(以根號表示，如：根號74請填 \sqrt{74})</div>
+            <div class="input-container">
+                <input type="text" id="ans-1" placeholder="請輸入答案..." autocomplete="off">
+                <button type="button" class="btn-hint" onclick="toggleHint(1)">查看提示</button>
+            </div>
+            <div class="hint-box" id="hint-1"><strong>提示：</strong>將長方體展開，利用畢氏定理求兩點間的直線距離，並比較三種展開方式的結果。</div>
+            <div class="feedback" id="fb-1"></div>
+            <div class="rationale" id="rat-1"><strong>解析：</strong>將長方體展開，可能的三種路徑平方和分別為 $3^2+9^2=90$、$4^2+8^2=80$ 與 $5^2+7^2=74$，其中以 $\sqrt{74}$ 為最短距離。</div>
+        </div>
+
+        <div class="quiz-item" id="item-2">
+            <div class="question-text">3. 化簡雙重根號：$\sqrt{14 - 6\sqrt{5}} = ？$ (請填寫如：3-\sqrt{5})</div>
+            <div class="input-container">
+                <input type="text" id="ans-2" placeholder="請輸入答案..." autocomplete="off">
+                <button type="button" class="btn-hint" onclick="toggleHint(2)">查看提示</button>
+            </div>
+            <div class="hint-box" id="hint-2"><strong>提示：</strong>先將外層根號內的常數項與內層根號係數調整為 $2\sqrt{ab}$ 的形式，再利用完全平方公式化簡。</div>
+            <div class="feedback" id="fb-2"></div>
+            <div class="rationale" id="rat-2"><strong>解析：</strong>將 $6\sqrt{5}$ 改寫為 $2\sqrt{45}$，原式可化為 $\sqrt{14 - 2\sqrt{45}}$。尋找相加為 14、相乘為 45 的兩數，即 9 與 5，故化簡得 $\sqrt{9} - \sqrt{5} = 3 - \sqrt{5}$。</div>
+        </div>
+
+        <div class="quiz-item" id="item-3">
+            <div class="question-text">4. 已知一個直角三角形的兩股長分別為 6 和 8，則此三角形的內切圓半徑為何？</div>
+            <div class="input-container">
+                <input type="text" id="ans-3" placeholder="請輸入答案..." autocomplete="off">
+                <button type="button" class="btn-hint" onclick="toggleHint(3)">查看提示</button>
+            </div>
+            <div class="hint-box" id="hint-3"><strong>提示：</strong>先利用畢氏定理算出斜邊長度，再帶入直角三角形內切圓半徑與三邊長的關係公式。</div>
+            <div class="feedback" id="fb-3"></div>
+            <div class="rationale" id="rat-3"><strong>解析：</strong>利用畢氏定理求得斜邊為 $\sqrt{6^2+8^2}=10$。直角三角形的內切圓半徑公式為 $\frac{\text{兩股和} - \text{斜邊}}{2} = \frac{6+8-10}{2} = 2$。</div>
+        </div>
+
+        <div class="quiz-item" id="item-4">
+            <div class="question-text">5. 一直角三角形斜邊上的高為 4，斜邊長為 10，則此直角三角形的面積為何？</div>
+            <div class="input-container">
+                <input type="text" id="ans-4" placeholder="請輸入答案..." autocomplete="off">
+                <button type="button" class="btn-hint" onclick="toggleHint(4)">查看提示</button>
+            </div>
+            <div class="hint-box" id="hint-4"><strong>提示：</strong>不需知道兩股各是多少，直接以斜邊為底、斜邊上的高為高，代入三角形面積公式。</div>
+            <div class="feedback" id="fb-4"></div>
+            <div class="rationale" id="rat-4"><strong>解析：</strong>三角形面積可以直接以底（斜邊）乘以高除以 2 計算，即 $\frac{10 \times 4}{2} = 20$。</div>
+        </div>
+
+        <div class="quiz-item" id="item-5">
+            <div class="question-text">6. 已知 $x = \frac{\sqrt{5} - 1}{2}$，求 $x^2 + x + 1$ 的值為何？</div>
+            <div class="input-container">
+                <input type="text" id="ans-5" placeholder="請輸入答案..." autocomplete="off">
+                <button type="button" class="btn-hint" onclick="toggleHint(5)">查看提示</button>
+            </div>
+            <div class="hint-box" id="hint-5"><strong>提示：</strong>將已知式兩邊同乘以 2 並將 -1 移項到左邊，再兩邊平方，可找出 $x^2+x$ 的數值關係。</div>
+            <div class="feedback" id="fb-5"></div>
+            <div class="rationale" id="rat-5"><strong>解析：</strong>由已知可得 $2x + 1 = \sqrt{5}$。兩邊平方得 $4x^2 + 4x + 1 = 5$，移項化簡得 $x^2 + x = 1$。因此 $x^2 + x + 1 = 1 + 1 = 2$。</div>
+        </div>
+
+        <div class="quiz-item" id="item-6">
+            <div class="question-text">7. 若一個直角三角形的三邊長恰好是三個連續偶數，則此三角形的面積為何？</div>
+            <div class="input-container">
+                <input type="text" id="ans-6" placeholder="請輸入答案..." autocomplete="off">
+                <button type="button" class="btn-hint" onclick="toggleHint(6)">查看提示</button>
+            </div>
+            <div class="hint-box" id="hint-6"><strong>提示：</strong>利用未知數代表這三個連續偶數（如 $x-2, x, x+2$），列出畢氏定理方程式求解邊長。</div>
+            <div class="feedback" id="fb-6"></div>
+            <div class="rationale" id="rat-6"><strong>解析：</strong>設三邊長為 $x-2$, $x$, $x+2$，根據畢氏定理 $(x-2)^2 + x^2 = (x+2)^2$，解得 $x=8$。故三邊長為 6, 8, 10，面積為 $\frac{6 \times 8}{2} = 24$。</div>
+        </div>
+
+        <div class="quiz-item" id="item-7">
+            <div class="question-text">8. 若一個直角三角形的一股長為 13，且另外兩邊長皆為整數，則此三角形的斜邊長為何？</div>
+            <div class="input-container">
+                <input type="text" id="ans-7" placeholder="請輸入答案..." autocomplete="off">
+                <button type="button" class="btn-hint" onclick="toggleHint(7)">查看提示</button>
+            </div>
+            <div class="hint-box" id="hint-7"><strong>提示：</strong>利用畢氏定理列出 $c^2 - b^2 = 13^2$，並利用平方差公式將左式因式分解來尋找整數解。</div>
+            <div class="feedback" id="fb-7"></div>
+            <div class="rationale" id="rat-7"><strong>解析：</strong>設斜邊為 $c$，另一股為 $b$，則 $c^2 - b^2 = 13^2 = 169$。因式分解得 $(c-b)(c+b) = 169$。由於 13 為質數，整數解只能是 $c-b=1$ 且 $c+b=169$，解得斜邊 $c=85$。</div>
+        </div>
+
+        <div class="quiz-item" id="item-8">
+            <div class="question-text">9. 解方程式 $\sqrt{x+5} - \sqrt{x-3} = 2$，求 $x$ 的值為何？</div>
+            <div class="input-container">
+                <input type="text" id="ans-8" placeholder="請輸入答案..." autocomplete="off">
+                <button type="button" class="btn-hint" onclick="toggleHint(8)">查看提示</button>
+            </div>
+            <div class="hint-box" id="hint-8"><strong>提示：</strong>將其中一個根式移項到等號右邊，再將兩邊同時平方以消去部分根號，進一步求解。</div>
+            <div class="feedback" id="fb-8"></div>
+            <div class="rationale" id="rat-8"><strong>解析：</strong>將式子移項得 $\sqrt{x+5} = 2 + \sqrt{x-3}$，環境平方得 $x+5 = 4 + 4\sqrt{x-3} + x-3$，化簡得 $4 = 4\sqrt{x-3}$，即 $1 = \sqrt{x-3}$，解得 $x=4$。</div>
+        </div>
+
+        <div class="quiz-item" id="item-9">
+            <div class="question-text">10. 長方形 $ABCD$ 中，邊長 $AB=6$，$BC=8$。若將 $A$ 點折向 $C$ 點，使得 $A、C$ 兩點重合，摺痕為 $EF$，則摺痕 $EF$ 的長度為何？(請以分數表示，如：40/3)</div>
+            <div class="input-container">
+                <input type="text" id="ans-9" placeholder="請輸入答案..." autocomplete="off">
+                <button type="button" class="btn-hint" onclick="toggleHint(9)">查看提示</button>
+            </div>
+            <div class="hint-box" id="hint-9"><strong>提示：</strong>摺痕是連接 $A、C$ 兩點線段的垂直平分線。利用對角線交點與相似三角形的性質來求長度。</div>
+            <div class="feedback" id="fb-9"></div>
+            <div class="rationale" id="rat-9"><strong>解析：</strong>摺痕 $EF$ 垂直平分對角線 $AC$。由畢氏定理知 $AC=10$，中心點到頂點距離為 5。利用相似三角形 $\triangle AOE \sim \triangle ADC$，可得摺痕一半長度為 $\frac{20}{3}$，故總長 $EF = \frac{40}{3}$。</div>
+        </div>
+
+        <div class="quiz-item" id="item-10">
+            <div class="question-text">11. 比較兩數的大小：$A = \sqrt{7} + \sqrt{10}$，$B = \sqrt{6} + \sqrt{11}$。請填入「大於」、「小於」或「等於」：</div>
+            <div class="input-container">
+                <input type="text" id="ans-10" placeholder="請輸入答案..." autocomplete="off">
+                <button type="button" class="btn-hint" onclick="toggleHint(10)">查看提示</button>
+            </div>
+            <div class="hint-box" id="hint-10"><strong>提示：</strong>由於兩數皆為正數，可以將 $A$ 與 $B$ 同時平方，再比較展開後根號內乘積的大小。</div>
+            <div class="feedback" id="fb-10"></div>
+            <div class="rationale" id="rat-10"><strong>解析：</strong>將兩數平方，$A^2 = 17 + 2\sqrt{70}$，$B^2 = 17 + 2\sqrt{66}$。因為 $\sqrt{70} > \sqrt{66}$，所以 $A^2 > B^2$，得 $A$ 大於 $B$。</div>
+        </div>
+
+        <div class="quiz-item" id="item-11">
+            <div class="question-text">12. 一直角三角形的兩股長分別為 5 和 12，則其外接圓的半徑為何？(可填小數)</div>
+            <div class="input-container">
+                <input type="text" id="ans-11" placeholder="請輸入答案..." autocomplete="off">
+                <button type="button" class="btn-hint" onclick="toggleHint(11)">查看提示</button>
+            </div>
+            <div class="hint-box" id="hint-11"><strong>提示：</strong>回想直角三角形外心（外接圓圓心）的位置特徵，它恰好位於斜邊的中點上。</div>
+            <div class="feedback" id="fb-11"></div>
+            <div class="rationale" id="rat-11"><strong>解析：</strong>利用畢氏定理求得斜邊長為 $\sqrt{5^2+12^2}=13$。直角三角形外接圓的直徑等於斜邊長，因此半徑為斜邊的一半，即 $13 / 2 = 6.5$。</div>
+        </div>
+
+        <div class="quiz-item" id="item-12">
+            <div class="question-text">13. 若 $2x - 4$ 的平方根是 $\pm 4$，則 $x$ 的值為何？</div>
+            <div class="input-container">
+                <input type="text" id="ans-12" placeholder="請輸入答案..." autocomplete="off">
+                <button type="button" class="btn-hint" onclick="toggleHint(12)">查看提示</button>
+            </div>
+            <div class="hint-box" id="hint-12"><strong>提示：</strong>由平方根定義可知，該數本身等於其平方根的平方，先求出 $2x-4$ 的真值再解 $x$。</div>
+            <div class="feedback" id="fb-12"></div>
+            <div class="rationale" id="rat-12"><strong>解析：</strong>根據平方根的定義，若某數的平方根為 $\pm 4$，則該數必為 $(\pm 4)^2 = 16$。因此列式 $2x - 4 = 16$，解得 $2x = 20$，即 $x = 10$。</div>
+        </div>
+
+        <div class="quiz-item" id="item-13">
+            <div class="question-text">14. 已知一個等腰三角形的底邊長為 10，腰長為 13，則此等腰三角形的面積為何？</div>
+            <div class="input-container">
+                <input type="text" id="ans-13" placeholder="請輸入答案..." autocomplete="off">
+                <button type="button" class="btn-hint" onclick="toggleHint(13)">查看提示</button>
+            </div>
+            <div class="hint-box" id="hint-13"><strong>提示：</strong>從頂角作一條垂直於底邊的高，利用等腰三角形三線合一性質得到直角三角形，再用畢氏定理求高。</div>
+            <div class="feedback" id="fb-13"></div>
+            <div class="rationale" id="rat-13"><strong>解析：</strong>作底邊上的高，會將底邊平分為兩半（各為 5）。利用畢氏定理求得高為 $\sqrt{13^2 - 5^2} = 12$。因此三角形面積為 $\frac{10 \times 12}{2} = 60$。</div>
+        </div>
+
+        <div class="quiz-item" id="item-14">
+            <div class="question-text">15. 化簡雙重根號：$\sqrt{7 - \sqrt{48}} = ？$ (請填寫如：2-\sqrt{3})</div>
+            <div class="input-container">
+                <input type="text" id="ans-14" placeholder="請輸入答案..." autocomplete="off">
+                <button type="button" class="btn-hint" onclick="toggleHint(14)">查看提示</button>
+            </div>
+            <div class="hint-box" id="hint-14"><strong>提示：</strong>先將內層根號提出係數 2，改寫為 $2\sqrt{12}$ 的型式，再尋找兩個整數其和為 7 且積為 12。</div>
+            <div class="feedback" id="fb-14"></div>
+            <div class="rationale" id="rat-14"><strong>解析：</strong>將 $\sqrt{48}$ 改寫為 $2\sqrt{12}$，原式成為 $\sqrt{7 - 2\sqrt{12}}$。尋找相加為 7、相乘為 12 的兩數，即 4 與 3，故化簡得 $\sqrt{4} - \sqrt{3} = 2 - \sqrt{3}$。</div>
+        </div>
+
+        <div class="quiz-item" id="item-15">
+            <div class="question-text">16. 在平面直角坐標系中，點 $A(1, 2)$ 與點 $B(4, 6)$ 之間的距離是多少？</div>
+            <div class="input-container">
+                <input type="text" id="ans-15" placeholder="請輸入答案..." autocomplete="off">
+                <button type="button" class="btn-hint" onclick="toggleHint(15)">查看提示</button>
+            </div>
+            <div class="hint-box" id="hint-15"><strong>提示：</strong>利用兩點距離公式，算出兩點在 $x$ 軸與 $y$ 軸方向的距離差，再套用畢氏定理。</div>
+            <div class="feedback" id="fb-15"></div>
+            <div class="rationale" id="rat-15"><strong>解析：</strong>兩點距離公式為畢氏定理的延伸：$\sqrt{(4-1)^2 + (6-2)^2} = \sqrt{3^2 + 4^2} = \sqrt{25} = 5$。</div>
+        </div>
+
+        <div class="quiz-item" id="item-16">
+            <div class="question-text">17. 計算代數式的值：$\frac{1}{\sqrt{2}+1} + \frac{1}{\sqrt{3}+\sqrt{2}} + \frac{1}{\sqrt{4}+\sqrt{3}} = ？$</div>
+            <div class="input-container">
+                <input type="text" id="ans-16" placeholder="請輸入答案..." autocomplete="off">
+                <button type="button" class="btn-hint" onclick="toggleHint(16)">查看提示</button>
+            </div>
+            <div class="hint-box" id="hint-16"><strong>提示：</strong>利用平方差公式將每一項的分母進行有理化，觀察分子各項相加時產生的連鎖消去現象。</div>
+            <div class="feedback" id="fb-16"></div>
+            <div class="rationale" id="rat-16"><strong>解析：</strong>將各項分母有理化：分別乘以 $(\\sqrt{2}-1)$、$(\\sqrt{3}-\\sqrt{2})$、$(\\sqrt{4}-\\sqrt{3})$。原式轉化為 $(\sqrt{2}-1) + (\sqrt{3}-\sqrt{2}) + (2-\sqrt{3})$，中間項前後消去後剩下 $2 - 1 = 1$。</div>
+        </div>
+
+        <div class="quiz-item" id="item-17">
+            <div class="question-text">18. 一根長 25 公尺的梯子靠在垂直牆上，梯腳距離牆底 7 公尺。如果梯頂沿著牆面下滑了 4 公尺，則梯腳會向外滑動多少公尺？</div>
+            <div class="input-container">
+                <input type="text" id="ans-17" placeholder="請輸入答案..." autocomplete="off">
+                <button type="button" class="btn-hint" onclick="toggleHint(17)">查看提示</button>
+            </div>
+            <div class="hint-box" id="hint-17"><strong>提示：</strong>先算原本梯頂的高度，扣除 4 公尺得到新高度，再用畢氏定理算出新梯腳的距離並與原距離相減。</div>
+            <div class="feedback" id="fb-17"></div>
+            <div class="rationale" id="rat-17"><strong>解析：</strong>原本梯頂高為 $\sqrt{25^2-7^2}=24$ 公尺。下滑 4 公尺後新高度為 20 公尺。此時新梯腳距離牆底 $\sqrt{25^2-20^2}=15$ 公尺。向外滑動了 $15 - 7 = 8$ 公尺。</div>
+        </div>
+
+        <div class="quiz-item" id="item-18">
+            <div class="question-text">19. 若 $\sqrt{2026 + x}$ 的運算結果為一個整數，且 $x$ 為正整數，則 $x$ 的最小可能值為何？</div>
+            <div class="input-container">
+                <input type="text" id="ans-18" placeholder="請輸入答案..." autocomplete="off">
+                <button type="button" class="btn-hint" onclick="toggleHint(18)">查看提示</button>
+            </div>
+            <div class="hint-box" id="hint-18"><strong>提示：</strong>尋找比 2026 大且最接近 2026 的完全平方數，兩者的差值即為 $x$ 的最小值。</div>
+            <div class="feedback" id="fb-18"></div>
+            <div class="rationale" id="rat-18"><strong>解析：</strong>尋找大於 2026 且最接近的完全平方數。已知 $45^2 = 2025$，$46^2 = 2116$。因此 $2026 + x = 2116$，解得最小正整數 $x = 90$。</div>
+        </div>
+
+        <div class="quiz-item" id="item-19">
+            <div class="question-text">20. 已知一個正方體的邊長為 2，則此正方體的體對角線（穿過內部的最長對角線）長度為何？(請填寫如：2\sqrt{3})</div>
+            <div class="input-container">
+                <input type="text" id="ans-19" placeholder="請輸入答案..." autocomplete="off">
+                <button type="button" class="btn-hint" onclick="toggleHint(19)">查看提示</button>
+            </div>
+            <div class="hint-box" id="hint-19"><strong>提示：</strong>體對角線長度可以透過兩次畢氏定理求得，即長、寬、高的平方和再開根號。</div>
+            <div class="feedback" id="fb-19"></div>
+            <div class="rationale" id="rat-19"><strong>解析：</strong>正方體邊長為 $a$ 時，體對角線公式為 $\sqrt{a^2+a^2+a^2} = a\sqrt{3}$。代入 $a=2$ 得到長度為 $2\sqrt{3}$。</div>
+        </div>
+        <div class="action-container">
+            <button type="button" class="btn-submit" onclick="checkAnswers()">提交所有答案</button>
+        </div>
+    </form>
+
+    <div class="score-board" id="scoreBoard"></div>
+</div>
+
+<script>
+    // 正確答案一覽表
+    const answerKey = ["4", "\\sqrt{74}", "3-\\sqrt{5}", "2", "20", "2", "24", "85", "4", "40/3", "大於", "6.5", "10", "60", "2-\\sqrt{3}", "5", "1", "8", "90", "2-\\sqrt{3}"];
+
+    function toggleHint(index) {
+        const hintBox = document.getElementById(`hint-${index}`);
+        hintBox.style.display = (hintBox.style.display === "block") ? "none" : "block";
+    }
+
+    function checkAnswers() {
+        let score = 0;
+        const total = answerKey.length;
+
+        answerKey.forEach((correctAnswer, index) => {
+            const userInput = document.getElementById(`ans-${index}`).value.trim();
+            const feedback = document.getElementById(`fb-${index}`);
+            const rationale = document.getElementById(`rat-${index}`);
+            
+            // 移除所有空格後進行比對
+            if (userInput.replace(/\s+/g, '') === correctAnswer.replace(/\s+/g, '')) {
+                score++;
+                feedback.textContent = "✓ 正確！";
+                feedback.className = "feedback correct";
+            } else {
+                feedback.textContent = `✗ 錯誤！正確答案是：${correctAnswer}`;
+                feedback.className = "feedback wrong";
+            }
+            feedback.style.display = "block";
+            rationale.style.display = "block";
+        });
+
+        const scoreBoard = document.getElementById("scoreBoard");
+        scoreBoard.textContent = `測驗結束！您的得分：${score} / ${total} 題（得分率：${Math.round(score/total*100)}%）`;
+        scoreBoard.style.display = "block";
+        
+        // 強制 MathJax 對新顯示的「正確答案與解析區塊」進行重排渲染
+        if (window.MathJax && window.MathJax.typeset) {
+            window.MathJax.typeset();
+        }
+        
+        window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+    }
+</script>
+
+</body>
+</html>
